@@ -1,25 +1,25 @@
-var React = require('react'),
+let React = require('react'),
     Tab = require('./tab.jsx');
 
-var Tabs = React.createClass({
+let Tabs = React.createClass({
     getInitialState: function () {
         return {
-            active: this.props.active || 0
-        }
+            active: this.props.active || 0,
+        };
     },
     handleTouch: function (tab, index) {
         this.setState({active: index});
     },
     render: function () {
-        var tabs = [], className = 'tab-trigger ', active = this.state.active;
-        var tabContents = React.Children.map(this.props.children, function (tab, index) {
-            var classes, isActive = active === index;
-            var onHandleTouch = this.handleTouch.bind(this, tab, index);
+        let tabs = [], className = 'tab-trigger ', active = this.state.active;
+        let tabContents = React.Children.map(this.props.children, function (tab, index) {
+            let classes, isActive = active === index;
+            let onHandleTouch = this.handleTouch.bind(this, tab, index);
 
-            classes = className + (isActive ? 'tab-trigger-active' : '');
+            classes = className + (isActive ? 'active' : '');
 
             tabs.push(<li className={classes} onClick={onHandleTouch} key={index}>
-                {tab.props.label}
+                <a href="javascript:void(0)">{tab.props.label}</a>
             </li>);
 
             return <Tab
@@ -30,16 +30,16 @@ var Tabs = React.createClass({
         }, this);
 
         return (
-            <div className={this.props.className}>
-                <div className="tab-head">
+            <div className="tabs">
+                <div className="tabs-nav">
                     <ul>{tabs}</ul>
                 </div>
-                <div className="tab-bd">
+                <div className="tabs-body">
                     {tabContents}
                 </div>
             </div>
         );
-    }
+    },
 });
 
 module.exports = Tabs;

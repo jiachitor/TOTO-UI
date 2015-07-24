@@ -12,12 +12,12 @@ var bundleLogger = require('../util/bundleLogger');
 var gulp         = require('gulp');
 var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
-var config       = require('../config').browserify;
+var browserify_config       = require('../config').browserify;
 var babelify     = require('babelify');
 
 gulp.task('browserify', function(callback) {
 
-  var bundleQueue = config.bundleConfigs.length;
+  var bundleQueue = browserify_config.bundleConfigs.length;
 
   var browserifyThis = function(bundleConfig) {
 
@@ -27,9 +27,9 @@ gulp.task('browserify', function(callback) {
       // Specify the entry point of your app
       entries: bundleConfig.entries,
       // Add file extentions to make optional in your requires
-      extensions: config.extensions,
+      extensions: browserify_config.extensions,
       // Enable source maps!
-      debug: config.debug
+      debug: browserify_config.debug
     });
 
     var bundle = function() {
@@ -76,5 +76,5 @@ gulp.task('browserify', function(callback) {
   };
 
   // Start bundling with Browserify for each bundleConfig specified
-  config.bundleConfigs.forEach(browserifyThis);
+  browserify_config.bundleConfigs.forEach(browserifyThis);
 });

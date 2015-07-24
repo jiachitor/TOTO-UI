@@ -20,18 +20,26 @@ let Main = React.createClass({
             {text: 'Okay'}
         ];
 
+        var tab1 = (
+            <div className="demo-1">
+                <Tabs>
+                    <Tab label="tab1" key="0">
+                        <div>tab1</div>
+                    </Tab>
+                    <Tab label="tab2" key="1">
+                        <div>tab2</div>
+                    </Tab>
+                    <Tab label="tab3" key="2">
+                        <div>tab3</div>
+                    </Tab>
+                </Tabs>
+            </div>
+        );
+
         return (
-            <Tabs>
-                <Tab label="tab1" key="0">
-                    <div>tab1</div>
-                </Tab>
-                <Tab label="tab2" key="1">
-                    <div>tab2</div>
-                </Tab>
-                <Tab label="tab3" key="2">
-                    <div>tab3</div>
-                </Tab>
-            </Tabs>
+            <div className="demos">
+                {tab1}
+            </div>
         );
     },
 });

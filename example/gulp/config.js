@@ -1,6 +1,6 @@
 var dest = './build',
     src = './src',
-    modules = ['demo','tabs'],
+    modules = ['tabs','demo'],
     mui = './node_modules/material-ui/src';
 
 //browserify
@@ -27,6 +27,10 @@ for ( m of modules) {
 module.exports = {
     modules:modules,
     default: {
+        src: src ,
+        dest: dest
+    },
+    sass: {
         src: src ,
         dest: dest
     },
