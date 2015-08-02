@@ -1,20 +1,23 @@
-let React = require('react');
+import React from 'react';
 
-let Tab = React.createClass({
-    componentDidMount:function(){
+class Tab extends React.Component{
+    constructor(props) {
+        super(props);
+    }
+    componentDidMount(){
         this.triggered = false;
         //如果当前tab是默认激活的
         if(this.props.active){
-            console.log(1);
+            //console.log(1);
         }
-    },
-    componentWillReceiveProps:function(nextProps){
+    }
+    componentWillReceiveProps(nextProps){
         if(nextProps.active && !this.triggered){
             console.log(nextProps);
-            console.log(2);
+            //console.log(2);
         }
-    },
-    render:function(){
+    }
+    render(){
         return (
             <div className="tabContents"
                  style={{display:(this.props.active ? 'block':'none')}}>
@@ -27,7 +30,15 @@ let Tab = React.createClass({
                 }, this)}
             </div>
         );
-    },
-});
+    }
+};
+
+Tab.propTypes = {
+    initialCount: React.PropTypes.number
+};
+
+Tab.defaultProps = {
+    initialCount: 0
+};
 
 module.exports = Tab;

@@ -1,16 +1,25 @@
-let React = require('react'),
-    Tab = require('./tab.jsx');
+import React from 'react';
+import Tab from './tab.jsx';
 
-let Tabs = React.createClass({
-    getInitialState: function () {
-        return {
-            active: this.props.active || 0,
+class Tabs extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            active: this.props.active || 0
         };
-    },
-    handleTouch: function (tab, index) {
-        this.setState({active: index});
-    },
-    render: function () {
+    }
+    getActiveKey(){
+        return this.state.active;
+    }
+    handleTouch(tab, index) {
+        var self = this;
+        this.setState({
+            active: index
+        },function(){
+            self.props.getActiveIndex();
+        });
+    }
+    render() {
         let tabs = [], className = 'tab-trigger ', active = this.state.active;
         let tabContents = React.Children.map(this.props.children, function (tab, index) {
             let classes, isActive = active === index;
@@ -19,13 +28,13 @@ let Tabs = React.createClass({
             classes = className + (isActive ? 'active' : '');
 
             tabs.push(<li className={classes} onClick={onHandleTouch} key={index}>
-                <a href="javascript:void(0)">{tab.props.label}</a>
+                <a href="#">{tab.props.label}</a>
             </li>);
 
             return <Tab
                 key={index}
                 active={isActive}
-                _child={tab.props.children} />;
+                _child={tab.props.children}/>;
 
         }, this);
 
@@ -39,7 +48,15 @@ let Tabs = React.createClass({
                 </div>
             </div>
         );
-    },
-});
+    }
+}
+
+Tabs.propTypes = {
+    initialCount: React.PropTypes.number
+};
+
+Tabs.defaultProps = {
+    initialCount: 0
+};
 
 module.exports = Tabs;

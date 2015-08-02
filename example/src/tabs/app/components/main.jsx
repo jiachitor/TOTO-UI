@@ -1,14 +1,16 @@
 /** In this file, we create a React component which incorporates components provided by material-ui */
+import React from 'react';
+import Tabs from '../../../../../src/tabs.jsx';
+import Tab from '../../../../../src/tab.jsx';
 
-let React = require('react');
-let Tabs = require('../../../../../src/tabs.jsx');
-let Tab = require('../../../../../src/tab.jsx');
-
-let Main = React.createClass({
-
-    childContextTypes: {
-        muiTheme: React.PropTypes.object
-    },
+class Main extends React.Component{
+    constructor(props) {
+        super(props);
+    }
+    getActiveKey(){
+        var _activeKey = this.refs.demoTabs.getActiveKey();
+        console.log(_activeKey)
+    }
     render() {
 
         let containerStyle = {
@@ -22,14 +24,17 @@ let Main = React.createClass({
 
         var tab1 = (
             <div className="demo-1">
-                <Tabs>
+                <Tabs
+                    ref="demoTabs"
+                    active={0}
+                    getActiveIndex={this.getActiveKey.bind(this)}>
                     <Tab label="tab1" key="0">
                         <div>tab1</div>
                     </Tab>
                     <Tab label="tab2" key="1">
                         <div>tab2</div>
                     </Tab>
-                    <Tab label="tab3" key="2">
+                    <Tab label="tab33" key="2">
                         <div>tab3</div>
                     </Tab>
                 </Tabs>
@@ -41,7 +46,7 @@ let Main = React.createClass({
                 {tab1}
             </div>
         );
-    },
-});
+    }
+};
 
 module.exports = Main;
