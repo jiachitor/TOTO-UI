@@ -1,6 +1,5 @@
-/** In this file, we create a React component which incorporates components provided by material-ui */
 import Icon from '../../../../../src/icon.jsx';
-console.log(React)
+
 class Main extends React.Component{
     constructor(props) {
         super(props);

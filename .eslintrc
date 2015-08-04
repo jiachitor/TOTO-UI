@@ -4,6 +4,9 @@
 		"browser": true,
 		"node": true
 	},
+	"globals":{
+		"React":true
+	},
 	"rules": {
 		"curly": 0,
 		"comma-dangle": [
@@ -28,7 +31,8 @@
 		"space-unary-ops": 0,
 		"space-infix-ops": 0,
 		"consistent-return": 0,
-		"strict": 0
+		"strict": 0,
+		"no-undef":2
 	},
 	"parser": "babel-eslint",
 	"plugins": [

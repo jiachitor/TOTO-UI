@@ -29,6 +29,7 @@
     "watchify": "^2.2.1"
   },
   "dependencies": {
+    "object.omit": "^2.0.0",
     "react": ">=0.13",
     "react-tap-event-plugin": "^0.1.3"
   }

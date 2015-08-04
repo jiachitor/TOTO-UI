@@ -6,7 +6,7 @@ class Icon extends React.Component{
     constructor(props) {
         super(props);
         for(let v in ClassNameMixin){
-          this[v] =  ClassNameMixin[v].bind(this);
+          this[v] = ClassNameMixin[v].bind(this);
         }
     }
     render() {
@@ -43,7 +43,7 @@ class Icon extends React.Component{
             )
         );
     }
-};
+}
 
 Icon.displayName = "Icon";
 
@@ -55,12 +55,12 @@ Icon.propTypes = {
     size: React.PropTypes.string,
     href: React.PropTypes.string,
     componentTag: React.PropTypes.node.isRequired,
-    icon: React.PropTypes.string.isRequired
+    icon: React.PropTypes.string.isRequired,
 };
 
 Icon.defaultProps = {
     classPrefix: 'icon',
-    componentTag: 'i'
+    componentTag: 'i',
 };
 
 module.exports = Icon;

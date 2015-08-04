@@ -1,4 +1,4 @@
-import React from 'react';
+'use strict';
 
 class Tab extends React.Component{
     constructor(props) {
@@ -8,7 +8,7 @@ class Tab extends React.Component{
         this.triggered = false;
         //如果当前tab是默认激活的
         if(this.props.active){
-            //console.log(1);
+            console.log(1);
         }
     }
     componentWillReceiveProps(nextProps){
@@ -31,14 +31,14 @@ class Tab extends React.Component{
             </div>
         );
     }
-};
+}
 
 Tab.propTypes = {
-    initialCount: React.PropTypes.number
+    initialCount: React.PropTypes.number,
 };
 
 Tab.defaultProps = {
-    initialCount: 0
+    initialCount: 0,
 };
 
 module.exports = Tab;

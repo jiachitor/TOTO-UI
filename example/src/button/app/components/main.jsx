@@ -11,7 +11,7 @@ class Main extends React.Component{
     }
     render() {
 
-        var icon1 = (
+        var button1 = (
             <div className="demo-1">
               <Button>Default</Button>
             </div>
@@ -19,7 +19,7 @@ class Main extends React.Component{
 
         return (
             <div className="demos">
-                {icon1}
+                {button1}
             </div>
         );
     }

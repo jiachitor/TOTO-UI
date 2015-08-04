@@ -1,20 +1,21 @@
-import React from 'react';
+'use strict';
+
 import Tab from './tab.jsx';
 
 class Tabs extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: this.props.active || 0
+            active: this.props.active || 0 ,
         };
     }
     getActiveKey(){
         return this.state.active;
     }
     handleTouch(tab, index) {
-        var self = this;
+        let self = this;
         this.setState({
-            active: index
+            active: index,
         },function(){
             self.props.getActiveIndex();
         });
@@ -52,11 +53,11 @@ class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
-    initialCount: React.PropTypes.number
+    initialCount: React.PropTypes.number,
 };
 
 Tabs.defaultProps = {
-    initialCount: 0
+    initialCount: 0,
 };
 
 module.exports = Tabs;

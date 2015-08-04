@@ -62,5 +62,5 @@ module.exports = {
 
     prefixClass: function(subClass) {
         return this.setClassNamespace() + '-' + subClass;
-    }
+    },
 };

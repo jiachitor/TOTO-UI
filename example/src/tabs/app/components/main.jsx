@@ -1,5 +1,4 @@
 /** In this file, we create a React component which incorporates components provided by material-ui */
-import React from 'react';
 import Tabs from '../../../../../src/tabs.jsx';
 import Tab from '../../../../../src/tab.jsx';
 

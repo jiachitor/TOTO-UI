@@ -18,7 +18,7 @@ module.exports = {
         divider: setNamespace('divider'),
         cf: setNamespace('cf'),
         fl: setNamespace('fl'),
-        fr: setNamespace('fr')
+        fr: setNamespace('fr'),
     },
 
     STYLES: {
@@ -27,10 +27,10 @@ module.exports = {
         secondary: 'secondary',
         success: 'success',
         warning: 'warning',
-        danger: 'danger'
+        danger: 'danger',
     },
 
     SIZES: {
 
-    }
+    },
 };
