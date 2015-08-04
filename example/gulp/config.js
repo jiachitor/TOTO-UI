@@ -1,6 +1,6 @@
 var dest = './build',
     src = './src',
-    modules = ['button','demo','icon','tabs'],
+    modules = ['button','dateTimePicker','demo','modal','icon','tabs'],
     mui = './node_modules/material-ui/src';
 
 //browserify
@@ -51,5 +51,9 @@ module.exports = {
         // A separate bundle will be generated for each
         // bundle config in the list below
         bundleConfigs: _bundleConfigs
-    }
+    },
+    moveLibs: {
+        src: './libs/**' ,
+        dest: dest + '/libs'
+    },
 };

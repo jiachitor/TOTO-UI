@@ -1,4 +1,5 @@
 import Icon from '../../../../../src/icon.jsx';
+import Close from '../../../../../src/close.jsx';
 
 class Main extends React.Component{
     constructor(props) {
@@ -12,6 +13,7 @@ class Main extends React.Component{
 
         var icon1 = (
             <div className="demo-1">
+                <p><Close /></p>
                 <Icon icon="spinner" spin /> Loading
             </div>
         );
