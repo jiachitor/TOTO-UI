@@ -1,7 +1,5 @@
 'use strict';
 
-let React = require('react');
-
 /**
  * Get ownerDocument
  * @param {ReactComponent|HTMLElement} componentOrElement

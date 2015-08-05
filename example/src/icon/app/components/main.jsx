@@ -5,10 +5,6 @@ class Main extends React.Component{
     constructor(props) {
         super(props);
     }
-    getActiveKey(){
-        var _activeKey = this.refs.demoTabs.getActiveKey();
-        console.log(_activeKey)
-    }
     render() {
 
         var icon1 = (
@@ -19,8 +15,13 @@ class Main extends React.Component{
         );
 
         return (
-            <div className="demos">
-                {icon1}
+            <div className="module">
+                <div className="introduce">
+
+                </div>
+                <div className="demos">
+                    <p>{icon1}</p>
+                </div>
             </div>
         );
     }

@@ -1,6 +1,6 @@
 var dest = './build',
     src = './src',
-    modules = ['button','dateTimePicker','demo','modal','icon','tabs'],
+    modules = ['article','button','dateTimePicker','dropdown','demo','goTop','header','icon','list','listNews','menu','modal','navbar','tabs','selected'],
     mui = './node_modules/material-ui/src';
 
 //browserify
