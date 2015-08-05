@@ -34,7 +34,7 @@ class Close extends React.Component{
             </Component>
         );
     }
-};
+}
 
 Close.displayName = "Close";
 
@@ -43,7 +43,7 @@ Close.propTypes = {
     componentTag: React.PropTypes.node,
     spin: React.PropTypes.bool,
     alt: React.PropTypes.bool,
-    icon: React.PropTypes.bool
+    icon: React.PropTypes.bool,
 };
 
 Close.defaultProps = {

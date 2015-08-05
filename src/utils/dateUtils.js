@@ -1,6 +1,6 @@
 'use strict';
 
-var locales = {
+let locales = {
     'en_US': {
         days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
         daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -8,7 +8,7 @@ var locales = {
         months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         today: 'Today',
-        weekStart: 0
+        weekStart: 0,
     },
     'zh_CN': {
         days: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
@@ -19,11 +19,11 @@ var locales = {
         monthsShort: ['一月', '二月', '三月', '四月', '五月', '六月',
             '七月', '八月', '九月', '十月', '十一月', '十二月'],
         today: '今天',
-        weekStart: 0
-    }
+        weekStart: 0,
+    },
 };
 
-var dateUtils = {
+let dateUtils = {
     isLeapYear: function (year) {
         return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
     },
@@ -40,8 +40,8 @@ var dateUtils = {
             locale = locale.join('_');
         }
 
-        return locales[locale] || locales['en_US'];
-    }
+        return locales[locale] || locales.en_US;
+    },
 };
 
 module.exports = dateUtils;

@@ -12,7 +12,7 @@ class FormGroup extends React.Component{
     }
 
     render() {
-        var classSet = {};
+        let classSet = {};
 
         classSet[this.setClassNamespace('form-group')] = true;
         this.props.validation && (classSet[this.setClassNamespace('form-' +
@@ -43,7 +43,7 @@ FormGroup.propTypes = {
 };
 
 FormGroup.defaultProps = {
-    classPrefix: 'formGroup'
+    classPrefix: 'formGroup',
 };
 
 module.exports = FormGroup;

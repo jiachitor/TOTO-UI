@@ -11,7 +11,7 @@
 
 'use strict';
 
-var CSSCore = {
+let CSSCore = {
 
     /**
      * Adds the class passed in to the element if it doesn't already have it.
@@ -82,7 +82,7 @@ var CSSCore = {
         return CSSCore.hasClass(element, className) ?
             CSSCore.removeClass(element, className) :
             CSSCore.addClass(element, className);
-    }
+    },
 };
 
 module.exports = CSSCore;

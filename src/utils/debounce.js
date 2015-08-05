@@ -11,25 +11,25 @@
  * @via  _.debounce() http://underscorejs.org
  */
 
-module.exports = function(fn, wait, immediate) {
-  var timeout;
+module.exports = function (fn, wait, immediate) {
+    let timeout;
 
-  return function() {
-    var context = this;
-    var args = arguments;
-    var later = function() {
-      timeout = null;
-      if (!immediate) {
-        fn.apply(context, args);
-      }
+    return function () {
+        let context = this;
+        let args = arguments;
+        let later = function () {
+            timeout = null;
+            if (!immediate) {
+                fn.apply(context, args);
+            }
+        };
+        let callNow = immediate && !timeout;
+
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+
+        if (callNow) {
+            fn.apply(context, args);
+        }
     };
-    var callNow = immediate && !timeout;
-
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-
-    if (callNow) {
-      fn.apply(context, args);
-    }
-  };
 };

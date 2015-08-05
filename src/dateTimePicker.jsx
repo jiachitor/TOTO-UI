@@ -35,7 +35,7 @@ class DateTimePicker extends React.Component{
             date: fecha.parse(this.props.dateTime, this.props.format),
             toggleDisplay: {
                 toggleTime: {display: 'block'},
-                toggleDate: {display: 'none'}
+                toggleDate: {display: 'none'},
             },
         };
 
@@ -56,8 +56,8 @@ class DateTimePicker extends React.Component{
             showTimePicker: true,
             toggleDisplay: {
                 toggleTime: {display: 'none'},
-                toggleDate: {display: 'block'}
-            }
+                toggleDate: {display: 'block'},
+            },
         });
     }
 
@@ -67,14 +67,14 @@ class DateTimePicker extends React.Component{
             showTimePicker: false,
             toggleDisplay: {
                 toggleTime: {display: 'block'},
-                toggleDate: {display: 'none'}
-            }
+                toggleDate: {display: 'none'},
+            },
         });
     }
 
     handleSelect(date) {
         this.setState({
-            date: date
+            date: date,
         });
         this.props.onSelect(fecha.format(date, this.props.format));
     }

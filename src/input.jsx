@@ -249,7 +249,7 @@ class Input extends React.Component {
         let feedbackIcon = {
             success: 'check',
             warning: 'warning',
-            error: 'times'
+            error: 'times',
         };
         let icon = props.icon || (props.hasFeedback && props.validation &&
             feedbackIcon[props.validation]);
@@ -278,7 +278,7 @@ class Input extends React.Component {
             this.props.type === 'select' ?
                 this.setClassNamespace('form-select') : null,
             this.props.icon && this.setClassNamespace('form-icon'),
-            this.props.groupClassName
+            this.props.groupClassName,
         );
 
         return (
@@ -295,7 +295,7 @@ class Input extends React.Component {
                         )
                     ),
                     this.renderIcon(),
-                    this.renderHelp()
+                    this.renderHelp(),
                 ]}
             </FormGroup>
         );

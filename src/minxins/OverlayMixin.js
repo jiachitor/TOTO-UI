@@ -69,5 +69,5 @@ module.exports = {
 
     getContainerDOMNode: function () {
         return React.findDOMNode(this.props.container) || document.body;
-    }
+    },
 };

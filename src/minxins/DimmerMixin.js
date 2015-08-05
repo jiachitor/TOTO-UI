@@ -18,7 +18,7 @@ module.exports = {
         CSSCore.addClass(container, this.setClassNamespace('dimmer-active'));
     },
 
-    resetDimmerContainer: function (nextProps, nextState) {
+    resetDimmerContainer: function () {
         let container = (this.props.container &&
             React.findDOMNode(this.props.container)) || document.body;
 
@@ -44,5 +44,5 @@ module.exports = {
                 {children}
             </div>
         );
-    }
+    },
 };

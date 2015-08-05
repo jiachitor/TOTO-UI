@@ -12,9 +12,9 @@
 
 'use strict';
 
-var CSSCore = require('./CSSCore');
+let CSSCore = require('./CSSCore');
 
-var canUseDOM = !!(
+let canUseDOM = !!(
 typeof window !== 'undefined' &&
 window.document &&
 window.document.createElement);
@@ -24,64 +24,64 @@ window.document.createElement);
  * transition/animation ends, based on the style property used to
  * define that event.
  */
-var EVENT_NAME_MAP = {
-  transitionend: {
-    'transition': 'transitionend',
-    'WebkitTransition': 'webkitTransitionEnd',
-    'MozTransition': 'mozTransitionEnd',
-    'OTransition': 'oTransitionEnd',
-    'msTransition': 'MSTransitionEnd'
-  },
+let EVENT_NAME_MAP = {
+    transitionend: {
+        'transition': 'transitionend',
+        'WebkitTransition': 'webkitTransitionEnd',
+        'MozTransition': 'mozTransitionEnd',
+        'OTransition': 'oTransitionEnd',
+        'msTransition': 'MSTransitionEnd',
+    },
 
-  animationend: {
-    'animation': 'animationend',
-    'WebkitAnimation': 'webkitAnimationEnd',
-    'MozAnimation': 'mozAnimationEnd',
-    'OAnimation': 'oAnimationEnd',
-    'msAnimation': 'MSAnimationEnd'
-  }
+    animationend: {
+        'animation': 'animationend',
+        'WebkitAnimation': 'webkitAnimationEnd',
+        'MozAnimation': 'mozAnimationEnd',
+        'OAnimation': 'oAnimationEnd',
+        'msAnimation': 'MSAnimationEnd',
+    },
 };
 
-var endEvents = [];
-var support = {};
+let endEvents = [];
+let support = {};
 
 function detectEvents() {
-  var testEl = document.createElement('div');
-  var style = testEl.style;
+    let testEl = document.createElement('div');
+    let style = testEl.style;
 
-  // On some platforms, in particular some releases of Android 4.x,
-  // the un-prefixed "animation" and "transition" properties are defined on the
-  // style object but the events that fire will still be prefixed, so we need
-  // to check if the un-prefixed events are useable, and if not remove them
-  // from the map
-  if (!('AnimationEvent' in window)) {
-    delete EVENT_NAME_MAP.animationend.animation;
-  }
-
-  if (!('TransitionEvent' in window)) {
-    delete EVENT_NAME_MAP.transitionend.transition;
-  }
-
-  for (var baseEventName in EVENT_NAME_MAP) {
-    var baseEvents = EVENT_NAME_MAP[baseEventName];
-    support[baseEventName] = false;
-
-    for (var styleName in baseEvents) {
-      if (styleName in style) {
-        support[baseEventName] = baseEvents[styleName];
-        endEvents.push(baseEvents[styleName]);
-        break;
-      }
+    // On some platforms, in particular some releases of Android 4.x,
+    // the un-prefixed "animation" and "transition" properties are defined on the
+    // style object but the events that fire will still be prefixed, so we need
+    // to check if the un-prefixed events are useable, and if not remove them
+    // from the map
+    if (!('AnimationEvent' in window)) {
+        delete EVENT_NAME_MAP.animationend.animation;
     }
-  }
+
+    if (!('TransitionEvent' in window)) {
+        delete EVENT_NAME_MAP.transitionend.transition;
+    }
+
+    for (let baseEventName in EVENT_NAME_MAP) {
+        let baseEvents = EVENT_NAME_MAP[baseEventName];
+        support[baseEventName] = false;
+
+        for (let styleName in baseEvents) {
+            if (styleName in style) {
+                support[baseEventName] = baseEvents[styleName];
+                endEvents.push(baseEvents[styleName]);
+                break;
+            }
+        }
+    }
 }
 
 if (canUseDOM) {
-  detectEvents();
+    detectEvents();
 }
 
 if (support.animationend) {
-  CSSCore.addClass(document.documentElement,  'cssanimations');
+    CSSCore.addClass(document.documentElement, 'cssanimations');
 }
 
 // We use the raw {add|remove}EventListener() call because EventListener
@@ -90,36 +90,36 @@ if (support.animationend) {
 // so we should be A-OK here.
 
 function addEventListener(node, eventName, eventListener) {
-  node.addEventListener(eventName, eventListener, false);
+    node.addEventListener(eventName, eventListener, false);
 }
 
 function removeEventListener(node, eventName, eventListener) {
-  node.removeEventListener(eventName, eventListener, false);
+    node.removeEventListener(eventName, eventListener, false);
 }
 
-var TransitionEvents = {
-  on: function(node, eventListener) {
-    if (endEvents.length === 0) {
-      // If CSS transitions are not supported, trigger an "end animation"
-      // event immediately.
-      window.setTimeout(eventListener, 0);
-      return;
-    }
-    endEvents.forEach(function(endEvent) {
-      addEventListener(node, endEvent, eventListener);
-    });
-  },
+let TransitionEvents = {
+    on: function (node, eventListener) {
+        if (endEvents.length === 0) {
+            // If CSS transitions are not supported, trigger an "end animation"
+            // event immediately.
+            window.setTimeout(eventListener, 0);
+            return;
+        }
+        endEvents.forEach(function (endEvent) {
+            addEventListener(node, endEvent, eventListener);
+        });
+    },
 
-  off: function(node, eventListener) {
-    if (endEvents.length === 0) {
-      return;
-    }
-    endEvents.forEach(function(endEvent) {
-      removeEventListener(node, endEvent, eventListener);
-    });
-  },
+    off: function (node, eventListener) {
+        if (endEvents.length === 0) {
+            return;
+        }
+        endEvents.forEach(function (endEvent) {
+            removeEventListener(node, endEvent, eventListener);
+        });
+    },
 
-  support: support
+    support: support,
 };
 
 module.exports = TransitionEvents;

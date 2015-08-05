@@ -17,7 +17,7 @@ class Modal extends React.Component{
             this[b] = DimmerMixin[b].bind(this);
         }
         this.state = {
-            transitioning: false
+            transitioning: false,
         };
 
         this.handleDimmerClick = this.handleDimmerClick.bind(this);
@@ -40,7 +40,7 @@ class Modal extends React.Component{
 
         // TODO: 何为添加动画效果的最佳时机？ render 完成以后添加动画 Class？
         this.setState({
-            transitioning: true
+            transitioning: true,
         });
     }
 
@@ -212,7 +212,7 @@ class Modal extends React.Component{
             width: props.modalWidth,
             height: props.modalHeight,
             marginLeft: props.marginLeft,
-            marginTop: props.marginTop
+            marginTop: props.marginTop,
         };
 
         classSet[this.prefixClass('active')] = this.state.transitioning;
@@ -242,7 +242,7 @@ class Modal extends React.Component{
 
         return this.renderDimmer(modal);
     }
-};
+}
 
 
 Modal.displayName = "Modal";
@@ -262,7 +262,7 @@ Modal.defaultProps = {
     classPrefix: 'modal',
     closeIcon: true,
     confirmText: 'submit',
-    cancelText: 'cancal'
+    cancelText: 'cancal',
 };
 
 module.exports = Modal;

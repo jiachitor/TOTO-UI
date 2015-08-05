@@ -12,7 +12,7 @@ class DateTimeInput extends React.Component{
 
         this.state = {
             value: this.props.dateTime || fecha.format(new Date(), this.props.format),
-            showPicker: false
+            showPicker: false,
         };
 
         this.handleOuterClick = this.handleOuterClick.bind(this);
@@ -42,7 +42,7 @@ class DateTimeInput extends React.Component{
     handleClose() {
         this.unbindOuterHandlers();
         return this.setState({
-            showPicker: false
+            showPicker: false,
         });
     }
 
@@ -52,7 +52,7 @@ class DateTimeInput extends React.Component{
 
         let offset = {
             top: posObj.offsetTop + posObj.offsetHeight,
-            left: posObj.offsetLeft
+            left: posObj.offsetLeft,
         };
 
         let styles = {
@@ -60,24 +60,24 @@ class DateTimeInput extends React.Component{
             top: offset.top,
             left: offset.left,
             position: 'absolute',
-            zIndex: 1120
+            zIndex: 1120,
         };
 
         this.setState({
             showPicker: true,
-            pickerStyle: styles
+            pickerStyle: styles,
         });
     }
 
     handleChange(event) {
         return this.setState({
-            value: event.target.value
+            value: event.target.value,
         });
     }
 
     handleSelect(date) {
         return this.setState({
-            value: date
+            value: date,
         });
     }
 

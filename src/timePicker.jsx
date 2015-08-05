@@ -15,7 +15,7 @@ class TimePicker extends React.Component{
             displayed: {
                 times: {display: 'block'},
                 minutes: {display: 'none'},
-                hours: {display: 'none'}
+                hours: {display: 'none'},
             },
         };
 
@@ -49,7 +49,7 @@ class TimePicker extends React.Component{
     setTime(viewDate) {
         this.setState({
             viewDate: viewDate,
-            selectedDate: new Date(viewDate.valueOf())
+            selectedDate: new Date(viewDate.valueOf()),
         }, function() {
             this.props.onSelect(this.state.selectedDate);
         });
@@ -67,8 +67,8 @@ class TimePicker extends React.Component{
             displayed: {
                 times: {display: 'block'},
                 minutes: {display: 'none'},
-                hours: {display: 'none'}
-            }
+                hours: {display: 'none'},
+            },
         });
     }
 
@@ -77,8 +77,8 @@ class TimePicker extends React.Component{
             displayed: {
                 times: {display: 'none'},
                 minutes: {display: 'block'},
-                hours: {display: 'none'}
-            }
+                hours: {display: 'none'},
+            },
         });
     }
 
@@ -88,8 +88,8 @@ class TimePicker extends React.Component{
             displayed: {
                 times: {display: 'none'},
                 minutes: {display: 'none'},
-                hours: {display: 'block'}
-            }
+                hours: {display: 'block'},
+            },
         });
     }
 
@@ -104,8 +104,8 @@ class TimePicker extends React.Component{
             displayed: {
                 times: {display: 'block'},
                 minutes: {display: 'none'},
-                hours: {display: 'none'}
-            }
+                hours: {display: 'none'},
+            },
         });
     }
 
@@ -139,7 +139,7 @@ class TimePicker extends React.Component{
 
         return {
             hour: hour,
-            minute: minute
+            minute: minute,
         };
     }
 
@@ -400,7 +400,7 @@ class SubPicker extends React.Component{
             </div>
         );
     }
-};
+}
 
 SubPicker.displayName = "SubPicker";
 

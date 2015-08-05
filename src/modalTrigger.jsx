@@ -20,7 +20,7 @@ class ModalTrigger extends React.Component{
             modalWidth: null,
             modalMarginLeft: null,
             modalHeight: null,
-            modalMarginTop: null
+            modalMarginTop: null,
         };
 
         this.open = this.open.bind(this);
@@ -32,13 +32,13 @@ class ModalTrigger extends React.Component{
 
     open() {
         this.setState({
-            isModalActive: true
+            isModalActive: true,
         }, this.setModalStyle);
     }
 
     close() {
         this.setState({
-            isModalActive: false
+            isModalActive: false,
         });
     }
 
@@ -92,7 +92,7 @@ class ModalTrigger extends React.Component{
                 modalHeight: this.state.modalHeight,
                 title: this.props.modal.props.title || this.props.title,
                 onConfirm: createChainedFunction(this.close, this.props.onConfirm),
-                onCancel: createChainedFunction(this.close, this.props.onCancel)
+                onCancel: createChainedFunction(this.close, this.props.onCancel),
             }
         );
     }
@@ -113,7 +113,7 @@ class ModalTrigger extends React.Component{
 
         return cloneElement(child, props);
     }
-};
+}
 
 
 ModalTrigger.displayName = "ModalTrigger";
@@ -130,7 +130,7 @@ ModalTrigger.defaultProps = {
     classPrefix: 'modal',
     closeIcon: true,
     confirmText: 'submit',
-    cancelText: 'cancal'
+    cancelText: 'cancal',
 };
 
 module.exports = ModalTrigger;

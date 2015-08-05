@@ -19,7 +19,7 @@ class DatePicker extends React.Component{
                 displayed = {
                     days: {display: 'block'},
                     months: {display: 'none'},
-                    years: {display: 'none'}
+                    years: {display: 'none'},
                 };
                 break;
 
@@ -27,7 +27,7 @@ class DatePicker extends React.Component{
                 displayed = {
                     days: {display: 'none'},
                     months: {display: 'block'},
-                    years: {display: 'none'}
+                    years: {display: 'none'},
                 };
                 break;
 
@@ -35,7 +35,7 @@ class DatePicker extends React.Component{
                 displayed = {
                     days: {display: 'none'},
                     months: {display: 'none'},
-                    years: {display: 'block'}
+                    years: {display: 'block'},
                 };
                 break;
         }
@@ -73,7 +73,7 @@ class DatePicker extends React.Component{
 
         newDate.setMonth(viewDate.getMonth() - 1);
         this.setState({
-            viewDate: newDate
+            viewDate: newDate,
         });
     }
 
@@ -83,7 +83,7 @@ class DatePicker extends React.Component{
 
         newDate.setMonth(viewDate.getMonth() + 1);
         this.setState({
-            viewDate: newDate
+            viewDate: newDate,
         });
     }
 
@@ -108,7 +108,7 @@ class DatePicker extends React.Component{
     setViewDate(viewDate) {
         this.setState({
             viewDate: viewDate,
-            selectedDate: new Date(viewDate.valueOf())
+            selectedDate: new Date(viewDate.valueOf()),
         }, function() {
             this.props.onSelect(this.state.selectedDate);
             this.props.onClose && this.props.onClose();
@@ -120,8 +120,8 @@ class DatePicker extends React.Component{
             displayed: {
                 days: {display: 'none'},
                 months: {display: 'block'},
-                years: {display: 'none'}
-            }
+                years: {display: 'none'},
+            },
         });
     }
 
@@ -134,7 +134,7 @@ class DatePicker extends React.Component{
         newDate.setFullYear(viewDate.getFullYear() - 1);
 
         return this.setState({
-            viewDate: newDate
+            viewDate: newDate,
         });
     }
 
@@ -144,7 +144,7 @@ class DatePicker extends React.Component{
 
         newDate.setFullYear(viewDate.getFullYear() + 1);
         return this.setState({
-            viewDate: newDate
+            viewDate: newDate ,
         });
     }
 
@@ -153,8 +153,8 @@ class DatePicker extends React.Component{
             displayed: {
                 days: {display: 'none'},
                 months: {display: 'none'},
-                years: {display: 'block'}
-            }
+                years: {display: 'block'},
+            },
         });
     }
 
@@ -180,8 +180,8 @@ class DatePicker extends React.Component{
             displayed: {
                 days: {display: 'block'},
                 months: {display: 'none'},
-                years: {display: 'none'}
-            }
+                years: {display: 'none'},
+            },
         });
     }
 
@@ -202,8 +202,8 @@ class DatePicker extends React.Component{
             displayed: {
                 days: {display: 'none'},
                 months: {display: 'block'},
-                years: {display: 'none'}
-            }
+                years: {display: 'none'},
+            },
         });
     }
 
@@ -213,7 +213,7 @@ class DatePicker extends React.Component{
 
         newDate.setFullYear(viewDate.getFullYear() + 10);
         this.setState({
-            viewDate: newDate
+            viewDate: newDate,
         });
     }
 
@@ -224,7 +224,7 @@ class DatePicker extends React.Component{
         newDate.setFullYear(viewDate.getFullYear() - 10);
 
         this.setState({
-            viewDate: newDate
+            viewDate: newDate ,
         });
     }
 
@@ -314,7 +314,7 @@ DatePicker.defaultProps = {
     displayed: {
         days: {display: 'block'},
         months: {display: 'none'},
-        years: {display: 'none'}
+        years: {display: 'none'},
     },
 };
 
@@ -331,7 +331,7 @@ class DaysPicker extends React.Component{
         for(let v in ClassNameMixin){
             this[v] = ClassNameMixin[v].bind(this);
         }
-        this.renderDays = this.renderDays.bind(this);  
+        this.renderDays = this.renderDays.bind(this);
         this.renderWeek = this.renderWeek.bind(this);
     }
 
