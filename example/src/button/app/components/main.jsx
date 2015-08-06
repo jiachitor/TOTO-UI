@@ -5,10 +5,6 @@ class Main extends React.Component{
     constructor(props) {
         super(props);
     }
-    getActiveKey(){
-        var _activeKey = this.refs.demoTabs.getActiveKey();
-        console.log(_activeKey)
-    }
     render() {
 
         var button1 = (
