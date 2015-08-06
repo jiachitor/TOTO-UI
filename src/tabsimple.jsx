@@ -1,6 +1,6 @@
 'use strict';
 
-import Tab from './tabsimpleItem.jsx';
+import Tab from './tabsimpleItem';
 
 class Tabs extends React.Component {
     constructor(props) {

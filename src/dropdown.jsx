@@ -3,9 +3,9 @@
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
 import constants from './minxins/constants.js';
-import Button from './button.jsx';
-import Icon from './icon.jsx';
-import Events from './utils/Events.js';
+import Button from './button';
+import Icon from './icon';
+import Events from './utils/Events';
 import isNodeInTree from './utils/isNodeInTree.js';
 
 class Dropdown extends React.Component {

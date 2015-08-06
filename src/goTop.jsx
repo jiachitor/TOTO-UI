@@ -7,7 +7,7 @@ import Events from './utils/Events';
 import debounce from './utils/debounce';
 import dom from './utils/domUtils';
 import CSSCore from './utils/CSSCore';
-import Icon from './icon.jsx';
+import Icon from './icon';
 
 class GoTop extends React.Component {
     constructor(props) {

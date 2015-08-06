@@ -2,7 +2,7 @@
 
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
-import ArticleChild from './articleChild.jsx';
+import ArticleChild from './articleChild';
 
 class Article extends React.Component{
     constructor(props) {

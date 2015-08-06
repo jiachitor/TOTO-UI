@@ -2,9 +2,9 @@
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
 import omit from 'object.omit';
-import Nav from './nav.jsx';
-import NavItem from './navItem.jsx';
-import TabsItem from './tabsItem.jsx';
+import Nav from './nav';
+import NavItem from './navItem';
+import TabsItem from './tabsItem';
 
 class Tabs extends React.Component {
     constructor(props) {

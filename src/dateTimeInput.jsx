@@ -3,8 +3,8 @@
 import Events from './utils/Events';
 import fecha from 'fecha';
 import isNodeInTree from './utils/isNodeInTree';
-import Input from './input.jsx';
-import DateTimePicker from './dateTimePicker.jsx';
+import Input from './input';
+import DateTimePicker from './dateTimePicker.js';
 
 class DateTimeInput extends React.Component{
     constructor(props) {

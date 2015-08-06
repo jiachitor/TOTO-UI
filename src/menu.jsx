@@ -2,8 +2,8 @@
 
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
-import Icon from './icon.jsx';
-import AvgGrid from './avgGrid.jsx';
+import Icon from './icon';
+import AvgGrid from './avgGrid';
 import omit from 'object.omit';
 
 class Menu extends React.Component{

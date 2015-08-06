@@ -2,8 +2,8 @@
 
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
-import Button from './button.jsx';
-import Col from './col.jsx';
+import Button from './button';
+import Col from './col';
 
 class ListNews extends React.Component {
 
