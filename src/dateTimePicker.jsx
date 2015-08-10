@@ -3,9 +3,9 @@
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
 import fecha from 'fecha';
-import DatePicker from './datePicker';
-import TimePicker from './timePicker';
-import Icon from './icon';
+import DatePicker from './datePicker.jsx';
+import TimePicker from './timePicker.jsx';
+import Icon from './icon.jsx';
 
 class DateTimePicker extends React.Component{
 

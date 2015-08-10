@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
 import DimmerMixin from './minxins/DimmerMixin';
 import Events from './utils/Events';
-import Close from './close';
-import Icon from './icon';
+import Close from './close.jsx';
+import Icon from './icon.jsx';
 
 class Modal extends React.Component{
     constructor(props) {

@@ -1,7 +1,7 @@
 'use strict';
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
-import Input from './input';
+import Input from './input.jsx';
 
 class UICheck extends React.Component{
     constructor(props) {

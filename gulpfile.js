@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
+var replace = require('gulp-just-replace');
 
 gulp.task('eslint', function () {
     return gulp.src(['src/**'])
@@ -12,4 +13,10 @@ gulp.task('eslint', function () {
         // To have the process exit with an error code (1) on
         // lint error, return the stream and pipe to failOnError last.
         .pipe(eslint.failOnError());
+});
+
+gulp.task('replace', function () {
+    return gulp.src(['lib/*.js'])
+        .pipe(replace('.jsx', ".js"))
+        .pipe(gulp.dest('lib'));
 });

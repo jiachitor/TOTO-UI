@@ -2,7 +2,7 @@
 
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
-import Icon from './icon';
+import Icon from './icon.jsx';
 import omit from 'object.omit';
 
 class Header extends React.Component{

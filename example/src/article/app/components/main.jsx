@@ -7,7 +7,7 @@ class Main extends React.Component{
     }
     render() {
 
-        var articleInstance = (
+        var articleInstance1 = (
             <Article
                 title="永远的蝴蝶"
                 meta="陈启佑（台湾） | xx 年 xx 月">
@@ -56,12 +56,49 @@ class Main extends React.Component{
             </Article>
         );
 
+
+        var articleInstance2 = (
+            <Article
+                title="test"
+                meta="陈启佑（台湾） | xx 年 xx 月">
+                <p><b>TEMPO.CO</b>, <b>Jakarta</b> - Dewan Pengurus Pusat Partai Persatuan Pembangunan kubu Romahurmuziy
+                    menginstruksikan kadernya untuk menolak wacana revisi Undang-Undang Nomor 8 Tahun 2015 tentang
+                    pilkada. PPP akan memberi sanksi jika kader di parlemen menerima wacana tersebut.</p>
+
+                <p> "Kami jelas menolak wacana itu, dan sesuai kebijakan partai jika ada yang membangkang akan kami beri
+                    sanksi bahkan PAW (pergantian antar-waktu)," kata Ketua Bidang Politik dan Pemerintahan PPP Rusli
+                    Effendi di kantor DPP PPP Tebet, Jakarta, 17 Mei 2015.</p>
+
+                <p> PPP menolak rencana revisi Undang-Undang Pilkada karena dianggap memenuhi kepentingan politik
+                    kelompok tertentu, yaitu koalisi non-pemerintah. Selain itu, PPP menilai revisi bukan kebutuhan
+                    mendesak karena pemerintah baru saja mengesahkan undang-undang tersebut. "Itu hanyalah bentuk
+                    kepanikan politik karena khawatir tidak bisa ikut pilkada," ujar Rusli.</p>
+
+                <p> Komisi Pemilihan Umum telah menerbitkan peraturan KPU mengenai keikutsertaan partai politik yang
+                    diakui oleh Kementerian Hukum dan HAM sebagai peserta pemilihan kepala daerah. KPU menolak
+                    rekomendasi DPR yang meminta pemilihan kepala daerah diikuti oleh partai politik yang
+                    kepengurusannya disahkan oleh proses pengadilan terakhir.</p>
+
+                <p> Akibatnya, Komisi Pemerintahan DPR mendesak pemerintah melakukan revisi terbatas atas Undang-Undang
+                    Pemilihan Kepala Daerah. Tak hanya soal pencalonan, DPR berencana merevisi soal kewenangan KPU.</p>
+
+                <p> Rencananya, besok Presiden Joko Widodo akan melakukan konsultasi dengan DPR terkait dengan wacana
+                    revisi ini. Wakil Sekretaris Jenderal PPP Ahmad Baedlowi yakin pemerintah menolak wacana tersebut.
+                    "Kami dari Koalisi Indonesia Hebat sudah konsultasi dengan Presiden soal itu pekan lalu,"
+                    tuturnya.</p>
+
+                <p><b>PUTRI ADITYOWATI</b></p>
+            </Article>
+        );
+
         return (
             <div className="demos">
-                {articleInstance}
+                {articleInstance1}
+                <p>#############################################################################</p>
+                {articleInstance2}
             </div>
         );
     }
-};
+}
 
 module.exports = Main;

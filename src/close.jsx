@@ -2,7 +2,7 @@
 
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
-import Icon from './icon';
+import Icon from './icon.jsx';
 
 class Close extends React.Component{
     constructor(props) {

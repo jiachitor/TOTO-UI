@@ -2,9 +2,9 @@
 
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
-import Dropdown from './dropdown';
-import Icon from './icon';
-import Input from './input';
+import Dropdown from './dropdown.jsx';
+import Icon from './icon.jsx';
+import Input from './input.jsx';
 
 class Selected extends React.Component{
     constructor(props) {

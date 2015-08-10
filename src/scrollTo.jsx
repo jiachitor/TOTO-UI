@@ -1,7 +1,7 @@
 'use strict';
 
 import SmoothScrollMixin from './minxins/SmoothScrollMixin.js';
-import Button from './button';
+import Button from './button.jsx';
 
 class ScrollTo extends React.Component{
     constructor(props) {

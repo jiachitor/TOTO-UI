@@ -8,9 +8,9 @@
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
 import constants from './minxins/constants.js';
-import FormGroup from './formGroup';
-import Button from './button';
-import Icon from './icon';
+import FormGroup from './formGroup.jsx';
+import Button from './button.jsx';
+import Icon from './icon.jsx';
 
 
 class Input extends React.Component {

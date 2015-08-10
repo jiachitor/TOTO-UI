@@ -1,7 +1,7 @@
 'use strict';
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
-import PaginationItem from './paginationItem';
+import PaginationItem from './paginationItem.jsx';
 
 class Pagination extends React.Component {
     constructor(props) {

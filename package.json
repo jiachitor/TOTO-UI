@@ -1,14 +1,15 @@
 {
   "name": "totoui",
   "author": "liujiachi",
-  "version": "0.2.2",
+  "version": "0.2.5",
   "description": "TOTO UI components built with React.js",
   "main": "./lib",
   "scripts": {
     "test": "echo \"No test implemented\" && exit 0",
     "prebuild": "rm -rf lib",
     "eslint": "gulp eslint",
-    "build": "npm run eslint && babel --stage 1 ./src --out-dir ./lib",
+    "replace": "gulp replace",
+    "build": "npm run eslint && babel --stage 1 ./src --out-dir ./lib && npm run replace",
     "prepublish": "npm run build"
   },
   "keywords": [
@@ -43,6 +44,7 @@
     "eslint-plugin-react": "^2.5.2",
     "gulp": "^3.9.0",
     "gulp-eslint": "^0.15.0",
+    "gulp-just-replace": "^1.0.2",
     "react-router": "^0.13.3",
     "react-tap-event-plugin": "^0.1.6"
   }

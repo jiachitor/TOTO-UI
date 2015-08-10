@@ -17,7 +17,6 @@ module.exports = {
     modal: require('./modal'),
     modalTrigger: require('./modalTrigger'),
     nav: require('./nav'),
-    tab: require('./tab'),
     pagination: require('./pagination'),
     selected: require('./selected'),
     table: require('./table'),

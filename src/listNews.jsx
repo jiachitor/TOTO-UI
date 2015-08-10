@@ -2,8 +2,8 @@
 
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
-import Button from './button';
-import Col from './col';
+import Button from './button.jsx';
+import Col from './col.jsx';
 
 class ListNews extends React.Component {
 
@@ -36,6 +36,7 @@ class ListNews extends React.Component {
                                     <span
                                         className={classNames(this.prefixClass('more'),
                       this.setClassNamespace('fr'))}>
+                    {this.props.moreTextTitle}
                       {this.props.moreText}
                     </span>
                                 ) : null}
@@ -53,6 +54,7 @@ class ListNews extends React.Component {
                 <Button
                     className={this.prefixClass('more')}
                     href={this.props.data.header.link}>
+                    {this.props.moreTextTitle}
                     {this.props.moreText}
                 </Button>
             </div>
@@ -129,6 +131,7 @@ class ListNews extends React.Component {
         ) : null;
     }
 
+    //略缩图
     renderItemThumb(item, i) {
         let cols = this.props.thumbPosition === 'top' ? 12 : 4;
 
@@ -143,11 +146,14 @@ class ListNews extends React.Component {
         </Col>) : null;
     }
 
+    //主要的列表
     renderItemMain(item, i) {
+
         let position = this.props.thumbPosition;
         let date = this.renderItemMisc(item, 'date');
         let desc = this.renderItemMisc(item, 'desc');
         let addon = this.renderItemMisc(item, 'mainAddition');
+
         // title of list without thumbnail
         let itemWithoutThumbTitle = !position && item.title ? (
             <a
@@ -166,21 +172,33 @@ class ListNews extends React.Component {
                 key={'itemMain' + i}>
                 {position !== 'bottom-left' && position !== 'bottom-right' ?
                     this.renderThumbItemTitle(item) : null}
-                {date}
                 {desc}
+                {date}
                 {addon}
             </Col>
         ) : [itemWithoutThumbTitle, date, desc, addon];
     }
 
+    //文章标题
     renderThumbItemTitle(item) {
+        let onItemMainClick = this._onItemMainClick.bind(this, item);
         return item.title ? (
             <h3 className={this.setClassNamespace('list-item-hd')}>
-                <a href={item.link}>
+                <a
+                    href={item.link}
+                    onClick={onItemMainClick}>
                     {item.title}
                 </a>
             </h3>
         ) : null;
+    }
+
+    _onItemMainClick(item, e ) {
+        if (this.props.onClick) {
+            e.stopPropagation();
+            e.preventDefault();
+            this.props.onClick(item, e);
+        }
     }
 
     render() {
@@ -218,7 +236,7 @@ ListNews.propTypes = {
 ListNews.defaultProps = {
     classPrefix: 'list-news',
     theme: 'default',
-    moreText: '更多 \u00BB',
+    moreText: ' \u00BB',
 };
 
 module.exports = ListNews;
