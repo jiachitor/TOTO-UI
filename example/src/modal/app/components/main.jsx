@@ -57,7 +57,29 @@ class Main extends React.Component{
         var modal4 = (
             <Modal type="prompt" title="Amaze UI">
                 来来来，吐槽点啥吧
-                <input type="text" className="ui-modal-prompt-input"/>
+                <div className="data-area" data-dom="input" data-type="text">
+                    <input type="text" className="ui-modal-prompt-input"/>
+                </div>
+                <div className="data-area" data-dom="input" data-type="checkbox">
+                    <label><input type="checkbox" name="doc-checkbox-1" value="1"/>Top Story</label>
+                    <label><input type="checkbox" name="doc-checkbox-1" value="2"/>Browser</label>
+                    <label><input type="checkbox" name="doc-checkbox-1"value="3"/>Mobogenie</label>
+                </div>
+                <div className="data-area" data-dom="input" data-type="radio">
+                    <label><input type="radio" name="Sex" value="male"/>男性</label>
+                    <label><input type="radio" name="Sex" value="female"/>女性</label>
+                </div>
+                <div className="data-area" data-dom="select" data-type="">
+                    <select name="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="fiat">Fiat</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </div>
+                <div className="data-area" data-dom="textarea" data-type="">
+                    <textarea rows="3" cols="30" />
+                </div>
             </Modal>
         );
 

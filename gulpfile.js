@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
-var replace = require('gulp-just-replace');
+var replace = require('gulp-replace');
 
 gulp.task('eslint', function () {
     return gulp.src(['src/**'])

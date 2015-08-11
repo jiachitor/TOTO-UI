@@ -80,17 +80,82 @@ class Modal extends React.Component{
     // Get input data for prompt modal
     getPromptData() {
         let data = [];
-        let inputs = React.findDOMNode(this).querySelectorAll('input');
+        //let inputs = React.findDOMNode(this).querySelectorAll('input');
+        //
+        //if (inputs) {
+        //    let i = 0;
+        //    console.log(inputs)
+        //    for (; i < inputs.length; i++) {
+        //        console.log(inputs[i].type)
+        //        data.push(inputs[i].value);
+        //    }
+        //}
 
-        if (inputs) {
+        let dataArea = React.findDOMNode(this).querySelectorAll('.data-area');
+        console.log(dataArea)
+        if(dataArea){
             let i = 0;
+            for (; i < dataArea.length; i++) {
+                var _dom = dataArea[i].dataset.dom,
+                    _type = dataArea[i].dataset.type,
+                    domData = [];
 
-            for (; i < inputs.length; i++) {
-                data.push(inputs[i].value);
+                if(_dom == "input"){
+                    let inputs = dataArea[i].querySelectorAll('input');
+                    switch(_type) {
+                        case "text":
+                            let j = 0;
+                            for (; j < inputs.length; j++) {
+                                domData.push(inputs[j].value);
+                            }
+                            break;
+                        case "password":
+                            let jj = 0;
+                            for (; jj < inputs.length; jj++) {
+                                domData.push(inputs[jj].value);
+                            }
+                            break;
+                        case "checkbox":
+                            let jjj = 0;
+                            for (; jjj < inputs.length; jjj++) {
+                                if(inputs[jjj].checked){
+                                    domData.push(inputs[jjj].value);
+                                }
+                            }
+                            break;
+                        case "radio":
+                            let jjjj = 0;
+                            for (; jjjj < inputs.length; jjjj++) {
+                                if(inputs[jjjj].checked){
+                                    domData.push(inputs[jjjj].value);
+                                }
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }else if( _dom == "select"){
+                    let selects = dataArea[i].querySelectorAll('select');
+                    let k = 0;
+                    for (; k < selects.length; k++) {
+                        domData.push(selects[k].value);
+                    }
+                }else if( _dom == "textarea"){
+                    let textareas = dataArea[i].querySelectorAll('textarea');
+                    let l = 0;
+                    for (; l < textareas.length; l++) {
+                        domData.push(textareas[l].value);
+                    }
+                }else if( _dom == "select"){
+
+                }
+
+                data.push(domData);
             }
         }
+        console.log(data)
 
-        return (data.length === 0) ? null : ((data.length === 1) ? data[0] : data);
+        return (data.length === 0) ? null : data;
     }
 
     handleConfirm(e) {
