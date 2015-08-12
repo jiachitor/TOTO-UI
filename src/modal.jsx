@@ -80,27 +80,16 @@ class Modal extends React.Component{
     // Get input data for prompt modal
     getPromptData() {
         let data = [];
-        //let inputs = React.findDOMNode(this).querySelectorAll('input');
-        //
-        //if (inputs) {
-        //    let i = 0;
-        //    console.log(inputs)
-        //    for (; i < inputs.length; i++) {
-        //        console.log(inputs[i].type)
-        //        data.push(inputs[i].value);
-        //    }
-        //}
-
         let dataArea = React.findDOMNode(this).querySelectorAll('.data-area');
-        console.log(dataArea)
+
         if(dataArea){
             let i = 0;
             for (; i < dataArea.length; i++) {
-                var _dom = dataArea[i].dataset.dom,
+                let _dom = dataArea[i].dataset.dom,
                     _type = dataArea[i].dataset.type,
                     domData = [];
 
-                if(_dom == "input"){
+                if(_dom === "input"){
                     let inputs = dataArea[i].querySelectorAll('input');
                     switch(_type) {
                         case "text":
@@ -134,26 +123,23 @@ class Modal extends React.Component{
                         default:
                             break;
                     }
-                }else if( _dom == "select"){
+                }else if( _dom === "select"){
                     let selects = dataArea[i].querySelectorAll('select');
                     let k = 0;
                     for (; k < selects.length; k++) {
                         domData.push(selects[k].value);
                     }
-                }else if( _dom == "textarea"){
+                }else if( _dom === "textarea"){
                     let textareas = dataArea[i].querySelectorAll('textarea');
                     let l = 0;
                     for (; l < textareas.length; l++) {
                         domData.push(textareas[l].value);
                     }
-                }else if( _dom == "select"){
-
                 }
 
                 data.push(domData);
             }
         }
-        console.log(data)
 
         return (data.length === 0) ? null : data;
     }

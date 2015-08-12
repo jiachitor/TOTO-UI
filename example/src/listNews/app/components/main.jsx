@@ -55,10 +55,10 @@ class Main extends React.Component{
         var listnewsInstance1 = (
             <div>
                 <h3>更多在上</h3>
-                <ListNews data={data1} morePosition="top" moreTextTitle='更多'/>
+                <ListNews data={data1} morePosition="top" moreTextTitle='更多' onClickMore={this._onClickMore}/>
 
                 <h3>更多在下</h3>
-                <ListNews data={data1} morePosition="bottom"  moreTextTitle='More'/>
+                <ListNews data={data1} morePosition="bottom"  moreTextTitle='More' onClickMore={this._onClickMore}/>
             </div>
         );
 
@@ -212,7 +212,8 @@ class Main extends React.Component{
                     data={data5}
                     thumbPosition="bottom-right"
                     moreTextTitle='More'
-                    onClick={this._onClick}/>
+                    onClick={this._onClick}
+                    onClickMore={this._onClickMore}/>
             </div>
         )
 
@@ -274,6 +275,11 @@ class Main extends React.Component{
     _onClick(item, e){
         console.log(item)
         console.log(e)
+    }
+
+    _onClickMore(e){
+        console.log(e)
+        console.log(222)
     }
 }
 

@@ -20,6 +20,9 @@ class ListNews extends React.Component {
         this.renderItemMisc = this.renderItemMisc.bind(this);
         this.renderItemThumb = this.renderItemThumb.bind(this);
         this.renderItemMain = this.renderItemMain.bind(this);
+
+        this._onItemMainClick = this._onItemMainClick.bind(this);
+        this._onMoreClick = this._onMoreClick.bind(this);
     }
 
     renderHeader() {
@@ -30,7 +33,7 @@ class ListNews extends React.Component {
                 className={classNames(this.prefixClass('hd'),
               this.setClassNamespace('cf'))}>
                         {data.header.link ? (
-                            <a href={data.header.link}>
+                            <a href={data.header.link} onClick={this._onMoreClick}>
                                 <h2>{data.header.title}</h2>
                                 {this.props.morePosition === 'top' ? (
                                     <span
@@ -53,7 +56,8 @@ class ListNews extends React.Component {
             <div className={this.prefixClass('ft')}>
                 <Button
                     className={this.prefixClass('more')}
-                    href={this.props.data.header.link}>
+                    href={this.props.data.header.link}
+                    onClick={this._onMoreClick}>
                     {this.props.moreTextTitle}
                     {this.props.moreText}
                 </Button>
@@ -198,6 +202,14 @@ class ListNews extends React.Component {
             e.stopPropagation();
             e.preventDefault();
             this.props.onClick(item, e);
+        }
+    }
+
+    _onMoreClick(e) {
+        if (this.props.onClickMore) {
+            e.stopPropagation();
+            e.preventDefault();
+            this.props.onClickMore(e);
         }
     }
 
