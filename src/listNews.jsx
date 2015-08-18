@@ -51,9 +51,10 @@ class ListNews extends React.Component {
 
     // `more` on bottom
     renderFooter() {
+        let showMore = this.props.showFooterMore ? "block" : "none";
         return this.props.morePosition === 'bottom' &&
         this.props.data.header.link ? (
-            <div className={this.prefixClass('ft')}>
+            <div className={this.prefixClass('ft')} style={{display:showMore}}>
                 <Button
                     className={this.prefixClass('more')}
                     href={this.props.data.header.link}

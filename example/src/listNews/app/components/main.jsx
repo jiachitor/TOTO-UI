@@ -55,10 +55,10 @@ class Main extends React.Component{
         var listnewsInstance1 = (
             <div>
                 <h3>更多在上</h3>
-                <ListNews data={data1} morePosition="top" moreTextTitle='更多' onClickMore={this._onClickMore}/>
+                <ListNews data={data1} morePosition="top" moreTextTitle='更多' onClickMore={this._onClickMore} showFooterMore={false}/>
 
                 <h3>更多在下</h3>
-                <ListNews data={data1} morePosition="bottom"  moreTextTitle='More' onClickMore={this._onClickMore}/>
+                <ListNews data={data1} morePosition="bottom"  moreTextTitle='More' onClickMore={this._onClickMore} showFooterMore={true}/>
             </div>
         );
 
@@ -68,7 +68,7 @@ class Main extends React.Component{
         var data2 = {
             header: {
                 title: '带摘要的列表',
-                link: '###'
+                link: false
             },
             main: [
                 {
@@ -90,7 +90,7 @@ class Main extends React.Component{
 
         var listnewsInstance2 = (
             <div>
-                <ListNews data={data2} morePosition="top"  moreTextTitle='More'/>
+                <ListNews data={data2} morePosition="top"  moreTextTitle='More' showFooterMore={true}/>
             </div>
         );
 
