@@ -101,7 +101,7 @@ class ModalTrigger extends React.Component{
         let child = React.Children.only(this.props.children);
         let props = {};
 
-        props.onClick = createChainedFunction(child.props.onClick, this.toggle);
+        props.onTouchStart = createChainedFunction(child.props.onTouchStart, this.toggle);
         props.onMouseOver = createChainedFunction(child.props.onMouseOver,
             this.props.onMouseOver);
         props.onMouseOut = createChainedFunction(child.props.onMouseOut,

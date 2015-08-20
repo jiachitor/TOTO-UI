@@ -7,6 +7,11 @@ class Main extends React.Component{
     }
     render() {
 
+
+        //moreTextTitle    更多按钮的内容
+        //onTouchStartMore     更多按钮的 click 事件
+        //showFooterMore   是否在底部显示更多按钮，用于控制 更多按钮的显示状态
+
         var data = {
             // 列表标题
             "header": {
@@ -55,10 +60,10 @@ class Main extends React.Component{
         var listnewsInstance1 = (
             <div>
                 <h3>更多在上</h3>
-                <ListNews data={data1} morePosition="top" moreTextTitle='更多' onClickMore={this._onClickMore} showFooterMore={false}/>
+                <ListNews data={data1} morePosition="top" moreTextTitle='更多' onTouchStartMore={this._onTouchStartMore} showFooterMore={false}/>
 
                 <h3>更多在下</h3>
-                <ListNews data={data1} morePosition="bottom"  moreTextTitle='More' onClickMore={this._onClickMore} showFooterMore={true}/>
+                <ListNews data={data1} morePosition="bottom"  moreTextTitle='More' onTouchStartMore={this._TouchStartMore} showFooterMore={true}/>
             </div>
         );
 
@@ -212,8 +217,8 @@ class Main extends React.Component{
                     data={data5}
                     thumbPosition="bottom-right"
                     moreTextTitle='More'
-                    onClick={this._onClick}
-                    onClickMore={this._onClickMore}/>
+                    onTouchStart={this._onTouchStart}
+                    onTouchStartMore={this._onTouchStartMore}/>
             </div>
         )
 
@@ -272,12 +277,12 @@ class Main extends React.Component{
         );
     }
 
-    _onClick(item, e){
+    _onTouchStart(item, e){
         console.log(item)
         console.log(e)
     }
 
-    _onClickMore(e){
+    _onTouchStartMore(e){
         console.log(e)
         console.log(222)
     }

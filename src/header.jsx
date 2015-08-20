@@ -19,7 +19,7 @@ class Header extends React.Component{
         return this.props.title ? (
             <h1
                 className={this.prefixClass('title')}
-                onClick={this.props.onSelect.bind(this, {
+                onTouchStart={this.props.onSelect.bind(this, {
           title: this.props.title,
           link: this.props.link,
         })}>
@@ -37,7 +37,7 @@ class Header extends React.Component{
         let renderItem = function(item, i) {
             return (
                 <a href={item.link}
-                   onClick={this.props.onSelect.bind(this, item)}
+                   onTouchStart={this.props.onSelect.bind(this, item)}
                    key={'headerNavItem' + i}>
                     {item.title ? (
                         <span className={this.prefixClass('nav-title')}>

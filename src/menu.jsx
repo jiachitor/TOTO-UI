@@ -88,7 +88,7 @@ class Menu extends React.Component{
         return (
             <a
                 href="#"
-                onClick={this.handleToggle}
+                onTouchStart={this.handleToggle}
                 className={classNames(this.prefixClass('toggle'),
         this.state.expanded ? this.setClassNamespace('active') : null)}>
                 {title}
@@ -109,7 +109,7 @@ class Menu extends React.Component{
           _this.setClassNamespace('parent') : null,
           nav.subActive ? openClassName : null)}>
                     <a
-                        onClick={_this.handleClick.bind(_this, nav, i, false)}
+                        onTouchStart={_this.handleClick.bind(_this, nav, i, false)}
                         href={nav.link}>
                         {nav.title}
                     </a>
@@ -123,7 +123,7 @@ class Menu extends React.Component{
                                 return (
                                     <li key={index}>
                                         <a
-                                            onClick={_this.handleClick.bind(_this, subNav,
+                                            onTouchStart={_this.handleClick.bind(_this, subNav,
                       [i, index], false)}
                                             target={subNav.target}
                                             href={subNav.link}>

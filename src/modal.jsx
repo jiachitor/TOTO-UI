@@ -180,7 +180,7 @@ class Modal extends React.Component{
                                 {this.props.title}
                             </h4>
                         ) : null}
-                        <Close onClick={this.props.onRequestClose} />
+                        <Close onTouchStart={this.props.onRequestClose} />
                     </div>
                     <div className={this.setClassNamespace('popup-bd')}>
                         {this.props.children}
@@ -195,7 +195,7 @@ class Modal extends React.Component{
         let closeIcon = this.props.closeIcon && !this.props.type ? (
             <Close
                 spin
-                onClick={this.props.onRequestClose}/>) : null;
+                onTouchStart={this.props.onRequestClose}/>) : null;
 
         return (this.props.title || closeIcon) ? (
             <div className={this.prefixClass('hd')}>
@@ -217,7 +217,7 @@ class Modal extends React.Component{
             case 'alert':
                 buttons = (
                     <span
-                        onClick={this.props.onConfirm}
+                        onTouchStart={this.props.onConfirm}
                         className={btnClass}>
             {this.props.confirmText}
           </span>);
@@ -228,7 +228,7 @@ class Modal extends React.Component{
                     return (
                         <span
                             key={i}
-                            onClick={i === 0 ? this.props.onCancel : this.handleConfirm}
+                            onTouchStart={i === 0 ? this.props.onCancel : this.handleConfirm}
                             className={btnClass}>
               {text}
             </span>

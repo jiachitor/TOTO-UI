@@ -133,7 +133,7 @@ class Main extends React.Component{
                             <Button
                                 amStyle="secondary"
                                 block
-                                onClick={this.props.onRequestClose}>
+                                onTouchStart={this.props.onRequestClose}>
                                 取消
                             </Button>
                         </div>

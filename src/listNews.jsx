@@ -33,7 +33,7 @@ class ListNews extends React.Component {
                 className={classNames(this.prefixClass('hd'),
               this.setClassNamespace('cf'))}>
                         {data.header.link ? (
-                            <a href={data.header.link} onClick={this._onMoreClick}>
+                            <a href={data.header.link} onTouchStart={this._onMoreClick}>
                                 <h2>{data.header.title}</h2>
                                 {this.props.morePosition === 'top' ? (
                                     <span
@@ -58,7 +58,7 @@ class ListNews extends React.Component {
                 <Button
                     className={this.prefixClass('more')}
                     href={this.props.data.header.link}
-                    onClick={this._onMoreClick}>
+                    onTouchStart={this._onMoreClick}>
                     {this.props.moreTextTitle}
                     {this.props.moreText}
                 </Button>
@@ -191,7 +191,7 @@ class ListNews extends React.Component {
             <h3 className={this.setClassNamespace('list-item-hd')}>
                 <a
                     href={item.link}
-                    onClick={onItemMainClick}>
+                    onTouchStart={onItemMainClick}>
                     {item.title}
                 </a>
             </h3>
@@ -199,18 +199,18 @@ class ListNews extends React.Component {
     }
 
     _onItemMainClick(item, e ) {
-        if (this.props.onClick) {
+        if (this.props.onTouchStart) {
             e.stopPropagation();
             e.preventDefault();
-            this.props.onClick(item, e);
+            this.props.onTouchStart(item, e);
         }
     }
 
     _onMoreClick(e) {
-        if (this.props.onClickMore) {
+        if (this.props.onTouchStartMore) {
             e.stopPropagation();
             e.preventDefault();
-            this.props.onClickMore(e);
+            this.props.onTouchStartMore(e);
         }
     }
 
