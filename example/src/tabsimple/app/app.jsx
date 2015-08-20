@@ -1,5 +1,6 @@
 
 //let injectTapEventPlugin = require('react-tap-event-plugin');
+import React from 'react';
 let Main = require('./components/main.jsx'); // Our custom react component
 
 //Needed for React Developer Tools

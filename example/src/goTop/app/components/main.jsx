@@ -1,3 +1,4 @@
+import React from 'react';
 import GoTop from '../../../../../src/goTop.jsx';
 import ScrollTo from '../../../../../src/scrollTo.jsx';
 

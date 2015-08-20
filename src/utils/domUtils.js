@@ -1,5 +1,7 @@
 'use strict';
 
+import React from 'react';
+
 /**
  * Get ownerDocument
  * @param {ReactComponent|HTMLElement} componentOrElement

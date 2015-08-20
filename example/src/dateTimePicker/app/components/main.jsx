@@ -1,3 +1,4 @@
+import React from 'react';
 import DateTimePicker from '../../../../../src/dateTimePicker.jsx';
 import DateTimeInput from '../../../../../src/dateTimeInput.jsx';
 

@@ -1,5 +1,6 @@
 'use strict';
 
+import React from 'react';
 import SmoothScrollMixin from './minxins/SmoothScrollMixin.js';
 import Button from './button.jsx';
 

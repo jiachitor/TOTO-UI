@@ -1,4 +1,6 @@
 'use strict';
+
+import React from 'react';
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
 

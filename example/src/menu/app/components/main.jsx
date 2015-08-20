@@ -1,3 +1,4 @@
+import React from 'react';
 import Menu from '../../../../../src/menu.jsx';
 import Header from '../../../../../src/header.jsx';
 

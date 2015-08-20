@@ -1,3 +1,4 @@
+import React from 'react';
 import Icon from '../../../../../src/icon.jsx';
 import UICheck from '../../../../../src/uiCheck.jsx';
 import FormGroup from '../../../../../src/formGroup.jsx';

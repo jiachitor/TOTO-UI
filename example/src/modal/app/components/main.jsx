@@ -1,3 +1,4 @@
+import React from 'react';
 import Modal from '../../../../../src/modal.jsx';
 import ModalTrigger from '../../../../../src/modalTrigger.jsx';
 import Button from '../../../../../src/button.jsx';

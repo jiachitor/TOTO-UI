@@ -1,3 +1,4 @@
+import React from 'react';
 import Form from '../../../../../src/form.jsx';
 import Input from '../../../../../src/input.jsx';
 import FormGroup from '../../../../../src/formGroup.jsx';

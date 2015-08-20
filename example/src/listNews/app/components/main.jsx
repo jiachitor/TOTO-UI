@@ -1,3 +1,4 @@
+import React from 'react';
 import ListNews from '../../../../../src/listNews.jsx';
 import Titlebar from '../../../../../src/titlebar.jsx';
 

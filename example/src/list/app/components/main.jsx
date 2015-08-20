@@ -1,3 +1,4 @@
+import React from 'react';
 import List from '../../../../../src/list.jsx';
 import ListItem from '../../../../../src/listItem.jsx';
 import Badge from '../../../../../src/badge.jsx';

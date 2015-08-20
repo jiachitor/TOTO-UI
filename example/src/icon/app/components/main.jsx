@@ -1,3 +1,4 @@
+import React from 'react';
 import Icon from '../../../../../src/icon.jsx';
 import Close from '../../../../../src/close.jsx';
 

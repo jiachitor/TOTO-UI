@@ -1,4 +1,5 @@
 /** In this file, we create a React component which incorporates components provided by material-ui */
+import React from 'react';
 import Button from '../../../../../src/button.jsx';
 
 class Main extends React.Component{

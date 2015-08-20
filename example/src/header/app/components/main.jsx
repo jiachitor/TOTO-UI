@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from '../../../../../src/header.jsx';
 
 class Main extends React.Component{

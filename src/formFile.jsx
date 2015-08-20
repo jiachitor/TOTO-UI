@@ -1,4 +1,6 @@
 'use strict';
+
+import React from 'react';
 import ClassNameMixin from './minxins/ClassNameMixin';
 
 class FormFile extends React.Component{

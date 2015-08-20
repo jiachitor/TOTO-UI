@@ -1,3 +1,4 @@
+import React from 'react';
 import Dropdown from '../../../../../src/dropdown.jsx';
 import DropdownItem from '../../../../../src/dropdownItem.jsx';
 

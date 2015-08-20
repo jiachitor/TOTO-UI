@@ -1,3 +1,4 @@
+import React from 'react';
 import Nav from '../../../../../src/nav.jsx';
 import NavItem from '../../../../../src/navItem.jsx';
 import Icon from '../../../../../src/icon.jsx';

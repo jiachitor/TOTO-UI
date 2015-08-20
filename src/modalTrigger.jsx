@@ -1,5 +1,6 @@
 'use strict';
 
+import React from 'react';
 import OverlayMixin from './minxins/OverlayMixin';
 import DimmerMixin from './minxins/DimmerMixin';
 import createChainedFunction from './utils/createChainedFunction';

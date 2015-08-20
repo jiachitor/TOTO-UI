@@ -1,5 +1,5 @@
 'use strict';
-
+import React from 'react';
 import classNames from 'classnames';
 import getScrollbarWidth from '../utils/getScrollbarWidth';
 import CSSCore from '../utils/CSSCore';

@@ -1,3 +1,4 @@
+import React from 'react';
 import AvgGrid from '../../../../../src/avgGrid.jsx';
 
 class Main extends React.Component{

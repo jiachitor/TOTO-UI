@@ -1,3 +1,4 @@
+import React from 'react';
 import Navbar from '../../../../../src/navbar.jsx';
 
 class Main extends React.Component{

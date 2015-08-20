@@ -1,5 +1,5 @@
+import React from 'react';
 import Table from '../../../../../src/table.jsx';
-
 
 class Main extends React.Component{
     constructor(props) {

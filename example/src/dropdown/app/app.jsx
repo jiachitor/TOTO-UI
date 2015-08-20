@@ -1,4 +1,4 @@
-
+import React from 'react';
 import Main from './components/main.jsx';
 
 //Needed for React Developer Tools

@@ -1,3 +1,4 @@
+import React from 'react';
 import Pagination from '../../../../../src/pagination.jsx';
 import PaginationItem from '../../../../../src/paginationItem.jsx';
 

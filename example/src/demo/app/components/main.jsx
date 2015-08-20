@@ -1,4 +1,6 @@
 
+import React from 'react';
+
 let Main = React.createClass({
 
     childContextTypes: {

@@ -1,5 +1,6 @@
 'use strict';
 
+import React from 'react';
 import Events from './utils/Events';
 import fecha from 'fecha';
 import isNodeInTree from './utils/isNodeInTree';

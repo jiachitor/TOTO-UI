@@ -1,5 +1,6 @@
 'use strict';
 
+import React from 'react';
 import Tab from './tabsimpleItem.jsx';
 
 class Tabs extends React.Component {

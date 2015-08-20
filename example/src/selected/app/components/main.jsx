@@ -1,3 +1,4 @@
+import React from 'react';
 import Selected from '../../../../../src/selected.jsx';
 import Button from '../../../../../src/button.jsx';
 

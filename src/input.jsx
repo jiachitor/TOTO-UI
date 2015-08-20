@@ -5,6 +5,7 @@
  * @desc includes input, input-group
  */
 
+import React from 'react';
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
 import constants from './minxins/constants.js';

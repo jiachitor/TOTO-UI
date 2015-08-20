@@ -1,3 +1,4 @@
+import React from 'react';
 import Article from '../../../../../src/article.jsx';
 import ArticleChild from '../../../../../src/articleChild.jsx';
 

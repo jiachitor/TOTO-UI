@@ -1,3 +1,4 @@
+import React from 'react';
 import Badge from '../../../../../src/badge.jsx';
 
 class Main extends React.Component{
