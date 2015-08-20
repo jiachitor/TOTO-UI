@@ -34,7 +34,7 @@ class ListNews extends React.Component {
                 className={classNames(this.prefixClass('hd'),
               this.setClassNamespace('cf'))}>
                         {data.header.link ? (
-                            <a href={data.header.link} onTouchStart={this._onMoreClick}>
+                            <a href={data.header.link} onTouchTap={this._onMoreClick}>
                                 <h2>{data.header.title}</h2>
                                 {this.props.morePosition === 'top' ? (
                                     <span
@@ -59,7 +59,7 @@ class ListNews extends React.Component {
                 <Button
                     className={this.prefixClass('more')}
                     href={this.props.data.header.link}
-                    onTouchStart={this._onMoreClick}>
+                    onTouchTap={this._onMoreClick}>
                     {this.props.moreTextTitle}
                     {this.props.moreText}
                 </Button>
@@ -88,42 +88,48 @@ class ListNews extends React.Component {
         );
     }
 
+    //生成列表主题
     renderList() {
-        let position = this.props.thumbPosition;
-        let orderChildren = function (item, i) {
-            let thumb = this.renderItemThumb(item, i);
-            let main = this.renderItemMain(item, i);
+        let position = this.props.thumbPosition;  //定义略缩图位置
 
+        let orderChildren = function (item, i) {
+            let thumb = this.renderItemThumb(item, i); //生成略缩图
+            let main = this.renderItemMain(item, i);  //生成主题内容
+            //也就是说，图片默认位置为“left”,"bottom-left".
+            //注意这里生成的main ,还需要判断是否需要再生成标题。判断为"left","right"的情况下才生成标题
             return (position === 'right' || position === 'bottom-right') ?
                 [main, thumb] : [thumb, main];
         }.bind(this);
 
+        //判断略缩图，如果在标题下面的话，则生成H3 标题。 如果标题和略缩图平级，则不生成顶部标题。
         return (this.props.data.main.map(function (item, i) {
             return (
                 <li
                     key={i}
                     className={this.getListItemClasses(item)}>
-                    {position === 'bottom-left' || position === 'bottom-right' ?
-                        this.renderThumbItemTitle(item) : null}
-
+                    {position === 'bottom-left' || position === 'bottom-right' ? this.renderThumbItemTitle(item) : null}
                     {orderChildren(item, i)}
                 </li>
             );
         }.bind(this)));
     }
 
+    //根据传入data 中的 tag 生成相对应的标签，只生成用于展示的标签部分
     renderItemMisc(item, type) {
         let Tag = type === 'date' ? 'span' : 'div';
         let className;
 
         switch (type) {
             case 'date':
+                //日期
                 className = 'list-date';
                 break;
             case 'desc':
+                //详情描述
                 className = 'list-item-text';
                 break;
             case 'mainAddition':
+                //生成主要内容
                 className = 'list-news-addon';
                 break;
             case 'thumbAddition':
@@ -137,7 +143,29 @@ class ListNews extends React.Component {
         ) : null;
     }
 
-    //����ͼ
+    //生成功能按钮
+    renderItemBtn(item, type){
+
+        let className, eventName;
+
+        switch (type) {
+            case 'delete':
+                //日期
+                className = 'list-btn-delete';
+                eventName = '_onTouchTapDelete';
+                break;
+        }
+
+        return item[type] ? (
+            <a href="##"
+               className={this.setClassNamespace(className)}
+               onTouchTap={this[eventName].bind(this, item)}>
+                {item[type]}
+            </a>
+        ) : null;
+    }
+
+    //略缩图
     renderItemThumb(item, i) {
         let cols = this.props.thumbPosition === 'top' ? 12 : 4;
 
@@ -145,22 +173,23 @@ class ListNews extends React.Component {
             key={'thumb' + i}
             sm={cols}
             className={this.setClassNamespace('list-thumb')}>
-            <a href={item.link}>
+            <a href={item.link} onTouchTap={this._onItemMainClick.bind(this, item)} >
                 <img src={item.img} alt={item.title}/>
             </a>
             {this.renderItemMisc(item, 'thumbAddition')}
         </Col>) : null;
     }
 
-    //��Ҫ���б�
+    //主要的列表
     renderItemMain(item, i) {
 
-        let position = this.props.thumbPosition;
-        let date = this.renderItemMisc(item, 'date');
-        let desc = this.renderItemMisc(item, 'desc');
-        let addon = this.renderItemMisc(item, 'mainAddition');
+        let position = this.props.thumbPosition;  //略缩图的位置
+        let date = this.renderItemMisc(item, 'date');  //生成日期
+        let desc = this.renderItemMisc(item, 'desc');  //生成标题
+        let addon = this.renderItemMisc(item, 'mainAddition');  //生成主要内容
+        let deleteFn = this.renderItemBtn(item, 'delete');  //生成主要内容
 
-        // title of list without thumbnail
+        // 如果没有设置 position 值，则不生成略缩图
         let itemWithoutThumbTitle = !position && item.title ? (
             <a
                 key={'title' + i}
@@ -169,49 +198,64 @@ class ListNews extends React.Component {
                 {item.title}
             </a>
         ) : null;
+
+        //其实这里是生成栅格的，但是不需要怎么办
+        // top 的话就是 12， 其余的看是否有图片，有图片的就是8， 没有的话就是12
         let cols = position === 'top' ? 12 : item.img ? 8 : 12;
 
+        //有略缩图的话就生成略缩图，没有的话只生成标题等
         return position ? (
             <Col
                 sm={cols}
                 className={this.setClassNamespace('list-main')}
                 key={'itemMain' + i}>
-                {position !== 'bottom-left' && position !== 'bottom-right' ?
-                    this.renderThumbItemTitle(item) : null}
+                {position !== 'bottom-left' && position !== 'bottom-right' ? this.renderThumbItemTitle(item) : null}
                 {desc}
                 {date}
                 {addon}
+                <div className={this.setClassNamespace('list-btn')}>
+                    {deleteFn}
+                </div>
             </Col>
         ) : [itemWithoutThumbTitle, date, desc, addon];
     }
 
-    //���±���
+    //图片在标题下面时（”bottom- “），生成文章标题
     renderThumbItemTitle(item) {
-        let onItemMainClick = this._onItemMainClick.bind(this, item);
         return item.title ? (
             <h3 className={this.setClassNamespace('list-item-hd')}>
                 <a
                     href={item.link}
-                    onTouchStart={onItemMainClick}>
+                    onTouchTap={this._onItemMainClick.bind(this, item)}>
                     {item.title}
                 </a>
             </h3>
         ) : null;
     }
 
+    //文章点击事件
     _onItemMainClick(item, e ) {
-        if (this.props.onTouchStart) {
+        if (this.props.onTouchTapTitle) {
             e.stopPropagation();
             e.preventDefault();
-            this.props.onTouchStart(item, e);
+            this.props.onTouchTapTitle(item, e);
         }
     }
 
+    //more 按钮点击事件
     _onMoreClick(e) {
-        if (this.props.onTouchStartMore) {
+        if (this.props.onTouchTapMore) {
             e.stopPropagation();
             e.preventDefault();
-            this.props.onTouchStartMore(e);
+            this.props.onTouchTapMore(e);
+        }
+    }
+
+    _onTouchTapDelete(item,e){
+        if (this.props.onTouchTapDelete) {
+            e.stopPropagation();
+            e.preventDefault();
+            this.props.onTouchTapDelete(item,e);
         }
     }
 
