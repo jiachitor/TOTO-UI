@@ -1,11 +1,12 @@
 var dest = './build',
     src = './src',
-    modules = ['article','avgGrid','badge','button','dateTimePicker','dropdown','demo','form','goTop','header','icon','list','listNews','menu','modal','nav','navbar','table','tabs','tabsimple','pagination','selected','uiCheck'],
+    modulesList = ['article','avgGrid','badge','button','dateTimePicker','dropdown','demo','form','goTop','header','icon','list','listNews','menu','modal','nav','navbar','table','tabs','tabsimple','pagination','selected','uiCheck'],
+    modulesNow = ['article'],
     mui = './node_modules/material-ui/src';
 
 //browserify
 var _bundleConfigs = [];
-for ( m of modules) {
+for (var m of modulesNow) {
     var _item = {
         entries: src + '/' + m + '/app/app.jsx',
         dest: dest + '/' + m,
@@ -16,16 +17,16 @@ for ( m of modules) {
 
 //markup
 var _markupConfigs = [];
-for ( m of modules) {
-    var _item = {
-        src: src + '/' + m  + "/www/**",
-        dest: dest + '/' + m
+for (var n of modulesNow) {
+    var __item = {
+        src: src + '/' + n  + "/www/**",
+        dest: dest + '/' + n
     };
-    _markupConfigs.push(_item);
+    _markupConfigs.push(__item);
 }
 
 module.exports = {
-    modules:modules,
+    modules:modulesNow,
     default: {
         src: src ,
         dest: dest

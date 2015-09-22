@@ -1,0 +1,14 @@
+
+// Line clamp
+// http://dropshado.ws/post/1015351370/webkit-line-clamp
+// -----------------------------------------------------------------------------
+
+@mixin ui-line-clamp($lines, $line-height: 1.3em) {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines; // number of lines to show
+    overflow: hidden;
+    line-height: $line-height;
+    max-height: $line-height * $lines;
+}

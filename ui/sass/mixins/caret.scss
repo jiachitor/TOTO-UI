@@ -1,0 +1,60 @@
+// =============================================================================
+// Caret
+// NOTE: If using ::before or ::after, `content: ""` is required
+// =============================================================================
+
+// Caret - down
+// -----------------------------------------------------------------------------
+@mixin caret-down($size: 6px, $color:#222) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-top: $size solid $color;
+  border-right: $size solid transparent;
+  border-left: $size solid transparent;
+  border-bottom: 0 dotted;
+  transform: rotate(360deg);
+}
+
+// Caret - up
+// -----------------------------------------------------------------------------
+@mixin caret-up($size:6px, $color:#222) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-bottom: $size solid $color;
+  border-right: $size solid transparent;
+  border-left: $size solid transparent;
+  border-top: 0 dotted;
+  transform: rotate(360deg);
+}
+
+// Caret - left
+// -----------------------------------------------------------------------------
+@mixin caret-left($size:6px, $color:#222) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-right: $size solid $color;
+  border-top: $size solid transparent;
+  border-bottom: $size solid transparent;
+  border-left: 0 dotted;
+  transform: rotate(360deg);
+}
+
+// Caret - right
+// -----------------------------------------------------------------------------
+@mixin caret-right($size:6px, $color:#222) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-left: $size solid $color;
+  border-top: $size solid transparent;
+  border-bottom: $size solid transparent;
+  border-right: 0 dotted;
+  transform: rotate(360deg);
+}

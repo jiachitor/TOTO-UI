@@ -7,13 +7,12 @@
     "url": "https://github.com/callemall/material-ui.git"
   },
   "scripts": {
-    "start": "gulp"
+    "start": "gulp watch"
   },
   "devDependencies": {
     "babelify": "^6.1.2",
     "browser-sync": "^1.8.1",
     "browserify": "^7.0.3",
-    "gulp": "^3.8.10",
     "gulp-minify-css": "^1.2.0",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",

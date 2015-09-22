@@ -1,0 +1,49 @@
+// Form
+// =============================================================================
+
+// Form validation states
+// -----------------------------------------------------------------------------
+@mixin form-field-validation($text-color: #555, $border-color: #ccc) {
+  // the label and help text color
+  .ui-form-help,
+  .ui-form-label,
+  .ui-radio,
+  .ui-checkbox,
+  .ui-radio-inline,
+  .ui-checkbox-inline,
+  label {
+    color: $text-color;
+  }
+
+  // feedback icon
+  [class*="icon-"] {
+    color: $text-color;
+  }
+}
+
+@mixin form-field-validation-filed($text-color: #555, $border-color: #ccc) {
+  border-color: $border-color !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  &:focus {
+    //background-color: rgba(red($border-color), green($border-color), blue($border-color), .05) !important;
+    background-color: $input-focus-bg;
+    border-color: darken($border-color, 10%);
+    $shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 5px lighten($border-color, 20%) !important;
+    box-shadow: $shadow !important;
+  }
+}
+
+
+// Form element focus state
+// -----------------------------------------------------------------------------
+@mixin form-field-focus($color: $input-border-focus) {
+  $color-rgba: rgba(red($color), green($color), blue($color), .3);
+  &:focus {
+    //background-color: rgba(red($color), green($color), blue($color), .05);
+    background-color: $input-focus-bg;
+    border-color: $color;
+    outline: 0;
+    $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 5px $color-rgba;
+    box-shadow: $shadow;
+  }
+}

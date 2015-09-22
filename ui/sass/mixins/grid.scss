@@ -1,0 +1,16 @@
+// Grid
+// =============================================================================
+@mixin grid-container($gutter: $grid-gutter, $gutter-md: $grid-gutter-md, $max-width: $grid-max-width) {
+	box-sizing: border-box;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $gutter;
+	padding-right: $gutter;
+	width: 100%;
+	max-width: $max-width;
+	@include clearfix;
+	@media #{$medium-up} {
+		padding-left: $gutter-md;
+		padding-right: $gutter-md;
+	}
+}

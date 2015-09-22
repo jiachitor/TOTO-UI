@@ -1,3 +1,41 @@
+/*=================================================base css=================================*/
+
+*,
+*:before,
+*:after {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+html {
+   font-size: 62.5%;
+}
+
+body {
+   margin: 0;
+   padding: 0;
+   font-size: 1.6rem; /* =16px */
+}
+
+ul{
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+}
+
+/*Webkit 反锯齿*/
+body {
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+/*=========================================demo css=======================================*/
+
+
 /*tab 组件初始样式*/
 .tabs{
 
@@ -6,7 +44,7 @@
       li{
          list-style: none;
          float: left;
-         margin: 0 10px 10px 0;
+         margin: 0 40px 15px 0;
          a{
             display: inline-block;
             padding: 5px 10px;

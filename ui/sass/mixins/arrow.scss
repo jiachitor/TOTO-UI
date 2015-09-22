@@ -1,0 +1,17 @@
+// CSS Arrow Mixin
+// -----------------------------------------------------------------------------
+//
+// $param:  45deg (default) - right
+//          135deg - down
+//          -45deg - up
+//          -135deg -left
+// ------------------------------------------------------------------------
+
+@mixin arrow($color:#DDD, $width:6px, $border-width: 2px, $deg: 45deg) {
+  display: inline-block;
+  width: $width;
+  height: $width;
+  border: $color solid;
+  border-width: $border-width $border-width 0 0;
+  transform: rotate($deg);
+}

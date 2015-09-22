@@ -5,13 +5,17 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     rename = require('gulp-rename'),
     watch = require('gulp-watch'),
-    browserSync = require('browser-sync');
+    browserSync = require('browser-sync'),
+    _ = require('underscore');
 
 var modules_config = require('../config').modules;
 var default_config = require('../config').default;
 
 //File to monitor
 function watchFn(conf){
+    console.log("-------------------------------------------------------------");
+    console.log("                   watching " + conf + " now!");
+    console.log("-------------------------------------------------------------");
     var _src = default_config.src + '/'+ conf +'/www/**';
     var _dest = default_config.dest + '/' + conf;
 
@@ -30,16 +34,21 @@ function watchFn(conf){
     });
 }
 
-gulp.task('watch', ['setWatch', 'browserSync'], function () {
-    for ( conf of modules_config) {
-        var _watch =  'watch_' + conf;
-        gulp.start(_watch);
+function watchProcess(callback){
+    for (var conf of modules_config) {
+        watchFn(conf);
     }
+}
+
+gulp.task('setWatch', function (callback) {
+    global.isWatching = true;
+    callback();
 });
 
-for ( conf of modules_config) {
-    var _watch =  'watch_' + conf;
-    gulp.task(_watch, function(){
-        watchFn(conf);
-    });
-}
+gulp.task('watch',gulp.series(
+    'setWatch',
+    'browserSync',
+    watchProcess
+));
+
+

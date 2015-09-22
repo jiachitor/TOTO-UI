@@ -11,5 +11,5 @@ npm start
 ```
 或者
 ```
-gulp
+gulp watch
 ```

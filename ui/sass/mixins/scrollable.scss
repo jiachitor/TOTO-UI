@@ -1,0 +1,7 @@
+// Scrollable
+// -----------------------------------------------------------------------------
+// TODO: add scrollableX & scrollableY
+@mixin scrollable() {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}

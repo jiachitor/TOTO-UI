@@ -1,0 +1,201 @@
+// Name:            Button
+//
+// Description:     Define style for buttons
+//
+// Component:       `.am-btn`
+//
+// Sub-objects:     `.am-btn-group`
+//                  `.am-btn-dropdown`
+//
+// Modifiers:       `.am-btn-default`
+//                  `.am-btn-primary`
+//                  `.am-btn-warning`
+//                  `.am-btn-success`
+//                  `.am-btn-danger`
+//                  `.am-btn-secondary`
+//                  `.am-btn-link`
+//                  `.am-btn-sm`
+//                  `.am-btn-lg`
+//                  `.am-btn-xs`
+//                  `.am-btn-block`
+//
+// States:          `.am-active`
+//                  `.am-disabled`
+//
+// =============================================================================
+
+/* ==========================================================================
+   Component: Button
+ ============================================================================ */
+
+// Button base styles
+.ui-btn {
+	display: inline-block;
+	margin-bottom: 0; // for input.am-btn
+	padding: 0.625em 1em; // relative font size
+	vertical-align: middle;
+	font-size: $btn-font-size;
+	font-weight: $btn-font-weight;
+	line-height: $btn-line-height;
+	text-align: center;
+	white-space: nowrap;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: $global-radius;
+	cursor: pointer;
+	outline: 0;
+	-webkit-appearance: none;
+	user-select: none;
+	transition: background-color 300ms ease-out, border-color 300ms ease-out;
+
+	&,
+	&:active {
+		&:focus {
+			@include tab-focus();
+		}
+	}
+
+	&:hover,
+	&:focus {
+		color: $btn-default-color;
+		text-decoration: none;
+	}
+
+	&:active,
+	&.ui-active {
+		background-image: none;
+		box-shadow: inset 0 3px 5px rgba(0, 0, 0, .15);
+	}
+
+	&.ui-disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		// https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
+		pointer-events: none; // Disable mouse events
+		border-color: transparent;
+		cursor: not-allowed; // may not styled because pointer-events: none;
+		opacity: 0.45;
+		box-shadow: none;
+	}
+
+	&.ui-round {
+		border-radius: $global-rounded;
+	}
+
+	&.ui-radius {
+		border-radius: $radius-normal;
+	}
+}
+
+// Modifiers
+// =============================================================================
+
+.ui-btn-default {
+	@include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+}
+
+.ui-btn-primary {
+	@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+
+.ui-btn-warning {
+	@include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+}
+
+.ui-btn-danger {
+	@include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+}
+
+.ui-btn-success {
+	@include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+}
+
+.ui-btn-secondary {
+	@include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+
+/* Style links like a button */
+.ui-btn-link {
+	color: $link-color;
+	font-weight: normal;
+	cursor: pointer;
+	border-radius: 0;
+
+	&,
+	&:active,
+	&[disabled],
+	fieldset[disabled] & {
+		background-color: transparent;
+		box-shadow: none;
+	}
+
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		border-color: transparent;
+	}
+
+	&:hover,
+	&:focus {
+		color: $link-hover-color;
+		text-decoration: underline;
+		background-color: transparent;
+	}
+
+	&[disabled],
+	fieldset[disabled] & {
+		&:hover,
+		&:focus {
+			color: $btn-link-disabled-color;
+			text-decoration: none;
+		}
+	}
+}
+
+/* button size */
+.ui-btn-xs {
+	@include button-size($btn-xs-font-size);
+}
+
+.ui-btn-sm {
+	@include button-size($btn-sm-font-size);
+}
+
+.ui-btn-lg {
+	@include button-size($btn-lg-font-size);
+}
+
+.ui-btn-xl {
+	@include button-size($btn-xl-font-size);
+}
+
+/* Block button  */
+.ui-btn-block {
+	display: block;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* Multiple block buttons vertically space */
+.ui-btn-block + .ui-btn-block {
+	margin-top: 5px;
+}
+
+/* Specificity overrides */
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	&.ui-btn-block {
+		width: 100%;
+	}
+}
+
+/* Button with loading spinner */
+.ui-btn.ui-btn-loading {
+	.ui-icon-spin {
+		margin-right: 5px;
+	}
+}
+
