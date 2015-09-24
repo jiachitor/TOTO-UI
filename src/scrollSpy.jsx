@@ -56,14 +56,14 @@ class ScrollSpy extends React.Component {
 
                 this._timer = setTimeout(function () {
                     this.setState({
-                        inViewport: true
+                        inViewport: true,
                     });
                 }.bind(this), this.props.delay);
             }
 
             if (this.props.repeat && !isInView) {
                 this.setState({
-                    inViewport: false
+                    inViewport: false,
                 });
             }
         }
@@ -82,7 +82,7 @@ class ScrollSpy extends React.Component {
         return cloneElement(child, assign({}, child.props, {
             className: classNames(child.props.className, animation),
             'data-scrollspy': 'animation', // style helper
-            delay: this.props.delay
+            delay: this.props.delay,
         }));
     }
 }

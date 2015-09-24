@@ -1,7 +1,7 @@
 {
   "name": "totoui",
   "author": "liujiachi",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "TOTO UI components built with React.js",
   "main": "./lib",
   "scripts": {
