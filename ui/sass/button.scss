@@ -29,7 +29,7 @@
  ============================================================================ */
 
 // Button base styles
-.ui-btn {
+.btn {
 	display: inline-block;
 	margin-bottom: 0; // for input.am-btn
 	padding: 0.625em 1em; // relative font size
@@ -62,12 +62,12 @@
 	}
 
 	&:active,
-	&.ui-active {
+	&.active {
 		background-image: none;
 		box-shadow: inset 0 3px 5px rgba(0, 0, 0, .15);
 	}
 
-	&.ui-disabled,
+	&.disabled,
 	&[disabled],
 	fieldset[disabled] & {
 		// https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
@@ -78,11 +78,11 @@
 		box-shadow: none;
 	}
 
-	&.ui-round {
+	&.round {
 		border-radius: $global-rounded;
 	}
 
-	&.ui-radius {
+	&.radius {
 		border-radius: $radius-normal;
 	}
 }
@@ -90,32 +90,32 @@
 // Modifiers
 // =============================================================================
 
-.ui-btn-default {
+.btn-default {
 	@include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
 }
 
-.ui-btn-primary {
+.btn-primary {
 	@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 }
 
-.ui-btn-warning {
+.btn-warning {
 	@include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
 }
 
-.ui-btn-danger {
+.btn-danger {
 	@include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 }
 
-.ui-btn-success {
+.btn-success {
 	@include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
 }
 
-.ui-btn-secondary {
+.btn-secondary {
 	@include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
 }
 
 /* Style links like a button */
-.ui-btn-link {
+.btn-link {
 	color: $link-color;
 	font-weight: normal;
 	cursor: pointer;
@@ -154,24 +154,24 @@
 }
 
 /* button size */
-.ui-btn-xs {
+.btn-xs {
 	@include button-size($btn-xs-font-size);
 }
 
-.ui-btn-sm {
+.btn-sm {
 	@include button-size($btn-sm-font-size);
 }
 
-.ui-btn-lg {
+.btn-lg {
 	@include button-size($btn-lg-font-size);
 }
 
-.ui-btn-xl {
+.btn-xl {
 	@include button-size($btn-xl-font-size);
 }
 
 /* Block button  */
-.ui-btn-block {
+.btn-block {
 	display: block;
 	width: 100%;
 	padding-left: 0;
@@ -179,7 +179,7 @@
 }
 
 /* Multiple block buttons vertically space */
-.ui-btn-block + .ui-btn-block {
+.btn-block + .btn-block {
 	margin-top: 5px;
 }
 
@@ -187,14 +187,14 @@
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-	&.ui-btn-block {
+	&.btn-block {
 		width: 100%;
 	}
 }
 
 /* Button with loading spinner */
-.ui-btn.ui-btn-loading {
-	.ui-icon-spin {
+.btn.btn-loading {
+	.icon-spin {
 		margin-right: 5px;
 	}
 }

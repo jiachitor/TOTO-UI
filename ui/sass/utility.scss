@@ -1,0 +1,863 @@
+// Name:              Utility
+//
+// Description:       Useful classes
+//
+// Component:
+//                    `.am-cf`
+//                    `.am-f*`
+//                    `.am-vertical-align`
+//                    `.am-display-*`
+//                    `.am-visible-*`
+//                    `.am-hidden-*`
+//
+// =============================================================================
+
+/* ==========================================================================
+   Component: Utility
+ ============================================================================ */
+
+.scrollable-horizontal {
+	width: 100%;
+	overflow-y: hidden;
+	overflow-x: auto;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	-webkit-overflow-scrolling: touch;
+}
+
+.scrollable-vertical {
+	height: $utility-scrollable-height;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	resize: vertical;
+}
+
+/* Border-radius*/
+
+.square {
+	border-radius: 0;
+}
+
+.radius {
+	border-radius: $radius-normal;
+}
+
+.round {
+	border-radius: $global-rounded;
+}
+
+.circle {
+	border-radius: 50%;
+}
+
+/* Float blocks*/
+
+.cf {
+	@include clearfix();
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.nbfc {
+	overflow: hidden;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Display */
+
+.block {
+	display: block !important;
+}
+
+.inline {
+	display: inline !important;
+}
+
+.inline-block {
+	display: inline-block !important;
+}
+
+.hide {
+	display: none !important;
+	visibility: hidden !important;
+}
+
+// Vertical alignment
+// =============================================================================
+
+/*
+* Remove whitespace between child elements when using `inline-block`
+*/
+
+.vertical-align {
+	font-size: 0.001px;
+}
+
+/*
+* The `vertical-align` container needs a specific height
+*/
+
+.vertical-align:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+/*
+* Sub-object which can have any height
+* 1. Reset whitespace hack
+*/
+
+.vertical-align-middle,
+.vertical-align-bottom {
+	display: inline-block;
+	font-size: $global-font-size; /* 1 */
+	max-width: 100%;
+}
+
+.vertical-align-middle {
+	vertical-align: middle;
+}
+
+.vertical-align-bottom {
+	vertical-align: bottom;
+}
+
+// Responsive width
+// =============================================================================
+
+.responsive-width {
+	box-sizing: border-box;
+	max-width: 100%;
+	height: auto;
+}
+
+// =============================================================================
+// Margin & Padding
+// =============================================================================
+
+// margin mixin
+
+@mixin spacing-variant($type, $dimension) {
+	.#{$type}#{$dimension} {
+		#{$type}#{$dimension}: $global-margin;
+	}
+
+	.#{$type}#{$dimension}-xs {
+		#{$type}#{$dimension}: $global-margin-xs;
+	}
+
+	.#{$type}#{$dimension}-sm {
+		#{$type}#{$dimension}: $global-margin-sm;
+	}
+
+	.#{$type}#{$dimension}-lg {
+		#{$type}#{$dimension}: $global-margin-lg;
+	}
+
+	.#{$type}#{$dimension}-xl {
+		#{$type}#{$dimension}: $global-margin-xl;
+	}
+}
+
+@mixin spacing-all-variant($type) {
+	.#{$type} {
+		#{$type}: $global-margin;
+	}
+
+	.#{$type}-xs {
+		#{$type}: $global-margin-xs;
+	}
+
+	.#{$type}-sm {
+		#{$type}: $global-margin-sm;
+	}
+
+	.#{$type}-lg {
+		#{$type}: $global-margin-lg;
+	}
+
+	.#{$type}-xl {
+		#{$type}: $global-margin-xl;
+	}
+}
+
+@mixin spacing-hv-variant($type, $dimension, $dimension1, $dimension2) {
+	.#{$type}#{$dimension} {
+		#{$type}#{$dimension1}: $global-margin;
+		#{$type}#{$dimension2}: $global-margin;
+	}
+
+	.#{type}#{dimension}-xs {
+		#{$type}#{$dimension1}: $global-margin-xs;
+		#{$type}#{$dimension2}: $global-margin-xs;
+	}
+
+	.#{$type}#{$dimension}-sm {
+		#{$type}#{$dimension1}: $global-margin-sm;
+		#{$type}#{$dimension2}: $global-margin-sm;
+	}
+
+	.#{$type}#{$dimension}-lg {
+		#{$type}#{$dimension1}: $global-margin-lg;
+		#{$type}#{$dimension2}: $global-margin-lg;
+	}
+
+	.#{$type}#{$dimension}-xl {
+		#{$type}#{$dimension1}: $global-margin-xl;
+		#{$type}#{$dimension2}: $global-margin-xl;
+	}
+}
+
+/* Margin helpers */
+
+@include spacing-all-variant(margin);
+@include spacing-hv-variant(margin, -horizontal, -left, -right);
+@include spacing-hv-variant(margin, -vertical, -top, -bottom);
+@include spacing-variant(margin, -top);
+@include spacing-variant(margin, -bottom);
+@include spacing-variant(margin, -left);
+@include spacing-variant(margin, -right);
+
+/* Padding helpers */
+
+@include spacing-all-variant(padding);
+@include spacing-hv-variant(padding, -horizontal, -left, -right);
+@include spacing-hv-variant(padding, -vertical, -top, -bottom);
+@include spacing-variant(padding, -top);
+@include spacing-variant(padding, -bottom);
+@include spacing-variant(padding, -left);
+@include spacing-variant(padding, -right);
+
+// =============================================================================
+// Foundation Visibility HTML Classes
+// =============================================================================
+
+/* small displays */
+
+@media #{$screen} {
+	.show-sm-only,
+	.show-sm-up,
+	.show-sm,
+	.show-sm-down,
+	.hide-md-only,
+	.hide-md-up,
+	.hide-md,
+	.show-md-down,
+	.hide-lg-only,
+	.hide-lg-up,
+	.hide-lg,
+	.show-lg-down {
+		display: inherit !important;
+	}
+
+	.hide-sm-only,
+	.hide-sm-up,
+	.hide-sm,
+	.hide-sm-down,
+	.show-md-only,
+	.show-md-up,
+	.show-md,
+	.hide-md-down,
+	.show-lg-only,
+	.show-lg-up,
+	.show-lg,
+	.hide-lg-down {
+		display: none !important;
+	}
+
+	/* table */
+	table.show-sm-only,
+	table.show-sm-up,
+	table.show-sm,
+	table.show-sm-down,
+	table.hide-md-only,
+	table.hide-md-up,
+	table.hide-md,
+	table.show-md-down,
+	table.hide-lg-only,
+	table.hide-lg-up,
+	table.hide-lg,
+	table.show-lg-down {
+		display: table !important;
+	}
+
+	thead.show-sm-only,
+	thead.show-sm-up,
+	thead.show-sm,
+	thead.show-sm-down,
+	thead.hide-md-only,
+	thead.hide-md-up,
+	thead.hide-md,
+	thead.show-md-down,
+	thead.hide-lg-only,
+	thead.hide-lg-up,
+	thead.hide-lg,
+	thead.show-lg-down {
+		display: table-header-group !important;
+	}
+
+	tbody.show-sm-only,
+	tbody.show-sm-up,
+	tbody.show-sm,
+	tbody.show-sm-down,
+	tbody.hide-md-only,
+	tbody.hide-md-up,
+	tbody.hide-md,
+	tbody.show-md-down,
+	tbody.hide-lg-only,
+	tbody.hide-lg-up,
+	tbody.hide-lg,
+	tbody.show-lg-down {
+		display: table-row-group !important;
+	}
+
+	tr.show-sm-only,
+	tr.show-sm-up,
+	tr.show-sm,
+	tr.show-sm-down,
+	tr.hide-md-only,
+	tr.hide-md-up,
+	tr.hide-md,
+	tr.show-md-down,
+	tr.hide-lg-only,
+	tr.hide-lg-up,
+	tr.hide-lg,
+	tr.show-lg-down {
+		display: table-row !important;
+	}
+
+	th.show-sm-only,
+	td.show-sm-only,
+	th.show-sm-up,
+	td.show-sm-up,
+	th.show-sm,
+	td.show-sm,
+	th.show-sm-down,
+	td.show-sm-down,
+	th.hide-md-only,
+	td.hide-md-only,
+	th.hide-md-up,
+	td.hide-md-up,
+	th.hide-md,
+	td.hide-md,
+	th.show-md-down,
+	td.show-md-down,
+	th.hide-lg-only,
+	td.hide-lg-only,
+	th.hide-lg-up,
+	td.hide-lg-up,
+	th.hide-lg,
+	td.hide-lg,
+	th.show-lg-down,
+	td.show-lg-down {
+		display: table-cell !important;
+	}
+}
+
+/* medium displays */
+@media #{$medium-up} {
+	.hide-sm-only,
+	.show-sm-up,
+	.hide-sm,
+	.hide-sm-down,
+	.show-md-only,
+	.show-md-up,
+	.show-md,
+	.show-md-down,
+	.hide-lg-only,
+	.hide-lg-up,
+	.hide-lg,
+	.show-lg-down {
+		display: inherit !important;
+	}
+
+	.show-sm-only,
+	.hide-sm-up,
+	.show-sm,
+	.show-sm-down,
+	.hide-md-only,
+	.hide-md-up,
+	.hide-md,
+	.hide-md-down,
+	.show-lg-only,
+	.show-lg-up,
+	.show-lg,
+	.hide-lg-down {
+		display: none !important;
+	}
+
+	table.hide-sm-only,
+	table.show-sm-up,
+	table.hide-sm,
+	table.hide-sm-down,
+	table.show-md-only,
+	table.show-md-up,
+	table.show-md,
+	table.show-md-down,
+	table.hide-lg-only,
+	table.hide-lg-up,
+	table.hide-lg,
+	table.show-lg-down {
+		display: table !important;
+	}
+
+	thead.hide-sm-only,
+	thead.show-sm-up,
+	thead.hide-sm,
+	thead.hide-sm-down,
+	thead.show-md-only,
+	thead.show-md-up,
+	thead.show-md,
+	thead.show-md-down,
+	thead.hide-lg-only,
+	thead.hide-lg-up,
+	thead.hide-lg,
+	thead.show-lg-down {
+		display: table-header-group !important;
+	}
+
+	tbody.hide-sm-only,
+	tbody.show-sm-up,
+	tbody.hide-sm,
+	tbody.hide-sm-down,
+	tbody.show-md-only,
+	tbody.show-md-up,
+	tbody.show-md,
+	tbody.show-md-down,
+	tbody.hide-lg-only,
+	tbody.hide-lg-up,
+	tbody.hide-lg,
+	tbody.show-lg-down {
+		display: table-row-group !important;
+	}
+
+	tr.hide-sm-only,
+	tr.show-sm-up,
+	tr.hide-sm,
+	tr.hide-sm-down,
+	tr.show-md-only,
+	tr.show-md-up,
+	tr.show-md,
+	tr.show-md-down,
+	tr.hide-lg-only,
+	tr.hide-lg-up,
+	tr.hide-lg,
+	tr.show-lg-down {
+		display: table-row !important;
+	}
+
+	th.hide-sm-only,
+	td.hide-sm-only,
+	th.show-sm-up,
+	td.show-sm-up,
+	th.hide-sm,
+	td.hide-sm,
+	th.hide-sm-down,
+	td.hide-sm-down,
+	th.show-md-only,
+	td.show-md-only,
+	th.show-md-up,
+	td.show-md-up,
+	th.show-md,
+	td.show-md,
+	th.show-md-down,
+	td.show-md-down,
+	th.hide-lg-only,
+	td.hide-lg-only,
+	th.hide-lg-up,
+	td.hide-lg-up,
+	th.hide-lg,
+	td.hide-lg,
+	th.show-lg-down,
+	td.show-lg-down {
+		display: table-cell !important;
+	}
+}
+
+/* large displays */
+@media #{$large-up} {
+	.hide-sm-only,
+	.show-sm-up,
+	.hide-sm,
+	.hide-sm-down,
+	.hide-md-only,
+	.show-md-up,
+	.hide-md,
+	.hide-md-down,
+	.show-lg-only,
+	.show-lg-up,
+	.show-lg,
+	.show-lg-down {
+		display: inherit !important;
+	}
+
+	.show-sm-only,
+	.hide-sm-up,
+	.show-sm,
+	.show-sm-down,
+	.show-md-only,
+	.hide-md-up,
+	.show-md,
+	.show-md-down,
+	.hide-lg-only,
+	.hide-lg-up,
+	.hide-lg,
+	.hide-lg-down {
+		display: none !important;
+	}
+
+	table.hide-sm-only,
+	table.show-sm-up,
+	table.hide-sm,
+	table.hide-sm-down,
+	table.hide-md-only,
+	table.show-md-up,
+	table.hide-md,
+	table.hide-md-down,
+	table.show-lg-only,
+	table.show-lg-up,
+	table.show-lg,
+	table.show-lg-down {
+		display: table !important;
+	}
+
+	thead.hide-sm-only,
+	thead.show-sm-up,
+	thead.hide-sm,
+	thead.hide-sm-down,
+	thead.hide-md-only,
+	thead.show-md-up,
+	thead.hide-md,
+	thead.hide-md-down,
+	thead.show-lg-only,
+	thead.show-lg-up,
+	thead.show-lg,
+	thead.show-lg-down {
+		display: table-header-group !important;
+	}
+
+	tbody.hide-sm-only,
+	tbody.show-sm-up,
+	tbody.hide-sm,
+	tbody.hide-sm-down,
+	tbody.hide-md-only,
+	tbody.show-md-up,
+	tbody.hide-md,
+	tbody.hide-md-down,
+	tbody.show-lg-only,
+	tbody.show-lg-up,
+	tbody.show-lg,
+	tbody.show-lg-down {
+		display: table-row-group !important;
+	}
+
+	tr.hide-sm-only,
+	tr.show-sm-up,
+	tr.hide-sm,
+	tr.hide-sm-down,
+	tr.hide-md-only,
+	tr.show-md-up,
+	tr.hide-md,
+	tr.hide-md-down,
+	tr.show-lg-only,
+	tr.show-lg-up,
+	tr.show-lg,
+	tr.show-lg-down {
+		display: table-row !important;
+	}
+
+	th.hide-sm-only,
+	td.hide-sm-only,
+	th.show-sm-up,
+	td.show-sm-up,
+	th.hide-sm,
+	td.hide-sm,
+	th.hide-sm-down,
+	td.hide-sm-down,
+	th.hide-md-only,
+	td.hide-md-only,
+	th.show-md-up,
+	td.show-md-up,
+	th.hide-md,
+	td.hide-md,
+	th.hide-md-down,
+	td.hide-md-down,
+	th.show-lg-only,
+	td.show-lg-only,
+	th.show-lg-up,
+	td.show-lg-up,
+	th.show-lg,
+	td.show-lg,
+	th.show-lg-down,
+	td.show-lg-down {
+		display: table-cell !important;
+	}
+}
+
+@media #{$landscape} {
+	.show-landscape,
+	.hide-portrait {
+		display: inherit !important;
+	}
+
+	.hide-landscape,
+	.show-portrait {
+		display: none !important;
+	}
+}
+
+@media #{$portrait} {
+	.show-portrait,
+	.hide-landscape {
+		display: inherit !important;
+	}
+
+	.hide-portrait,
+	.show-landscape {
+		display: none !important;
+	}
+}
+
+// =============================================================================
+// Text Utility
+// =============================================================================
+
+// Font family
+// -----------------------------------------------------------------------------
+
+.sans-serif {
+	font-family: $font-family-sans-serif;
+}
+
+.serif {
+	font-family: $font-family-serif;
+}
+
+.kai {
+	font-family: $font-family-kai;
+}
+
+.monospace {
+	font-family: $font-family-monospace;
+}
+
+// Text color
+// -----------------------------------------------------------------------------
+
+.text-primary {
+	color: $global-primary;
+}
+
+.text-secondary {
+	color: $global-secondary;
+}
+
+.text-success {
+	color: $global-success;
+}
+
+.text-warning {
+	color: $global-warning;
+}
+
+.text-danger {
+	color: $global-danger;
+}
+
+.link-muted {
+	color: #666;
+	a {
+		color: #666;
+	}
+
+	&:hover,
+	& a:hover {
+		color: #555;
+	}
+}
+
+// Text size
+// -----------------------------------------------------------------------------
+
+.text-default {
+	font-size: $base-font-size;
+}
+
+/*
+.text-xxs {
+  font-size: $font-size-xxs;
+}
+*/
+
+.text-xs {
+	font-size: $font-size-xs;
+}
+
+.text-sm {
+	font-size: $font-size-sm;
+}
+
+.text-lg {
+	font-size: $font-size-lg;
+}
+
+.text-xl {
+	font-size: $font-size-xl;
+}
+
+.text-xxl {
+	font-size: $font-size-xxl;
+}
+
+.text-xxxl {
+	font-size: $font-size-xxxl;
+}
+
+// Text overflow
+// Requires inline-block or block for proper styling
+// =============================================================================
+
+.ellipsis,
+.text-truncate {
+	word-wrap: normal; /* for IE */
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.text-break {
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+
+.text-nowrap {
+	white-space: nowrap;
+}
+
+[class*='align-'] {
+	margin-bottom: 1rem;
+}
+
+.align-left {
+	margin-right: 1rem;
+	float: left;
+}
+
+.align-right {
+	margin-left: 1rem;
+	float: right;
+}
+
+/** Only display content to screen readers
+ * See: http://a11yproject.com/posts/how-to-hide-content/
+ */
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+/* Text Image Replacement */
+
+.text-ir {
+	@include text-hide();
+}
+
+/* Text align */
+
+// Text align mixin
+@mixin text-align-variant($point) {
+	.#{$point}text-left {
+		text-align: left !important;
+	}
+
+	.#{$point}text-right {
+		text-align: right !important;
+	}
+
+	.#{$point}text-center {
+		text-align: center !important;
+	}
+
+	.#{$point}text-justify {
+		text-align: justify !important;
+	}
+}
+
+@media #{$screen} {
+	@include text-align-variant("");
+}
+
+@media #{$small-only} {
+	@include text-align-variant(sm-only-);
+}
+
+@media #{$medium-only} {
+	@include text-align-variant(md-only-);
+}
+
+@media #{$medium-up} {
+	@include text-align-variant(md-);
+}
+
+@media #{$large-up} {
+	@include text-align-variant(lg-);
+}
+
+.text-top {
+	vertical-align: top !important;
+}
+
+.text-middle {
+	vertical-align: middle !important;
+}
+
+.text-bottom {
+	vertical-align: bottom !important;
+}
+
+// angle
+// ========================================================================
+
+.angle {
+	position: absolute;
+	@extend angle-base;
+}
+
+.angle-up {
+	top: 0;
+	@include angle-up-variant();
+}
+
+.angle-down {
+	@include angle-down-variant();
+}
+
+.angle-left {
+	@include angle-left-variant();
+}
+
+.angle-right {
+	@include angle-right-variant();
+}

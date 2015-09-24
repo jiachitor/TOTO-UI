@@ -5,12 +5,12 @@
 // -----------------------------------------------------------------------------
 @mixin form-field-validation($text-color: #555, $border-color: #ccc) {
   // the label and help text color
-  .ui-form-help,
-  .ui-form-label,
-  .ui-radio,
-  .ui-checkbox,
-  .ui-radio-inline,
-  .ui-checkbox-inline,
+  .form-help,
+  .form-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline,
   label {
     color: $text-color;
   }

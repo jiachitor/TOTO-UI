@@ -1,0 +1,84 @@
+// Name:                       Badge
+//
+// Description:                Define style for badges
+//
+// Component:                `.am-badge`
+//
+// Modifiers:                `.am-badge-primary`
+//                           `.am-badge-secondary`
+//                           `.am-badge-success`
+//                           `.am-badge-warning`
+//                           `.am-badge-danger`
+//
+// =============================================================================
+
+
+/* ==========================================================================
+   Component: Badge
+ ============================================================================ */
+
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 0.25em 0.625em;
+  font-size: $font-size-xs;
+  font-weight: $badge-font-weight;
+  color: $badge-color;
+  line-height: $badge-line-height;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
+  background-color: $badge-bg;
+  border-radius: $badge-border-radius;
+
+  &:empty {
+    display: none;
+  }
+
+  &.square {
+     border-radius: 0;
+  }
+
+  &.radius {
+    border-radius: $radius-normal;
+  }
+
+  &.round {
+    border-radius: $global-rounded;
+  }
+
+}
+
+// link badge
+a.badge {
+  &:hover,
+  &:focus {
+    color: $badge-link-hover-color;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+
+// Color modifier
+// =============================================================================
+
+.badge-primary {
+  background-color: $badge-primary-bg;
+}
+
+.badge-secondary {
+  background-color: $badge-secondary-bg;
+}
+
+.badge-success {
+  background-color: $badge-success-bg;
+}
+
+.badge-warning {
+  background-color: $badge-warning-bg;
+}
+
+.badge-danger {
+  background-color: $badge-danger-bg;
+}

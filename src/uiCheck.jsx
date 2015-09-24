@@ -31,8 +31,8 @@ class UICheck extends React.Component{
                     className={this.setClassNamespace('ucheck-checkbox')} standalone />
 
         <span className={this.setClassNamespace('ucheck-icons')}>
-          <i className="ui-icon-unchecked"></i>
-          <i className="ui-icon-checked"></i>
+          <i className="icon-unchecked"></i>
+          <i className="icon-checked"></i>
         </span>
 
                 {this.props.label}

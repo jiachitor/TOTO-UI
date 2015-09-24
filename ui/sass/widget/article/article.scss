@@ -15,21 +15,21 @@
    Component: Article
  ============================================================================ */
 
-.ui-article {
+.article {
 	@include clearfix();
 
 	& > :last-child {
 		margin-bottom: 0; // Remove margin from last-child
 	}
 
-	& + .ui-article {
+	& + .article {
 		margin-top: $article-margin-top;
 	}
 }
 
 /* Sub-object `.@{ns}article-title` */
 
-.ui-article-title {
+.article-title {
 	font-size: $article-title-font-size;
 	line-height: $article-title-line-height;
 	font-weight: $article-title-font-weight;
@@ -43,7 +43,7 @@
 
 /* Sub-object `.@{ns}article-meta` */
 
-.ui-article-meta {
+.article-meta {
 	font-size: $article-meta-font-size;
 	line-height: $article-meta-line-height;
 	color: $article-meta-color;
@@ -51,7 +51,7 @@
 
 /* Sub-object `.@{ns}article-lead` */
 
-.ui-article-lead {
+.article-lead {
 	color: $article-lead-color;
 	font-size: $article-lead-font-size;
 	line-height: $article-lead-line-height;
@@ -63,7 +63,7 @@
 
 /* Sub-object `.@{ns}article-divider` */
 
-.ui-article-divider {
+.article-divider {
 	margin-bottom: $article-divider-margin;
 	border-color: $article-divider-border;
 	* + & {
@@ -73,7 +73,7 @@
 
 /* Sub-object `.@{ns}article-bd` */
 
-.ui-article-bd {
+.article-bd {
 	blockquote {
 		font-family: $font-family-kai;
 	}

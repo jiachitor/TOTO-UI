@@ -3,11 +3,37 @@
 @import "mixins.scss";
 
 // Defaults
-@import "base.scss";
+@import "base.scss";          //基础配置
+
+//layout
+@import "grid.scss";          //网格
+@import "block-grid.scss";    //等分网格
 
 // Elements
-@import "code.scss";
-@import "button.scss";
-@import "table.scss";
-@import "form.scss";
-@import "image.scss";
+@import "code.scss";          //代码
+@import "button.scss";        //按钮
+@import "table.scss";         //表格
+@import "form.scss";          //表单
+@import "image.scss";         //图片， 暂时不用
+
+// Nav
+@import "navs.scss";          //导航
+@import "topbar.scss";        //导航条， 暂时不用
+@import "breadcrumb.scss";    //面包屑导航， 暂时不用
+@import "pagination.scss";    //分页
+
+
+// Common
+@import "animation.scss";
+@import "comment.scss";       //评论列表
+@import "button-group.scss";  //按钮组
+@import "close.scss";         //关闭按钮
+@import "icon.scss";          //图标
+@import "input-group.scss";   //输入框组
+@import "list.scss";          //列表
+@import "panel.scss";         //面板
+@import "progress.scss";      //进度条
+@import "thumbnail.scss";     //略缩图，暂时不用
+@import "utility.scss";       //辅助类
+
+

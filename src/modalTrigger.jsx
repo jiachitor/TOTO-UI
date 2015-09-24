@@ -54,7 +54,7 @@ class ModalTrigger extends React.Component{
     setModalStyle() {
 
         // TODO: selector
-        let modal = this.getOverlayDOMNode().querySelector('.ui-modal');
+        let modal = this.getOverlayDOMNode().querySelector('.modal');
 
         if (!modal) {
             return;

@@ -11,66 +11,6 @@
 //
 // =============================================================================
 
-// Table mixin
-// =============================================================================
-
-@mixin table-row-variant($state, $background, $border) {
-	// Exact selectors below required to override `.table-striped` and prevent
-	// inheritance to nested tables.
-	.table > thead > tr,
-	.table > tbody > tr,
-	.table > tfoot > tr {
-		> td.$state,
-		> th.$state,
-		&.$state > td,
-		&.$state > th {
-			background-color: $background;
-			border-color: $border;
-		}
-	}
-
-	// Hover states for `.table-hover`
-	// Note: this is not available for cells or rows within `thead` or `tfoot`.
-	.ui-table-hover > tbody > tr {
-		> td.$state:hover,
-		> th.$state:hover,
-		&.$state:hover > td,
-		&.$state:hover > th {
-			background-color: darken($background, 5%);
-			border-color: darken($border, 5%);
-		}
-	}
-}
-
-@mixin table-state-variant($state, $bg, $color) {
-	@if $color == '' {
-		> td.ui-
-		$state,
-	> th . ui- $state,
-	& . ui- $state > td,
-	& . ui- $state > th {
-		background-color: $bg;
-	}
-	} @else @if $bg == '' {
-		> td.ui-
-		$state,
-	> th . ui- $state,
-	& . ui- $state > td,
-	& . ui- $state > th {
-		color: $color;
-	}
-	} @else {
-		> td.ui-
-		$state,
-	> th . ui- $state,
-	& . ui- $state > td,
-	& . ui- $state > th {
-		color: $color;
-		background-color: $bg;
-	}
-	}
-}
-
 /* ==========================================================================
    Component: Table
  ============================================================================ */
@@ -89,7 +29,7 @@ th {
 	text-align: left;
 }
 
-.ui-table {
+.table {
 	width: 100%;
 	margin-bottom: $global-margin;
 	border-spacing: 0;
@@ -139,7 +79,7 @@ th {
 }
 
 /* Bordered version */
-.ui-table-bordered {
+.table-bordered {
 	border: 1px solid $table-border-color;
 
 	> thead,
@@ -160,7 +100,7 @@ th {
 
 /* Border-radius version */
 
-.ui-table-radius {
+.table-radius {
 	border: 1px solid $table-border-color;
 	// box-shadow: 0 0 1px $gray-light;
 	border-radius: $radius-normal;
@@ -215,7 +155,7 @@ th {
 
 /* Zebra-striping */
 
-.ui-table-striped > tbody > tr:nth-child(odd) {
+.table-striped > tbody > tr:nth-child(odd) {
 	> td,
 	> th {
 		background-color: $table-bg-striped;
@@ -224,7 +164,7 @@ th {
 
 /* Hover effect */
 
-.ui-table-hover > tbody > tr:hover {
+.table-hover > tbody > tr:hover {
 	> td,
 	> th {
 		background-color: $table-bg-hover;
@@ -234,7 +174,7 @@ th {
 // Modifiers: compact
 // =============================================================================
 
-.ui-table-compact {
+.table-compact {
 	> thead,
 	> tbody,
 	> tfoot {
@@ -250,9 +190,9 @@ th {
 // Modifiers: states
 // =============================================================================
 
-.ui-table > thead > tr,
-.ui-table > tbody > tr,
-.ui-table > tfoot > tr {
+.table > thead > tr,
+.table > tbody > tr,
+.table > tfoot > tr {
 	@include table-state-variant(active, $table-bg-active, '');
 	@include table-state-variant(disabled, '', $gray-light);
 	@include table-state-variant(primary, $table-primary-bg, $table-primary-color);

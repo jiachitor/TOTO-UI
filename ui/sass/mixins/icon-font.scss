@@ -5,7 +5,7 @@
 // 3. Align vertical to text
 // 4. Correct line-height
 // 5. Better font rendering in Webkit
-@mixin ui-icon-font() {
+@mixin icon-font() {
   display: inline-block; // 1
   font: normal normal normal $global-font-size/1 "FontAwesome", sans-serif; // shortening font declaration
   /*font-weight: normal; // 2

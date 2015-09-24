@@ -3,7 +3,7 @@
 // http://dropshado.ws/post/1015351370/webkit-line-clamp
 // -----------------------------------------------------------------------------
 
-@mixin ui-line-clamp($lines, $line-height: 1.3em) {
+@mixin line-clamp($lines, $line-height: 1.3em) {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;

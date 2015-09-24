@@ -1,0 +1,269 @@
+// Name:                     Panel
+//
+// Description:              Define style for panel
+//
+// Component:                `.am-panel`
+//
+// Sub-objects:              `.am-thumbnail-caption`
+//
+// Modifiers:                ``
+//
+// =============================================================================
+
+// Panel mixin
+// =============================================================================
+
+@mixin panel-variant($border, $hd-text-color, $hd-bg-color, $hd-border) {
+	border-color: $border;
+
+	& > .panel-hd {
+		color: $hd-text-color;
+		background-color: $hd-bg-color;
+		border-color: $hd-border;
+
+		+ .panel-collapse > .panel-bd {
+			border-top-color: $border;
+		}
+	}
+
+	& > .panel-footer {
+		+ .panel-collapse > .panel-bd {
+			border-bottom-color: $border;
+		}
+	}
+}
+
+/* ==========================================================================
+   Component: Panel
+ ============================================================================ */
+
+.panel {
+	margin-bottom: 20px;
+	background-color: $panel-bg;
+	border: 1px solid transparent;
+	border-radius: $panel-border-radius;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+/* Panel header */
+
+.panel-hd {
+	padding: $panel-hd-padding;
+	border-bottom: 1px solid transparent;
+	@include border-top-radius($panel-border-radius);
+}
+
+/* Panel content */
+
+.panel-bd {
+	padding: $panel-bd-padding;
+}
+
+// Panel hds(h1 - h6)
+.panel-title {
+	margin: 0;
+	font-size: 100%;
+	color: inherit;
+
+	> a {
+		color: inherit;
+	}
+}
+
+/* Panel footer */
+
+.panel-footer {
+	padding: $panel-footer-padding;
+	background-color: $panel-footer-bg;
+	border-top: 1px solid $panel-inner-border;
+	@include border-bottom-radius($panel-border-radius);
+}
+
+// Modifiers
+// =============================================================================
+
+.panel-default {
+	@include panel-variant($panel-default-bd,
+			$panel-default-text,
+			$panel-default-hd-bg,
+			$panel-default-bd);
+}
+
+.panel-primary {
+	@include panel-variant($panel-primary-bd,
+			$panel-primary-text,
+			$panel-primary-hd-bg,
+			$panel-primary-bd);
+}
+
+.panel-secondary {
+	@include panel-variant($panel-secondary-bd,
+			$panel-secondary-text,
+			$panel-secondary-hd-bg,
+			$panel-secondary-bd);
+}
+
+.panel-success {
+	@include panel-variant($panel-success-bd,
+			$panel-success-text,
+			$panel-success-hd-bg,
+			$panel-success-bd);
+}
+
+.panel-warning {
+	@include panel-variant($panel-warning-bd,
+			$panel-warning-text,
+			$panel-warning-hd-bg,
+			$panel-warning-bd);
+}
+
+.panel-danger {
+	@include panel-variant($panel-danger-bd,
+			$panel-danger-text,
+			$panel-danger-hd-bg,
+			$panel-danger-bd);
+}
+
+// Table in panel
+// A non-bordered `.table` in a panel
+// =============================================================================
+
+.panel {
+	> .table {
+		margin-bottom: 0;
+	}
+
+	// Border top radius for first one
+	> .table:first-child {
+		@include border-top-radius($panel-border-radius);
+
+		> thead:first-child,
+		> tbody:first-child {
+			> tr:first-child {
+				td:first-child,
+				th:first-child {
+					border-top-left-radius: ($panel-border-radius);
+				}
+
+				td:last-child,
+				th:last-child {
+					border-top-right-radius: ($panel-border-radius);
+				}
+			}
+		}
+	}
+
+	// Border bottom radius for last one
+	> .table:last-child {
+		@include border-bottom-radius($panel-border-radius);
+
+		> tbody:last-child,
+		> tfoot:last-child {
+			> tr:last-child {
+				td:first-child,
+				th:first-child {
+					border-bottom-left-radius: ($panel-border-radius);
+				}
+
+				td:last-child,
+				th:last-child {
+					border-bottom-right-radius: ($panel-border-radius);
+				}
+			}
+		}
+	}
+
+	> .panel-bd + .table {
+		border-top: 1px solid $table-border-color;
+	}
+
+	> .table > tbody:first-child > tr:first-child th,
+	> .table > tbody:first-child > tr:first-child td {
+		border-top: 0;
+	}
+
+	> .table-bd {
+		border: 0;
+		> thead,
+		> tbody,
+		> tfoot {
+			> tr {
+				> th:first-child,
+				> td:first-child {
+					border-left: 0;
+				}
+
+				> th:last-child,
+				> td:last-child {
+					border-right: 0;
+				}
+			}
+		}
+
+		> thead,
+		> tbody {
+			> tr:first-child {
+				> td,
+				> th {
+					border-bottom: 0;
+				}
+			}
+		}
+
+		> tbody,
+		> tfoot {
+			> tr:last-child {
+				> td,
+				> th {
+					border-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+/* Wrap list */
+
+.panel {
+	> .list {
+		margin: 0;
+		> li > a {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+	}
+
+	> .list-static li {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+}
+
+/* Panel group */
+
+.panel-group {
+	margin-bottom: $line-height-computed;
+
+	.panel {
+		margin-bottom: 0;
+		border-radius: $panel-border-radius;
+		+ .panel {
+			margin-top: 6px;
+		}
+	}
+
+	.panel-hd {
+		border-bottom: 0;
+		+ .panel-collapse .panel-bd {
+			border-top: 1px solid $panel-inner-border;
+		}
+	}
+
+	.panel-footer {
+		border-top: 0;
+		+ .panel-collapse .panel-bd {
+			border-bottom: 1px solid $panel-inner-border;
+		}
+	}
+}
+

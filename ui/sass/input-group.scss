@@ -1,0 +1,224 @@
+// Name:                     Input group
+//
+// Description:              Define style for input group
+//
+// Component:                `.am-input-group`
+
+// Sub-objects:              `.am-input-group-label`
+//                           `.am-input-group-btn`
+//
+// Modifiers:                `.am-input-group-lg`
+//                           `.am-input-group-sm`
+//                           `.am-input-group-primary`
+//                           `.am-input-group-secondary`
+//                           `.am-input-group-success`
+//                           `.am-input-group-warning`
+//                           `.am-input-group-danger`
+//
+// Uses:                     Form
+//                           Button
+//
+// Via:                      http://getbootstrap.com/components/#input-groups
+//
+// =============================================================================
+
+/* ==========================================================================
+   Component: Input group
+ ============================================================================ */
+
+.input-group {
+	position: relative;
+	display: table;
+	border-collapse: separate;
+
+	// reset padding and float for grid
+	&[class*="col-"] {
+		float: none;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.form-field {
+		position: relative;
+		z-index: 2;
+		float: left;
+		width: 100%;
+		margin-bottom: 0;
+	}
+}
+
+// Display as table-cell
+// =============================================================================
+
+.input-group-label,
+.input-group-btn,
+.input-group .form-field {
+	display: table-cell;
+
+	&:not(:first-child):not(:last-child) {
+		border-radius: 0;
+	}
+}
+
+// Input group text
+.input-group-label,
+.input-group-btn {
+	width: 1%;
+	white-space: nowrap;
+	vertical-align: middle; // Match the inputs
+}
+
+// Text input groups
+// =============================================================================
+
+.input-group-label {
+	padding: $input-padding 1em;
+	font-size: $form-font-size;
+	font-weight: normal;
+	line-height: 1.2;
+	color: $input-color;
+	text-align: center;
+	background-color: $input-group-label-bg;
+	border: 1px solid $input-group-label-border-color;
+	border-radius: $global-radius;
+
+	// Nuke default margins from checkboxes and radios to vertically center within.
+	input[type="radio"],
+	input[type="checkbox"] {
+		margin-top: 0;
+	}
+}
+
+// Reset rounded corners
+// =============================================================================
+
+.input-group .form-field:first-child,
+.input-group-label:first-child,
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > .dropdown-toggle,
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+	@include border-right-radius(0);
+}
+
+.input-group-label:first-child {
+	border-right: 0;
+}
+
+.input-group .form-field:last-child,
+.input-group-label:last-child,
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .dropdown-toggle,
+.input-group-btn:first-child > .btn:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+	@include border-left-radius(0);
+}
+
+.input-group-label:last-child {
+	border-left: 0;
+}
+
+// Button input groups
+// =============================================================================
+
+.input-group-btn {
+	position: relative;
+	// Jankily prevent input button groups from wrapping with `white-space` and
+	// `font-size` in combination with `inline-block` on buttons.
+	font-size: 0;
+	white-space: nowrap;
+
+	// Negative margin for spacing, position for bringing hovered/focused/actived
+	// element above the siblings.
+	> .btn {
+		position: relative;
+		border-color: $input-border;
+		+ .btn {
+			margin-left: -1px;
+		}
+		// Bring the "active" button to the front
+		&:hover,
+		&:focus,
+		&:active {
+			z-index: 2;
+		}
+	}
+
+	// Negative margin to only have a 1px border between the two
+	&:first-child {
+		> .btn,
+		> .btn-group {
+			margin-right: -2px;
+		}
+	}
+
+	&:last-child {
+		> .btn,
+		> .btn-group {
+			margin-left: -1px;
+		}
+	}
+}
+
+// Modifiers - sizing
+// =============================================================================
+
+.input-group-lg > .form-field,
+.input-group-lg > .input-group-label,
+.input-group-lg > .input-group-btn > .btn {
+	$padding-v: unit(ceil(0.625 * 10 * $form-font-size-lg));
+	$padding-h: unit(10 * $form-font-size-lg);
+
+	padding: #{$padding-v}px #{$padding-h}px !important;
+	font-size: $form-font-size-lg !important;
+}
+
+.input-group-sm > .form-field,
+.input-group-sm > .input-group-label,
+.input-group-sm > .input-group-btn > .btn {
+	$padding-v: unit(ceil(0.625 * 10 * $form-font-size-sm));
+	$padding-h: unit(10 * $form-font-size-sm);
+
+	padding: #{$padding-v}px #{$padding-h}px !important;
+	font-size: $form-font-size-sm !important;
+}
+
+// Modifiers - colors
+// =============================================================================
+
+@mixin input-group-color-variant($bg: $btn-primary-bg, $color: $btn-primary-color, $border: $btn-primary-border) {
+	.input-group-label {
+		background: $bg;
+		color: $color;
+	}
+
+	.input-group-label,
+	.input-group-btn > .btn,
+	&.input-group .form-field {
+		// dirty way to fix border-color doesn't work within `.am-form`: add &.input-group
+		border-color: $border;
+	}
+}
+
+.input-group-primary {
+	@include input-group-color-variant();
+}
+
+.input-group-secondary {
+	@include input-group-color-variant($btn-secondary-bg, $btn-secondary-color, $btn-secondary-border);
+}
+
+.input-group-success {
+	@include input-group-color-variant($btn-success-bg, $btn-success-color, $btn-success-border);
+}
+
+.input-group-warning {
+	@include input-group-color-variant($btn-warning-bg, $btn-warning-color, $btn-warning-border);
+}
+
+.input-group-danger {
+	@include input-group-color-variant($btn-danger-bg, $btn-danger-color, $btn-danger-border);
+}
+

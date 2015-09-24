@@ -163,7 +163,7 @@ class Tabs extends React.Component {
         return (
             <div
                 {...props}
-                data-ui-widget={this.props.theme ? this.props.classPrefix : null}
+                data-widget={this.props.theme ? this.props.classPrefix : null}
                 className={classNames(classSet, this.props.className)}>
                 {children}
             </div>

@@ -1,0 +1,323 @@
+// Name:                     Animation
+//
+// Description:              Useful CSS3 animations
+//
+// Component:                `.animation-*`
+//
+// Modifiers:                `.animation-fade`
+//                           `.animation-scale-up`
+//                           `.animation-scale-down`
+//                           `.animation-slide-top`
+//                           `.animation-slide-bottom`
+//                           `.animation-slide-left`
+//                           `.animation-slide-right`
+//                           `.animation-slide-shake`
+//                           `.animation-reverse`
+//                           `.animation-delay-*`
+//
+// Used by:                   Dropdown
+//
+// =============================================================================
+
+/* Keyframes
+ ============================================================================ */
+@mixin keyframes($animation-name) {
+	@-webkit-keyframes $animation-name {
+		@content;
+	}
+	@-moz-keyframes $animation-name {
+		@content;
+	}
+	@keyframes $animation-name {
+		@content;
+	}
+}
+
+// 使用说明： @include animation('slide-down 5s');
+@mixin animation($str) {
+	-webkit-animation: #{$str};
+}
+
+/* Fade */
+@include keyframes(fade) {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* Scale up */
+@include keyframes(scale-up) {
+	0% {
+		opacity: 0;
+		transform: scale(0.2);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* Scale down */
+@include keyframes(scale-down) {
+	0% {
+		opacity: 0;
+		transform: scale(1.8);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* Slide top */
+@include keyframes(slide-top) {
+	0% {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Slide bottom */
+@include keyframes(slide-bottom) {
+	0% {
+		opacity: 0;
+		transform: translateY(100%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Slide left */
+@include keyframes(slide-left) {
+	0% {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Slide right */
+@include keyframes(slide-right) {
+	0% {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Shake */
+@include keyframes(shake) {
+	0%, 100% {
+		transform: translateX(0);
+	}
+	10% {
+		transform: translateX(-9px);
+	}
+	20% {
+		transform: translateX(8px);
+	}
+	30% {
+		transform: translateX(-7px);
+	}
+	40% {
+		transform: translateX(6px);
+	}
+	50% {
+		transform: translateX(-5px);
+	}
+	60% {
+		transform: translateX(4px);
+	}
+	70% {
+		transform: translateX(-3px);
+	}
+	80% {
+		transform: translateX(2px);
+	}
+	90% {
+		transform: translateX(-1px);
+	}
+}
+
+/* Slide top fixed */
+@include keyframes(slide-top-fixed) {
+	0% {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Slide bottom fixed */
+@include keyframes(slide-bottom-fixed) {
+	0% {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Spin */
+@include keyframes(spin) {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(359deg);
+	}
+}
+
+/* Spring */
+@include keyframes(right-spring) {
+	0% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(-20%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@include keyframes(left-spring) {
+	0% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(20%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+
+
+/* ==========================================================================
+   Component: Aniamtion
+ ============================================================================ */
+
+[class*="animation-"] {
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+/* Hide animated element if scrollSpy is used */
+@media screen {
+  .cssanimations [data-scrollspy*="animation"] {
+    opacity: 0;
+  }
+}
+
+/* Fade */
+.animation-fade {
+  animation-name: fade;
+  animation-duration: 0.8s;
+  animation-timing-function: linear;
+}
+
+/* Scale */
+
+.animation-scale-up {
+  animation-name: scale-up;
+}
+
+.animation-scale-down {
+  animation-name: scale-down;
+}
+
+/* Slide */
+.animation-slide-top {
+  animation-name: slide-top;
+}
+
+.animation-slide-bottom {
+  animation-name: slide-bottom;
+}
+
+.animation-slide-left {
+  animation-name: slide-left;
+}
+
+.animation-slide-right {
+  animation-name: slide-right;
+}
+
+.animation-slide-top-fixed {
+  animation-name: slide-top-fixed;
+}
+
+/* Shake */
+.animation-shake {
+  animation-name: shake;
+}
+
+/* Spin */
+.animation-spin {
+  animation: spin 2s infinite linear;
+}
+
+/* Spring */
+.animation-left-spring {
+  animation: left-spring .3s ease-in-out;
+}
+
+.animation-right-spring {
+  animation: right-spring .3s ease-in-out;
+}
+
+// Modifiers
+// =============================================================================
+.animation-reverse {
+  animation-direction: reverse;
+}
+
+.animation-paused {
+  animation-play-state: paused !important;
+}
+
+@mixin variant-animation-delay($delay: 5) {
+  .animation-delay-#{$delay} {
+    animation-delay: #{$delay}s;
+  }
+}
+
+@include variant-animation-delay(1);
+@include variant-animation-delay(2);
+@include variant-animation-delay(3);
+@include variant-animation-delay(4);
+@include variant-animation-delay(5);
+@include variant-animation-delay(6);
+
+

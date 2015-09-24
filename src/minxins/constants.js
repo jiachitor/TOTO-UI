@@ -1,6 +1,6 @@
 'use strict';
 
-const NAMESPACE = 'ui';
+const NAMESPACE = false;
 let setNamespace = function(className) {
     return (NAMESPACE ? NAMESPACE + '-' : '') + className;
 };

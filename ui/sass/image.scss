@@ -16,7 +16,7 @@
 
 /* Image thumbnails */
 
-.ui-img-thumbnail {
+.img-thumbnail {
   // Keep them at most 100% wide
   display: inline-block;
   max-width: 100%;
@@ -28,13 +28,13 @@
   border-radius: $img-thumbnail-bd-radius;
   transition: all .2s ease-in-out;
 
-  &.ui-radius {
+  &.radius {
     border-radius: $radius-normal;
   }
 
 }
 
-.ui-img-responsive {
+.img-responsive {
   display: block;
   max-width: 100%;
   height: auto;

@@ -1,7 +1,7 @@
 var dest = './build',
     src = './src',
-    modulesList = ['article','avgGrid','badge','button','dateTimePicker','dropdown','demo','form','goTop','header','icon','list','listNews','menu','modal','nav','navbar','table','tabs','tabsimple','pagination','selected','uiCheck'],
-    modulesNow = ['article'],
+    modulesList = ['article','avgGrid','badge','button','dateTimePicker','dropdown','demo','form','grid','goTop','header','icon','list','listNews','menu','modal','nav','navbar','table','tabs','tabsimple','pagination','selected','uiCheck'],
+    modulesNow = ['grid'],
     mui = './node_modules/material-ui/src';
 
 //browserify

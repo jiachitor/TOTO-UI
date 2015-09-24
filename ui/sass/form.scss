@@ -101,23 +101,23 @@ output {
 
 /* Common form controls */
 
-.ui-form select,
-.ui-form textarea,
-.ui-form input[type="text"],
-.ui-form input[type="password"],
-.ui-form input[type="datetime"],
-.ui-form input[type="datetime-local"],
-.ui-form input[type="date"],
-.ui-form input[type="month"],
-.ui-form input[type="time"],
-.ui-form input[type="week"],
-.ui-form input[type="number"],
-.ui-form input[type="email"],
-.ui-form input[type="url"],
-.ui-form input[type="search"],
-.ui-form input[type="tel"],
-.ui-form input[type="color"],
-.ui-form-field {
+.orm select,
+.form textarea,
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="datetime"],
+.form input[type="datetime-local"],
+.form input[type="date"],
+.form input[type="month"],
+.form input[type="time"],
+.form input[type="week"],
+.form input[type="number"],
+.form input[type="email"],
+.form input[type="url"],
+.form input[type="search"],
+.form input[type="tel"],
+.form input[type="color"],
+.form-field {
 	display: block;
 	width: 100%;
 	padding: $input-padding;
@@ -155,16 +155,16 @@ output {
 
 	}
 
-	&.ui-radius {
+	&.radius {
 		border-radius: $radius-normal;
 	}
 
-	&.ui-round {
+	&.round {
 		border-radius: $global-rounded;
 	}
 }
 
-.ui-form {
+.form {
 	// Reset height for block field
 	textarea,
 	select[multiple],
@@ -186,7 +186,7 @@ output {
 
 /* help text */
 
-.ui-form-help {
+.form-help {
 	display: block;
 	margin-top: 5px;
 	margin-bottom: 10px;
@@ -196,13 +196,13 @@ output {
 
 /* form group */
 
-.ui-form-group {
+.form-group {
 	margin-bottom: 1.5rem;
 }
 
 /* file field */
 
-.ui-form-file {
+.form-file {
 	position: relative;
 	overflow: hidden;
 
@@ -223,8 +223,8 @@ output {
  * Indent the labels to position radios/checkboxes as hanging controls.
 */
 
-.ui-radio,
-.ui-checkbox {
+.radio,
+.checkbox {
 	display: block;
 	min-height: $form-font-size * $form-line-height;
 	margin-top: 10px;
@@ -239,24 +239,24 @@ output {
 	}
 }
 
-.ui-radio input[type="radio"],
-.ui-radio-inline input[type="radio"],
-.ui-checkbox input[type="checkbox"],
-.ui-checkbox-inline input[type="checkbox"] {
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
 	float: left;
 	margin-left: -20px;
 	outline: none;
 }
 
-.ui-radio + .ui-radio,
-.ui-checkbox + .ui-checkbox {
+.radio + .radio,
+.checkbox + .checkbox {
 	margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
 }
 
 /* Radios and checkboxes inline */
 
-.ui-radio-inline,
-.ui-checkbox-inline {
+.radio-inline,
+.checkbox-inline {
 	display: inline-block;
 	padding-left: 20px;
 	margin-bottom: 0;
@@ -265,8 +265,8 @@ output {
 	cursor: pointer;
 }
 
-.ui-radio-inline + .ui-radio-inline,
-.ui-checkbox-inline + .ui-checkbox-inline {
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
 	margin-top: 0;
 	margin-left: 10px; // space out consecutive inline controls
 }
@@ -276,10 +276,10 @@ output {
 // Note: Neither radios nor checkboxes can be readonly.
 input[type="radio"],
 input[type="checkbox"],
-.ui-radio,
-.ui-radio-inline,
-.ui-checkbox,
-.ui-checkbox-inline {
+.radio,
+.radio-inline,
+.checkbox,
+.checkbox-inline {
 	&[disabled],
 	fieldset[disabled] & {
 		cursor: not-allowed;
@@ -289,58 +289,58 @@ input[type="checkbox"],
 /* Form field feedback states */
 
 // Warning
-.ui-form-warning {
-	@include form-field-validation($state-warning-text;
-	$state-warning-text);
-	.ui-form-field {
-		@include form-field-validation-filed ($state-warning-text;
-		$state-warning-text);
+.form-warning {
+	@include form-field-validation($state-warning-text,
+			$state-warning-text);
+	.form-field {
+		@include form-field-validation-filed ($state-warning-text,
+				$state-warning-text);
 	}
 }
 
 // Error
-.ui-form-error {
-	@include form-field-validation($state-danger-text;
-	$state-danger-text);
+.form-error {
+	@include form-field-validation($state-danger-text,
+			$state-danger-text);
 }
 
-.ui-form-error .ui-form-field,
-.ui-field-error {
-	@include form-field-validation-filed($state-danger-text;
-	$state-danger-text);
+.form-error .form-field,
+.field-error {
+	@include form-field-validation-filed($state-danger-text,
+			$state-danger-text);
 }
 
 // Success
-.ui-form-success {
-	@include form-field-validation($state-success-text;
-	$state-success-text);
+.form-success {
+	@include form-field-validation($state-success-text,
+			$state-success-text);
 }
 
-.ui-form-success .ui-form-field,
-.ui-field-valid {
-	@include form-field-validation-filed($state-success-text;
-	$state-success-text);
+.form-success .form-field,
+.field-valid {
+	@include form-field-validation-filed($state-success-text,
+			$state-success-text);
 }
 
 /* Horizontal forms */
 
-.ui-form-horizontal {
-	.ui-form-label,
-	.ui-radio,
-	.ui-checkbox,
-	.ui-radio-inline,
-	.ui-checkbox-inline {
+.form-horizontal {
+	.form-label,
+	.radio,
+	.checkbox,
+	.radio-inline,
+	.checkbox-inline {
 		margin-top: 0;
 		margin-bottom: 0;
 		padding-top: 0.6em;
 	}
 
-	.ui-form-group {
+	.form-group {
 		@include clearfix ();
 	}
 
-	$media $medium-up {
-	.ui-form-label {
+	@media #{$medium-up} {
+	.form-label {
 		text-align: right;
 	}
 }
@@ -349,45 +349,45 @@ input[type="checkbox"],
 
 /* Inline form elements */
 
-.ui-form-inline {
-	$media $medium-up {
-	.ui-form-group {
+.form-inline {
+	@media #{$medium-up} {
+	.form-group {
 		display: inline-block;
 		margin-bottom: 0;
 		vertical-align: middle;
 	}
 
-	.ui-form-field {
+	.form-field {
 		display: inline-block;
 		width: auto;
 		vertical-align: middle;
 	}
 
-	.ui-input-group {
+	.input-group {
 		display: inline-table;
 		vertical-align: middle;
 
-		.ui-input-group-label,
-		.ui-input-group-btn,
-		.ui-form-label {
+		.input-group-label,
+		.input-group-btn,
+		.form-label {
 			width: auto;
 		}
 	}
 
 	// Input groups need that 100% width though
-	.ui-input-group > .ui-form-field {
+	.input-group > .form-field {
 		width: 100%;
 	}
 
-	.ui-form-label {
+	.form-label {
 		margin-bottom: 0;
 		vertical-align: middle;
 	}
 
 	// Remove default margin on radios/checkboxes that were used for stacking, and
 	// then undo the floating of radios and checkboxes to match (which also avoids
-	.ui-radio,
-	.ui-checkbox {
+	.radio,
+	.checkbox {
 		display: inline-block;
 		margin-top: 0;
 		margin-bottom: 0;
@@ -395,8 +395,8 @@ input[type="checkbox"],
 		vertical-align: middle;
 	}
 
-	.ui-radio input[type="radio"],
-	.ui-checkbox input[type="checkbox"] {
+	.radio input[type="radio"],
+	.checkbox input[type="checkbox"] {
 		float: none;
 		margin-left: 0;
 	}
@@ -406,28 +406,28 @@ input[type="checkbox"],
 
 /* Form field size */
 
-.ui-input-sm {
+.input-sm {
 	font-size: $form-font-size-sm !important;
 }
 
-.ui-input-lg {
+.input-lg {
 	font-size: $form-font-size-lg !important;
 }
 
-.ui-form-group-sm {
-	.ui-checkbox,
-	.ui-radio,
-	.ui-form-label,
-	.ui-form-field {
+.form-group-sm {
+	.checkbox,
+	.radio,
+	.form-label,
+	.form-field {
 		font-size: $form-font-size-sm !important;
 	}
 }
 
-.ui-form-group-lg {
-	.ui-checkbox,
-	.ui-radio,
-	.ui-form-label,
-	.ui-form-field {
+.form-group-lg {
+	.checkbox,
+	.radio,
+	.form-label,
+	.form-field {
 		font-size: $form-font-size-lg !important;
 	}
 
@@ -439,15 +439,15 @@ input[type="checkbox"],
 
 /* Form field feedback states */
 
-.ui-form-icon {
+.form-icon {
 	position: relative;
 
-	.ui-form-field {
+	.form-field {
 		padding-left: $input-padding + 1.25 !important;
 	}
 
 	// form-group without label
-	[class*='ui-icon-'] {
+	[class*='icon-'] {
 		position: absolute;
 		left: $input-padding;
 		top: 50%;
@@ -458,7 +458,7 @@ input[type="checkbox"],
 	}
 
 	// form-group with label
-	label ~ [class*='ui-icon-'] {
+	label ~ [class*='icon-'] {
 		top: 70%;
 	}
 
@@ -466,20 +466,20 @@ input[type="checkbox"],
 
 /* Feedback Icon */
 
-.ui-form-feedback {
+.form-feedback {
 	position: relative;
 
-	.ui-form-field {
+	.form-field {
 		padding-left: $input-padding !important;
 		padding-right: $input-padding + 1.25 !important;
 	}
 
-	[class*='ui-icon-'] {
+	[class*='icon-'] {
 		right: $input-padding;
 		left: auto;
 
 		// with label & horizontal mode
-		.ui-form-horizontal & {
+		.form-horizontal & {
 			right: $input-padding + 1.1;
 		}
 	}
@@ -488,7 +488,7 @@ input[type="checkbox"],
 
 /* Form set */
 
-.ui-form-set {
+.form-set {
 	margin-bottom: 1.5rem;
 	padding: 0;
 	> input {
@@ -506,7 +506,7 @@ input[type="checkbox"],
 
 		&:last-child {
 			top: -2px;
-			@include border-bottom-radius ($input-border-radius !important );
+			@include border-bottom-radius ($input-border-radius !important);
 		}
 	}
 }
