@@ -3,7 +3,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import ClassNameMixin from './minxins/ClassNameMixin';
-import PaginationItem from './paginationItem.jsx';
+import PaginationItem from './minxins/paginationItem.jsx';
 
 class Pagination extends React.Component {
     constructor(props) {

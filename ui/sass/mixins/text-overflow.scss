@@ -1,8 +1,10 @@
 // Text overflow
 // Requires inline-block or block for proper styling
 
-@mixin text-overflow() {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+@mixin text-overflow($display: block) {
+	display: $display;
+	word-wrap: normal; /* for IE */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }

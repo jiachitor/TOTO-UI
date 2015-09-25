@@ -12,6 +12,14 @@ class Main extends React.Component{
     }
     render() {
 
+        /*
+        * Form 相关元素封装了以下组件：
+
+         <Form>
+         <Input>
+         <FormGroup>
+        * */
+
         //基本使用
         var formInstance1 = (
             <form className="ui-form" target="_blank">

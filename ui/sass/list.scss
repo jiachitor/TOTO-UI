@@ -87,6 +87,9 @@
 	&.list-border {
 		> li {
 			padding: 1rem;
+			a{
+				padding: 0;
+			}
 		}
 	}
 }

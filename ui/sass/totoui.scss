@@ -14,14 +14,13 @@
 @import "button.scss";        //按钮
 @import "table.scss";         //表格
 @import "form.scss";          //表单
-@import "image.scss";         //图片， 暂时不用
+@import "image.scss";         //图片
 
 // Nav
 @import "navs.scss";          //导航
 @import "topbar.scss";        //导航条， 暂时不用
 @import "breadcrumb.scss";    //面包屑导航， 暂时不用
 @import "pagination.scss";    //分页
-
 
 // Common
 @import "animation.scss";
@@ -36,4 +35,5 @@
 @import "thumbnail.scss";     //略缩图，暂时不用
 @import "utility.scss";       //辅助类
 
-
+// JavaScript Plugins
+@import "ui.component.scss";
