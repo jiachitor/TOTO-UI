@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import classNames from 'classnames';
+//import classNames from 'classnames';
 import CSSCore from './utils/CSSCore';
 import ClassNameMixin from './minxins/ClassNameMixin';
 import ButtonGroup from './buttonGroup.jsx';
@@ -16,21 +16,21 @@ class ButtonCheck extends React.Component {
     }
 
     handleClick(e) {
-        var changed = true;
-        var target = e.target;
-        var activeClassName = constants.CLASSES.active;
+        let changed = true;
+        let target = e.target;
+        let activeClassName = constants.CLASSES.active;
 
         if (target && target.nodeName === 'INPUT') {
-            var parent = target.parentNode;
+            let parent = target.parentNode;
 
             if (target.type === 'radio') {
                 if (target.checked && CSSCore.hasClass(parent, activeClassName)) {
                     changed = false;
                 } else {
-                    var siblings = parent.parentNode.children;
+                    let siblings = parent.parentNode.children;
 
                     // remove siblings activeClassName
-                    for (var i = 0; i < siblings.length; i++) {
+                    for (let i = 0; i < siblings.length; i++) {
                         (siblings[i] !== parent) &&
                         CSSCore.removeClass(siblings[i], activeClassName);
                     }
@@ -60,12 +60,11 @@ class ButtonCheck extends React.Component {
 ButtonCheck.displayName = "ButtonCheck";
 
 ButtonCheck.propTypes = {
-    clickHandler: React.PropTypes.func
+    clickHandler: React.PropTypes.func,
 };
 
 ButtonCheck.defaultProps = {
-    clickHandler: function () {
-    }
+    clickHandler: function () {},
 };
 
 module.exports = ButtonCheck;

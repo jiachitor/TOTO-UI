@@ -21,23 +21,6 @@
 
 /* Keyframes
  ============================================================================ */
-@mixin keyframes($animation-name) {
-	@-webkit-keyframes $animation-name {
-		@content;
-	}
-	@-moz-keyframes $animation-name {
-		@content;
-	}
-	@keyframes $animation-name {
-		@content;
-	}
-}
-
-// 使用说明： @include animation('slide-down 5s');
-@mixin animation($str) {
-	-webkit-animation: #{$str};
-}
-
 /* Fade */
 @include keyframes(fade) {
 	0% {

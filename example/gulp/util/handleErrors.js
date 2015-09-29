@@ -11,5 +11,5 @@ module.exports = function() {
   }).apply(this, args);
 
   // Keep gulp from hanging on this task
-  this.emit('end');
+  this.emit('finish');
 };

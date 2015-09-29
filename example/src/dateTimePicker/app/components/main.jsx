@@ -14,7 +14,7 @@ class Main extends React.Component{
                 <DateTimeInput dateTime="2015-05-20 12:12" />
             </div>
         );
-
+        console.log(22222333)
 
         var DateTimeInputInstance2 = (
             <div>

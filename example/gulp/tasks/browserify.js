@@ -6,6 +6,7 @@ var handleErrors = require('../util/handleErrors');
 var source = require('vinyl-source-stream');
 var browserify_config = require('../config').browserify;
 var babelify = require('babelify');
+var notify = require('gulp-notify');
 
 gulp.task('browserify', function (callback) {
 
@@ -38,7 +39,8 @@ gulp.task('browserify', function (callback) {
                 .pipe(source(bundleConfig.outputName))
                 // Specify the output destination
                 .pipe(gulp.dest(bundleConfig.dest))
-                .on('end', reportFinished);
+                //注意这里的'finish'
+                .on('finish', reportFinished);
         };
 
         bundler.transform(babelify.configure({stage: 1}));

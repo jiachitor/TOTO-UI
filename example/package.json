@@ -10,9 +10,11 @@
     "start": "gulp watch"
   },
   "devDependencies": {
-    "babelify": "^6.1.2",
+    "babelify": "^6.3.0",
     "browser-sync": "^1.8.1",
-    "browserify": "^7.0.3",
+    "browserify": "^11.2.0",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-sass": "^2.1.0-beta",
     "gulp-minify-css": "^1.2.0",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
@@ -23,13 +25,12 @@
     "pretty-hrtime": "^0.2.2",
     "require-dir": "^0.1.0",
     "underscore": "^1.7.0",
-    "vinyl-source-stream": "^1.0.0",
-    "watchify": "^2.2.1"
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
   },
   "dependencies": {
-    "gulp-sass": "^2.0.4",
+    "gulp-notify": "^2.2.0",
     "object.omit": "^2.0.0",
-    "react": ">=0.13",
     "react-tap-event-plugin": "^0.1.7"
   }
 }

@@ -15,7 +15,7 @@ class Panel extends React.Component {
             this[c] = CollapseMixin[c].bind(this);
         }
         this.state = {
-            expanded: true
+            expanded: true,
         };
 
         this.handleToggle = this.handleToggle.bind(this);
@@ -87,7 +87,7 @@ class Panel extends React.Component {
 
         function getProps() {
             return {
-                key: bodyElements.length
+                key: bodyElements.length,
             };
         }
 

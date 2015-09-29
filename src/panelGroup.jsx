@@ -12,7 +12,7 @@ class PanelGroup extends React.Component {
         }
 
         this.state = {
-            activeKey: this.props.defaultActiveKey
+            activeKey: this.props.defaultActiveKey,
         };
 
         this.shouldComponentUpdate = this.shouldComponentUpdate.bind(this);
@@ -37,18 +37,18 @@ class PanelGroup extends React.Component {
         }
 
         this.setState({
-            activeKey: key
+            activeKey: key,
         });
     }
 
     renderPanel(child, index) {
-        var activeKey = this.props.activeKey != null ?
+        let activeKey = this.props.activeKey != null ?
             this.props.activeKey : this.state.activeKey;
 
-        var props = {
+        let props = {
             amStyle: child.props.amStyle || this.props.amStyle,
             key: child.key ? child.key : index,
-            ref: child.ref
+            ref: child.ref,
         };
 
         if (this.props.accordion) {

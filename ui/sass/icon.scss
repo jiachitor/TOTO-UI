@@ -2330,18 +2330,6 @@ $fa-li-width: (30em / 14);
 
 /* Modifier: `icon-spin`
 ============================================================================= */
-@mixin keyframes($animation-name) {
-	@-webkit-keyframes $animation-name {
-		@content;
-	}
-	@-moz-keyframes $animation-name {
-		@content;
-	}
-	@keyframes $animation-name {
-		@content;
-	}
-}
-
 @include keyframes(icon-spin) {
 	0% {
 		transform: rotate(0deg);

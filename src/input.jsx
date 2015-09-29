@@ -39,7 +39,7 @@ class Input extends React.Component {
     getFieldDOMNode() {
         return React.findDOMNode(this.refs.field);
     }
-
+    /*.0.0.1.0.0.$field .0.0.1.0.0.$field*/
     getValue() {
         if (this.props.type === 'select' && this.props.multiple) {
             return this.getSelectedOptions();
@@ -89,7 +89,6 @@ class Input extends React.Component {
         }
 
         let classes = classNames(this.props.className, fieldClassName, classSet);
-
         switch (this.props.type) {
             case 'select':
                 input = (

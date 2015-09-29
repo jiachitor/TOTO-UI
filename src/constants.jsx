@@ -1,7 +1,7 @@
 'use strict';
 
-var NAMESPACE = false;
-var setNamespace = function(className) {
+let NAMESPACE = false;
+let setNamespace = function(className) {
     return (NAMESPACE ? NAMESPACE + '-' : '') + className;
 };
 
@@ -18,7 +18,7 @@ module.exports = {
         divider: setNamespace('divider'),
         cf: setNamespace('cf'),
         fl: setNamespace('fl'),
-        fr: setNamespace('fr')
+        fr: setNamespace('fr'),
     },
 
     STYLES: {
@@ -27,10 +27,11 @@ module.exports = {
         secondary: 'secondary',
         success: 'success',
         warning: 'warning',
-        danger: 'danger'
+        danger: 'danger',
     },
 
     SIZES: {
-
-    }
+        test:'',
+    },
 };
+

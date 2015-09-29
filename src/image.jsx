@@ -46,8 +46,7 @@ Image.propTypes = {
 };
 
 Image.defaultProps = {
-    clickHandler: function () {
-    }
+    clickHandler: function () {},
 };
 
 module.exports = Image;

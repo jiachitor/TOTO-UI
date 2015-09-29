@@ -27,7 +27,7 @@ class Main extends React.Component{
 
         var articleInstance1 = (
             <Article
-                title="永远的蝴蝶2222 33 44"
+                title="永远的蝴蝶2"
                 meta="陈启佑（台湾） | xx 年 xx 月">
                 <ArticleChild role="lead">
                     《永远的蝴蝶》是台湾著名作家陈启佑先生的一篇小小说。这是一篇散文化的微型小说，其语言具有较强的抒情色彩，立意含蓄隽永
