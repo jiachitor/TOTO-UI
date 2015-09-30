@@ -182,23 +182,23 @@ $breakpoint-xxl-max:          $breakpoint-xxl;
 
 $screen:        "only screen";
 
-$landscape:     $screen and (orientation: landscape);
-$portrait:      $screen and (orientation: portrait);
+$landscape:     '#{$screen} and (orientation: landscape)';
+$portrait:      '#{$screen} and (orientation: portrait)';
 
-$small-up:      $screen;
-$small-only:    $screen and (max-width: $breakpoint-small-max);
+$small-up:      '#{$screen}';
+$small-only:    '#{$screen} and (max-width:#{$breakpoint-small-max})';
 
-$medium-up:     $screen and (min-width:$breakpoint-medium-min);
-$medium-only:   $screen and (min-width:$breakpoint-medium-min) and (max-width:$breakpoint-medium-max);
+$medium-up:     '#{$screen} and (min-width:#{$breakpoint-medium-min})';
+$medium-only:   '#{$screen} and (min-width:#{$breakpoint-medium-min}) and (max-width:#{$breakpoint-medium-max})';
 
-$large-up:      $screen and (min-width:$breakpoint-large-min);
-$large-only:    $screen and (min-width:$breakpoint-large-min) and (max-width:$breakpoint-large-max);
+$large-up:      '#{$screen} and (min-width:#{$breakpoint-large-min})';
+$large-only:    '#{$screen} and (min-width:#{$breakpoint-large-min}) and (max-width:#{$breakpoint-large-max})';
 
-$xl-up:         $screen and (min-width:$breakpoint-xl-min);
-$xl-only:       $screen and (min-width:$breakpoint-xl-min) and (max-width:$breakpoint-xl-max);
+$xl-up:         '#{$screen} and (min-width:#{$breakpoint-xl-min})';
+$xl-only:       '#{$screen} and (min-width:#{$breakpoint-xl-min}) and (max-width:#{$breakpoint-xl-max})';
 
-$xxl-up:        $screen and (min-width:$breakpoint-xxl-min);
-$xxl-only:      $screen and (min-width:$breakpoint-xxl-min) and (max-width:$breakpoint-xxl-max);
+$xxl-up:        '#{$screen} and (min-width:#{$breakpoint-xxl-min})';
+$xxl-only:      '#{$screen} and (min-width:#{$breakpoint-xxl-min}) and (max-width:#{$breakpoint-xxl-max})';
 
 
 // Grid system

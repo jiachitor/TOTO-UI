@@ -13,7 +13,9 @@ let CollapseMixin = {
     //    expanded: React.PropTypes.bool
     //},
 
-    getInitialState: function () {
+
+    //ES6 不支持 getInitialState ，所以这里的代码可以不用
+    /*getInitialState: function () {
         let defaultExpanded = this.props.defaultExpanded != null ?
             this.props.defaultExpanded :
             this.props.expanded != null ? this.props.expanded : false;
@@ -22,7 +24,7 @@ let CollapseMixin = {
             expanded: defaultExpanded,
             collapsing: false,
         };
-    },
+    },*/
 
     componentWillUpdate: function (nextProps, nextState) {
         let willExpanded = nextProps.expanded != null ? nextProps.expanded :

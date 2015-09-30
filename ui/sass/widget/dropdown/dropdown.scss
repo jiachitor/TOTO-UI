@@ -40,7 +40,7 @@ $dropdown-header-color: $gray-light;
 $dropdown-caret-color: darken($dropdown-border-color, 5%);
 
 $caret-width-base: 6px;
-$dropdown-animation: am-slide-top-fixed;
+$dropdown-animation: slide-top-fixed;
 
 // Dropdown mixin
 // =============================================================================
@@ -225,7 +225,7 @@ ul.dropdown-content {
 	}
 }
 
-@include keyframes(am-dropdown-animation) {
+@include keyframes(dropdown-animation) {
 	0% {
 		opacity: 1;
 		transform: translateY(0);
@@ -238,7 +238,7 @@ ul.dropdown-content {
 
 // Dropdown out animation
 .dropdown-animation {
-	animation: am-dropdown-animation .15s ease-out;
+	animation: dropdown-animation .15s ease-out;
 }
 
 

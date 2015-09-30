@@ -29,8 +29,8 @@
     "watchify": "^3.4.0"
   },
   "dependencies": {
+    "fbjs": "^0.2.1",
     "gulp-notify": "^2.2.0",
-    "object.omit": "^2.0.0",
-    "react-tap-event-plugin": "^0.1.7"
+    "object.omit": "^2.0.0"
   }
 }

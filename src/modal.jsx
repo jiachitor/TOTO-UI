@@ -8,6 +8,8 @@ import Events from './utils/Events';
 import Close from './close.jsx';
 import Icon from './icon.jsx';
 
+/*这个模块里面的click事件，还不能替换为onTouchTap事件，需要等React 原生支持*/
+
 class Modal extends React.Component{
     constructor(props) {
         super(props);
@@ -167,13 +169,14 @@ class Modal extends React.Component{
         );
     }
 
+    //这种是根据需求生成的弹出框头部。该弹出框可以展示自定义内容，比如文章内容等，带有滚动条
     renderPopup() {
         return (
             <div
                 style={{display: 'block'}}
                 className={classNames(this.props.className,
-        this.setClassNamespace('popup'),
-        this.setClassNamespace('modal-active'))}>
+                this.setClassNamespace('popup'),
+                this.setClassNamespace('modal-active'))}>
                 <div className={this.setClassNamespace('popup-inner')}>
                     <div className={this.setClassNamespace('popup-hd')}>
                         {this.props.title ? (
@@ -181,7 +184,7 @@ class Modal extends React.Component{
                                 {this.props.title}
                             </h4>
                         ) : null}
-                        <Close onTouchStart={this.props.onRequestClose} />
+                        <Close onClick={this.props.onRequestClose} />
                     </div>
                     <div className={this.setClassNamespace('popup-bd')}>
                         {this.props.children}
@@ -191,12 +194,13 @@ class Modal extends React.Component{
         );
     }
 
+    //标准弹出框头部，没有头部下划线
     renderHeader() {
         let title = this.props.title;
         let closeIcon = this.props.closeIcon && !this.props.type ? (
             <Close
                 spin
-                onTouchStart={this.props.onRequestClose}/>) : null;
+                onClick={this.props.onRequestClose}/>) : null;
 
         return (this.props.title || closeIcon) ? (
             <div className={this.prefixClass('hd')}>
@@ -218,7 +222,7 @@ class Modal extends React.Component{
             case 'alert':
                 buttons = (
                     <span
-                        onTouchStart={this.props.onConfirm}
+                        onClick={this.props.onConfirm}
                         className={btnClass}>
             {this.props.confirmText}
           </span>);
@@ -229,7 +233,7 @@ class Modal extends React.Component{
                     return (
                         <span
                             key={i}
-                            onTouchStart={i === 0 ? this.props.onCancel : this.handleConfirm}
+                            onClick={i === 0 ? this.props.onCancel : this.handleConfirm}
                             className={btnClass}>
               {text}
             </span>

@@ -7,19 +7,22 @@ import Dropdown from './dropdown.jsx';
 import Icon from './icon.jsx';
 import Input from './input.jsx';
 
-class Selected extends React.Component{
+class Selected extends React.Component {
     constructor(props) {
         super(props);
-        for(let v in ClassNameMixin){
+        for (let v in ClassNameMixin) {
             this[v] = ClassNameMixin[v].bind(this);
         }
-        this.state={
-            value: this.props.value,
+        this.state = {
+            value: props.value,
             dropdownWidth: null,
             filterText: null,
         };
+        this.componentDidMount = this.componentDidMount.bind(this);
+        this.componentWillUnmount = this.componentWillUnmount.bind(this);
         this.setDropdownWidth = this.setDropdownWidth.bind(this);
         this.getValueArray = this.getValueArray.bind(this);
+        this.hasValue = this.hasValue.bind(this);
         this.setValue = this.setValue.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
         this.handleUserInput = this.handleUserInput.bind(this);
@@ -27,28 +30,32 @@ class Selected extends React.Component{
         this.getValue = this.getValue.bind(this);
     }
 
-    componentDidMount () {
+    componentDidMount() {
+        this.mounted = true;
         this.setDropdownWidth();
     }
 
-    setDropdownWidth () {
-        if (this.isMounted) {
-            let toggleButton = React.findDOMNode(this.refs.dropdown.
-                refs.dropdownToggle);
+    componentWillUnmount() {
+        this.mounted = false;
+    }
+
+    setDropdownWidth() {
+        if (this.mounted) {
+            let toggleButton = React.findDOMNode(this.refs.dropdown.refs.dropdownToggle);
 
             toggleButton && this.setState({dropdownWidth: toggleButton.offsetWidth});
         }
     }
 
-    getValueArray () {
+    getValueArray() {
         return this.state.value ? this.state.value.split(this.props.delimiter) : [];
     }
 
-    hasValue (value) {
+    hasValue(value) {
         return this.getValueArray().indexOf(value) > -1;
     }
 
-    setValue (value, callback) {
+    setValue(value, callback) {
         this.setState({
             value: value,
         }, function () {
@@ -57,7 +64,7 @@ class Selected extends React.Component{
         });
     }
 
-    handleCheck (option, e) {
+    handleCheck(option, e) {
         e.preventDefault();
 
         let clickedValue = option.value;
@@ -79,7 +86,7 @@ class Selected extends React.Component{
         }
     }
 
-    handleUserInput (e) {
+    handleUserInput(e) {
         e.preventDefault();
 
         this.setState({
@@ -88,7 +95,7 @@ class Selected extends React.Component{
     }
 
     // clear filter
-    clearFilterInput () {
+    clearFilterInput() {
         if (this.props.multiple && this.props.searchBox) {
             this.setState({
                 filterText: null,
@@ -98,11 +105,11 @@ class Selected extends React.Component{
     }
 
     // API for getting component value
-    getValue () {
+    getValue() {
         return this.state.value;
     }
 
-    render () {
+    render() {
         let classSet = this.getClassSet();
         let selectedLabel = [];
         let items = [];
@@ -137,9 +144,9 @@ class Selected extends React.Component{
                     className={checkedClass}
                     onClick={this.handleCheck.bind(this, option)}
                     key={i}>
-          <span className={this.prefixClass('text')}>
-            {option.label}
-          </span>
+                      <span className={this.prefixClass('text')}>
+                        {option.label}
+                      </span>
                     {checkedIcon}
                 </li>
             );
@@ -148,12 +155,12 @@ class Selected extends React.Component{
         let status = (
             <span
                 className={classNames(this.prefixClass('status'),
-      this.setClassNamespace('fl'))}>
-        {selectedLabel.length ? selectedLabel.join(', ') : (
-            <span className={this.prefixClass('placeholder ')}>
-            {this.props.placeholder}
-          </span>)}
-      </span>
+              this.setClassNamespace('fl'))}>
+                {selectedLabel.length ? selectedLabel.join(', ') : (
+                    <span className={this.prefixClass('placeholder ')}>
+                    {this.props.placeholder}
+                  </span>)}
+              </span>
         );
         let optionsStyle = {};
 
@@ -222,7 +229,7 @@ Selected.propTypes = {
 
 Selected.defaultProps = {
     classPrefix: 'selected',
-    placeholder: 'µã»÷Ñ¡Ôñ...',
+    placeholder: 'ç‚¹å‡»é€‰æ‹©...',
     onChange: function () {
     },
     delimiter: ',',

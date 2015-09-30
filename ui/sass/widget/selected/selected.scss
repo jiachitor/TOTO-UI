@@ -1,0 +1,140 @@
+// Name:            Selected
+//
+// Description:     Define style for Selected Plugin
+//
+// Component:       `.am-selected`
+//
+// Sub-objects:     `.am-selected-btn`
+//                  `.am-selected-status`
+//                  `.am-selected-content`
+//                  `.am-selected-list`
+//
+// States:
+//
+// Used:            Icon
+//
+// Uses:
+//
+//= require icon.less
+//= require ui.dropdown.less
+// =============================================================================
+
+/* ==========================================================================
+   Component: Selected Plugin
+ ============================================================================ */
+
+.selected {
+}
+
+.selected-btn {
+	text-align: right;
+	width: 200px;
+
+	&.btn-default {
+		background: none;
+	}
+}
+
+.selected-header {
+	height: 45px;
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #ddd;
+	display: none;
+}
+
+.selected-status {
+	text-align: left;
+	width: 100%;
+	@include text-overflow();
+}
+
+.selected-content {
+	padding: 10px 0;
+}
+
+.selected-search {
+	padding: 0 10px 10px;
+
+	.form-field {
+		padding: .5em;
+	}
+}
+
+.selected-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 1.5rem;
+
+	li {
+		position: relative;
+		cursor: pointer;
+		padding: 5px 10px;
+		transition: background-color .15s;
+
+		&:hover {
+			background-color: #f8f8f8;
+
+			.icon-check {
+				opacity: .6;
+			}
+		}
+
+		&.checked {
+			.icon-check {
+				opacity: 1;
+				color: $global-primary;
+			}
+		}
+
+		// disabled item
+		&.disabled {
+			opacity: .5;
+			pointer-events: none;
+			cursor: not-allowed;
+		}
+	}
+
+	.selected-list-header {
+		margin-top: 8px;
+		font-size: 1.3rem;
+		color: $gray-light;
+		border-bottom: 1px solid #e5e5e5;
+		cursor: default;
+
+		&:hover {
+			background: none;
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	.selected-text {
+		@include text-overflow ();
+		margin-right: 30px;
+	}
+
+	.icon-check {
+		position: absolute;
+		right: 8px;
+		top: 5px;
+		color: $gray-light;
+		opacity: 0;
+		transition: opacity .15s;
+	}
+}
+
+.selected-hint {
+	line-height: 1.2;
+	color: $global-danger;
+
+	&:not(:empty) {
+		margin-top: 10px;
+		border-top: 1px solid #e5e5e5;
+		padding: 10px 10px 0;
+	}
+}
+
+// TODO: 移动端样式？

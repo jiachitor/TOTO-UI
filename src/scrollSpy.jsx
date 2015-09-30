@@ -21,9 +21,14 @@ class ScrollSpy extends React.Component {
         this.state = {
             inViewport: false,
         };
+        this.componentWillMount = this.componentWillMount.bind(this);
+        this.componentWillUnmount = this.componentWillUnmount.bind(this);
+        this.checkIsInView = this.checkIsInView.bind(this);
+        this.checkRAF = this.checkRAF.bind(this);
     }
 
     componentWillMount() {
+        this.mounted = true;
         this.checkRAF();
 
         let debounced = debounce(this.checkRAF, 60).bind(this);
@@ -35,6 +40,7 @@ class ScrollSpy extends React.Component {
     }
 
     componentWillUnmount() {
+        this.mounted = false;
         this._scrollListener && this._scrollListener.off();
         this._resizeListener && this._resizeListener.off();
         this._orientationListener && this._orientationListener.off();
@@ -46,7 +52,7 @@ class ScrollSpy extends React.Component {
             return;
         }
 
-        if (this.isMounted) {
+        if (this.mounted) {
             let isInView = isInViewport(React.findDOMNode(this));
 
             if (isInView && !this.state.inViewport) {

@@ -12,6 +12,24 @@ class Main extends React.Component{
 
     render() {
 
+        /*
+        * 组件介绍
+
+         弹出层需要 <Modal>、<ModalTrigger> 结合使用。
+
+         <Modal> 组件，弹出层，含以下属性：
+
+         type: string - Modal 类型，[默认，alert,confirm,prompt,actions,popup]；
+         title: string - Modal 标题；
+         closeIcon: bool - 是否显示右上角关闭按钮，默认为 true（对 alert、confirm、prompt 无效）；
+         closeViaDimmer: bool - 点击遮罩层是否关闭 Modal。
+         <ModalTrigger> 组件，Modal 触发器，含以下属性：
+
+         modal: node - 要控制的 <Modal> 实例，必需；
+         onConfirm: func - <Modal> 点击「确定」时的回调函数（适用于 Alert、Confirm、Prompt）；
+         onCancel: func - <Modal> 点击「取消」时的回调函数（适用于 Confirm、Prompt）。
+        * */
+
         var modal1 = <Modal title="Amaze UI Modal">这一个 Modal 窗口。</Modal>;
         var modalInstance1 = (
             <ModalTrigger modal={modal1}>
@@ -40,10 +58,12 @@ class Main extends React.Component{
 
         function onCancel() {
             console.log('Canceled...');
+            this.refs.modalTrigger3.close();
         }
 
         var modalInstance3 = (
             <ModalTrigger
+                ref="modalTrigger3"
                 modal={modal3}
                 onCancel={onCancel}
                 onConfirm={onConfirm}>
@@ -59,7 +79,7 @@ class Main extends React.Component{
             <Modal type="prompt" title="Amaze UI">
                 来来来，吐槽点啥吧
                 <div className="data-area" data-dom="input" data-type="text">
-                    <input type="text" className="ui-modal-prompt-input"/>
+                    <input type="text" className="modal-prompt-input"/>
                 </div>
                 <div className="data-area" data-dom="input" data-type="checkbox">
                     <label><input type="checkbox" name="doc-checkbox-1" value="1"/>Top Story</label>
@@ -121,16 +141,16 @@ class Main extends React.Component{
             render: function() {
                 return (
                     <Modal {...this.props} type="actions">
-                        <div className="ui-modal-actions-group">
-                            <ul className="ui-list">
-                                <li className="ui-modal-actions-header">分享到</li>
+                        <div className="modal-actions-group">
+                            <ul className="list">
+                                <li className="modal-actions-header">分享到</li>
                                 <li><a href="#"><Icon icon="wechat" /> 微信</a></li>
-                                <li className="ui-modal-actions-danger">
+                                <li className="modal-actions-danger">
                                     <a href="#"><Icon icon="twitter" /> Twitter</a>
                                 </li>
                             </ul>
                         </div>
-                        <div className="ui-modal-actions-group">
+                        <div className="modal-actions-group">
                             <Button
                                 amStyle="secondary"
                                 block
@@ -160,7 +180,7 @@ class Main extends React.Component{
         var modalInstance7 = (
             <ModalTrigger
                 modal={modal7}>
-                <Button amStyle="primary">Popup 窗口</Button>
+                <Button amStyle="primary">Popup 窗口，这种弹窗在移动端是全屏的</Button>
             </ModalTrigger>
         );
 

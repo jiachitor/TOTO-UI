@@ -37,7 +37,7 @@ class ModalTrigger extends React.Component{
         }, this.setModalStyle);
     }
 
-    close() {
+    close() {  console.log(1112222)
         this.setState({
             isModalActive: false,
         });
@@ -51,6 +51,7 @@ class ModalTrigger extends React.Component{
         }
     }
 
+    //设置弹出框样式
     setModalStyle() {
 
         // TODO: selector
@@ -82,10 +83,9 @@ class ModalTrigger extends React.Component{
         if (!this.state.isModalActive) {
             return <span />;
         }
-
+        //复制modal
         return cloneElement(
-            this.props.modal,
-            {
+            this.props.modal, {
                 onRequestClose: this.close,
                 marginTop: this.state.modalMarginTop,
                 marginLeft: this.state.modalMarginLeft,
@@ -101,8 +101,9 @@ class ModalTrigger extends React.Component{
     render() {
         let child = React.Children.only(this.props.children);
         let props = {};
-
-        props.onTouchStart = createChainedFunction(child.props.onTouchStart, this.toggle);
+        //这里是为 ModalTrigger 里面包含的子元素（比如 button 等）绑定 交互事件
+        props.onTouchTap = createChainedFunction(child.props.onTouchTap, this.toggle);
+       /* props.onTouchStart = createChainedFunction(child.props.onTouchStart, this.toggle);*/
         props.onMouseOver = createChainedFunction(child.props.onMouseOver,
             this.props.onMouseOver);
         props.onMouseOut = createChainedFunction(child.props.onMouseOut,
@@ -124,14 +125,10 @@ ModalTrigger.propTypes = {
     onConfirm: React.PropTypes.func,
     onCancel: React.PropTypes.func,
     title: React.PropTypes.string,
-    container: React.PropTypes.node,
 };
 
 ModalTrigger.defaultProps = {
-    classPrefix: 'modal',
-    closeIcon: true,
-    confirmText: 'submit',
-    cancelText: 'cancal',
+    test: '',
 };
 
 module.exports = ModalTrigger;

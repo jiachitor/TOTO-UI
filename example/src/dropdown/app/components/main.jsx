@@ -8,6 +8,22 @@ class Main extends React.Component{
     }
     render() {
 
+        /*
+        * 组件介绍
+
+         <Dropdown> 组件，用于显示下拉菜单（内容）。
+
+         <Dropdown> 属性列表：
+
+         sm: number - sm 区间列数；
+         md: number - md 区间列数；
+         lg: number - lg 区间列数。
+         子组件：
+
+         <Dropdown.Item> 用于显示带链接的 <li>
+         组件演示
+        * */
+
         var dropdownInstance1 = (
             <Dropdown title="下拉列表" btnStyle="primary">
                 <DropdownItem header>标题</DropdownItem>
