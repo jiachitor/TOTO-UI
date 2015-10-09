@@ -2,7 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import fecha from 'fecha';
 import dateUtils from './utils/dateUtils';
 

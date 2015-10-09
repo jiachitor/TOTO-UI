@@ -67,9 +67,9 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{dropdownInstance1}</p>
-                    <p>{dropdownInstance2}</p>
-                    <p>{dropdownInstance3}</p>
+                    <div className="demo_box">{dropdownInstance1}</div>
+                    <div className="demo_box">{dropdownInstance2}</div>
+                    <div className="demo_box">{dropdownInstance3}</div>
                 </div>
             </div>
         );

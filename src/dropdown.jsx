@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
-import constants from './minxins/constants.js';
+import ClassNameMixin from './mixins/ClassNameMixin';
+import constants from './mixins/constants.js';
 import Button from './button.jsx';
 import Icon from './icon.jsx';
 import Events from './utils/Events';
@@ -58,7 +59,7 @@ class Dropdown extends React.Component {
 
     // close dropdown when click outer dropdown
     handleOuterClick(e) {
-        if (isNodeInTree(e.target, React.findDOMNode(this))) {
+        if (isNodeInTree(e.target, ReactDOM.findDOMNode(this))) {
             return false;
         }
 

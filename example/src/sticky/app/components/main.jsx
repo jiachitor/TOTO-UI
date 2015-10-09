@@ -47,9 +47,9 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{scrollSpyNavInstance1}</p>
-                    <p>{scrollSpyNavInstance2}</p>
-                    <p>{scrollSpyNavInstance3}</p>
+                    <div className="demo_box">{scrollSpyNavInstance1}</div>
+                    <div className="demo_box">{scrollSpyNavInstance2}</div>
+                    <div className="demo_box">{scrollSpyNavInstance3}</div>
                 </div>
             </div>
         );

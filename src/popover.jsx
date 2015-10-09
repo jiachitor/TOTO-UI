@@ -2,7 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 
 class Popover extends React.Component{
     constructor(props) {
@@ -16,7 +16,7 @@ class Popover extends React.Component{
         let style = {
             left: this.props.positionLeft,
             top: this.props.positionTop,
-            display: 'block'
+            display: 'block',
         };
 
         classSet[this.setClassNamespace('active')] = true;

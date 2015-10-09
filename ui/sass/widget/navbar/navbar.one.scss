@@ -1,0 +1,28 @@
+/**
+  * Navbar Theme: one
+  * Author: hzp (hzp$yunshipei.com)
+  */
+
+.navbar-one {
+	$navbar-bg: $one-primary;
+	$navbar-link-color: $white;
+	$navbar-actions-bg: darken($one-primary, 5%);
+	$navbar-actions-border-bottom: darken($one-primary, 12%);
+
+	a {
+		color: $navbar-link-color;
+	}
+
+	.navbar-nav {
+		background-color: $navbar-bg;
+	}
+
+	.navbar-actions {
+		background-color: $navbar-actions-bg;
+
+		a {
+			border-bottom: 1px solid $navbar-actions-border-bottom;
+		}
+	}
+
+}

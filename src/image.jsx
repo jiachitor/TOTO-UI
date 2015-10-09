@@ -2,7 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import constants from './constants.jsx';
 
 class Image extends React.Component {

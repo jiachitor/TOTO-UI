@@ -2,7 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import Icon from './icon.jsx';
 import omit from 'object.omit';
 
@@ -21,7 +21,7 @@ class Navbar extends React.Component{
         return (
             <div
                 {...props}
-                data-am-widget={this.props.classPrefix}
+                data-widget={this.props.classPrefix}
                 cf
                 className={classNames(this.props.className, classSet)}>
                 <ul className={this.prefixClass('nav')}>

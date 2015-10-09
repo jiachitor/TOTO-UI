@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
-import PaginationItem from './minxins/paginationItem.jsx';
+import ClassNameMixin from './mixins/ClassNameMixin';
+import PaginationItem from './paginationItem.jsx';
 
 class Pagination extends React.Component {
     constructor(props) {
@@ -33,7 +34,7 @@ class Pagination extends React.Component {
 
     handleChange(e) {
         if (this.props.onSelect) {
-            let select = React.findDOMNode(this.refs.select);
+            let select = ReactDOM.findDOMNode(this.refs.select);
 
             this.props.onSelect.call(this, select && select.value, e);
         }

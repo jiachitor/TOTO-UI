@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Events from './utils/Events';
 import fecha from 'fecha';
 import isNodeInTree from './utils/isNodeInTree';
@@ -25,7 +26,7 @@ class DateTimeInput extends React.Component{
     }
 
     handleOuterClick(event) {
-        let picker = React.findDOMNode(this.refs.DateTimePicker);
+        let picker = ReactDOM.findDOMNode(this.refs.DateTimePicker);
 
         if (!isNodeInTree(event.target, picker)) {
             this.handleClose();

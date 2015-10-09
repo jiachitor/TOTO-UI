@@ -215,11 +215,11 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{tabelInstance1}</p>
-                    <p>{tabelInstance2}</p>
-                    <p>{tabelInstance3}</p>
-                    <p>{tabelInstance4}</p>
-                    <p>{tabelInstance5}</p>
+                    <div className="demo_box">{tabelInstance1}</div>
+                    <div className="demo_box">{tabelInstance2}</div>
+                    <div className="demo_box">{tabelInstance3}</div>
+                    <div className="demo_box">{tabelInstance4}</div>
+                    <div className="demo_box">{tabelInstance5}</div>
                 </div>
             </div>
         );

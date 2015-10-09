@@ -1,8 +1,9 @@
 import React from 'react';
-import injectTapEventPlugin from "react-tap-event-plugin";
-injectTapEventPlugin();
-
+import ReactDOM from 'react-dom';
 import Main from './components/main.jsx';
+
+var injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();
 
 //Needed for React Developer Tools
 window.React = React;
@@ -15,4 +16,4 @@ window.React = React;
 
 // Render the main app react component into the document body.
 // For more details see: https://facebook.github.io/react/docs/top-level-api.html#react.render
-React.render(<Main />, document.body);
+ReactDOM.render(<Main />, document.getElementById('example'));

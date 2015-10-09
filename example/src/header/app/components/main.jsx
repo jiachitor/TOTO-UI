@@ -6,6 +6,43 @@ class Main extends React.Component{
         super(props);
     }
     render() {
+
+        /*
+        * 组件介绍
+
+         <Header> 组件，页面头部。
+
+         属性：
+
+         theme: string - 主题名称
+         data: array - 左右厕链接数据
+         title: string - 标题
+         link: link - 链接
+         数据格式：
+
+         var data = {
+         "left": [
+         {
+         "link": "",         // url : http://xxx.xxx.xxx
+         "title": "",        // 链接标题
+         "icon": "",         // 字体图标名称: 使用 Amaze UI 字体图标 http://www.amazeui.org/css/icon
+         "customIcon": ""    // 自定义图标 URL，设置此项后当前链接不再显示 icon
+         }
+         ],
+
+         "right": [ // 右侧字段含义同左侧
+         {
+         "link": "",
+         "title": "",
+         "icon": "",
+         "customIcon": ""
+         }
+         ]
+         };
+        *
+        * */
+
+
         var data = {
             "left": [
                 {
@@ -152,10 +189,10 @@ class Main extends React.Component{
                     <pre>{codeView}</pre>
                 </div>
                 <div className="demos">
-                    <p>{header1}</p>
-                    <p>{header2}</p>
-                    <p>{header3}</p>
-                    <p>{header4}</p>
+                    <div className="demo_box">{header1}</div>
+                    <div className="demo_box">{header2}</div>
+                    <div className="demo_box">{header3}</div>
+                    <div className="demo_box">{header4}</div>
                 </div>
             </div>
         );

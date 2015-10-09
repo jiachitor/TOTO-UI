@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import assign from 'object-assign';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import isInViewport from './utils/isInViewport';
 import Events from './utils/Events';
 import TransitionEvents from './utils/TransitionEvents';
@@ -53,7 +54,7 @@ class ScrollSpy extends React.Component {
         }
 
         if (this.mounted) {
-            let isInView = isInViewport(React.findDOMNode(this));
+            let isInView = isInViewport(ReactDOM.findDOMNode(this));
 
             if (isInView && !this.state.inViewport) {
                 if (this._timer) {

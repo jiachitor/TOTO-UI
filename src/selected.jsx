@@ -1,8 +1,9 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import Dropdown from './dropdown.jsx';
 import Icon from './icon.jsx';
 import Input from './input.jsx';
@@ -41,7 +42,7 @@ class Selected extends React.Component {
 
     setDropdownWidth() {
         if (this.mounted) {
-            let toggleButton = React.findDOMNode(this.refs.dropdown.refs.dropdownToggle);
+            let toggleButton = ReactDOM.findDOMNode(this.refs.dropdown.refs.dropdownToggle);
 
             toggleButton && this.setState({dropdownWidth: toggleButton.offsetWidth});
         }
@@ -90,7 +91,7 @@ class Selected extends React.Component {
         e.preventDefault();
 
         this.setState({
-            filterText: React.findDOMNode(this.refs.filterInput).value,
+            filterText: ReactDOM.findDOMNode(this.refs.filterInput).value,
         });
     }
 
@@ -100,7 +101,7 @@ class Selected extends React.Component {
             this.setState({
                 filterText: null,
             });
-            React.findDOMNode(this.refs.filterInput).value = null;
+            ReactDOM.findDOMNode(this.refs.filterInput).value = null;
         }
     }
 

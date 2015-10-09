@@ -145,7 +145,7 @@ class Main extends React.Component{
 
         return (
             <div className="demos">
-                <p>{scrollSpyInstance}</p>
+                <div className="demo_box">{scrollSpyInstance}</div>
             </div>
         );
     }

@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
-import CollapseMixin from './minxins/CollapseMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
+import CollapseMixin from './mixins/CollapseMixin';
 
 class Panel extends React.Component {
     constructor(props) {
@@ -47,7 +48,7 @@ class Panel extends React.Component {
     }
 
     getCollapsibleDimensionValue() {
-        return React.findDOMNode(this.refs.panel).scrollHeight;
+        return ReactDOM.findDOMNode(this.refs.panel).scrollHeight;
     }
 
     getCollapsibleDOMNode() {
@@ -55,7 +56,7 @@ class Panel extends React.Component {
             return null;
         }
 
-        return React.findDOMNode(this.refs.panel);
+        return ReactDOM.findDOMNode(this.refs.panel);
     }
 
     renderHeader() {
@@ -69,7 +70,7 @@ class Panel extends React.Component {
             <div className={this.prefixClass('hd')}>
                 {this.props.collapsible ? (
                     <h4
-                        data-am-collapse // just for `pointer` style
+                        data-collapse // just for `pointer` style
                         className={classNames(this.prefixClass('title'),
             this.isExpanded() ? null : this.setClassNamespace('collapsed'))}
                         onClick={this.handleClick.bind(this)}>

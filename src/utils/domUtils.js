@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 /**
  * Get ownerDocument
@@ -8,7 +9,7 @@ import React from 'react';
  * @returns {HTMLDocument}
  */
 function ownerDocument(componentOrElement) {
-    let element = React.findDOMNode(componentOrElement);
+    let element = ReactDOM.findDOMNode(componentOrElement);
 
     return (element && element.ownerDocument) || document;
 }

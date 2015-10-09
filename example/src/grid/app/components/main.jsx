@@ -230,16 +230,16 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{gridInstance1}</p>
-                    <p>{gridInstance2}</p>
-                    <p>{gridInstance3}</p>
-                    <p>{gridInstance4}</p>
-                    <p>{gridInstance5}</p>
-                    <p>{gridInstance6}</p>
-                    <p>{gridInstance7}</p>
-                    <p>{gridInstance8}</p>
-                    <p>{gridInstance9}</p>
-                    <p>{gridInstance10}</p>
+                    <div className="demo_box">{gridInstance1}</div>
+                    <div className="demo_box">{gridInstance2}</div>
+                    <div className="demo_box">{gridInstance3}</div>
+                    <div className="demo_box">{gridInstance4}</div>
+                    <div className="demo_box">{gridInstance5}</div>
+                    <div className="demo_box">{gridInstance6}</div>
+                    <div className="demo_box">{gridInstance7}</div>
+                    <div className="demo_box">{gridInstance8}</div>
+                    <div className="demo_box">{gridInstance9}</div>
+                    <div className="demo_box">{gridInstance10}</div>
                 </div>
             </div>
         );

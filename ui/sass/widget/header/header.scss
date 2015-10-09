@@ -1,0 +1,62 @@
+$header-height: 49px;
+
+.header {
+	position: relative;
+	width: 100%;
+	height: $header-height;
+	line-height: $header-height;
+	padding: 0 10px;
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.header-title {
+		margin: 0 30%;
+		font-size: 2rem;
+		font-weight: normal;
+		text-align: center;
+		@include text-overflow();
+
+		img {
+			margin-top: 12px;
+			height: 25px;
+			vertical-align: top;
+		}
+	}
+
+	.header-nav {
+		position: absolute;
+		top: 0;
+		img {
+			height: 16px;
+			width: auto;
+			vertical-align: middle;
+		}
+	}
+
+	.header-left {
+		left: 10px;
+	}
+
+	.header-right {
+		right: 10px;
+	}
+
+	@extend hook-header;
+}
+
+.header-fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: $z-index-header-fixed;
+}
+
+.with-fixed-header {
+	padding-top: $header-height;
+}
+

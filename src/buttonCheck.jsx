@@ -3,7 +3,7 @@
 import React from 'react';
 //import classNames from 'classnames';
 import CSSCore from './utils/CSSCore';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import ButtonGroup from './buttonGroup.jsx';
 import constants from './constants.jsx';
 

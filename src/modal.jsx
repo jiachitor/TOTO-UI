@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
-import DimmerMixin from './minxins/DimmerMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
+import DimmerMixin from './mixins/DimmerMixin';
 import Events from './utils/Events';
 import Close from './close.jsx';
 import Icon from './icon.jsx';
@@ -83,7 +84,7 @@ class Modal extends React.Component{
     // Get input data for prompt modal
     getPromptData() {
         let data = [];
-        let dataArea = React.findDOMNode(this).querySelectorAll('.data-area');
+        let dataArea = ReactDOM.findDOMNode(this).querySelectorAll('.data-area');
 
         if(dataArea){
             let i = 0;

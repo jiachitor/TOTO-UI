@@ -75,10 +75,10 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{badgeInstance1}</p>
-                    <p>{badgeInstance2}</p>
-                    <p>{badgeInstance3}</p>
-                    <p>{badgeInstance4}</p>
+                    <div className="demo_box">{badgeInstance1}</div>
+                    <div className="demo_box">{badgeInstance2}</div>
+                    <div className="demo_box">{badgeInstance3}</div>
+                    <div className="demo_box">{badgeInstance4}</div>
                 </div>
             </div>
         );

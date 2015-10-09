@@ -2,7 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 
 class TimePicker extends React.Component{
     constructor(props) {

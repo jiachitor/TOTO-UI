@@ -1,0 +1,76 @@
+/*=================================================base css=================================*/
+
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*html {
+   font-size: 62.5%;
+}*/
+
+body {
+	margin: 0;
+	padding: 0;
+	//font-size: 1.6rem; /!* =16px *!/
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+/*Webkit ·´¾â³Ý*/
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*=========================================demo css=======================================*/
+
+.tabs {
+
+	.tabs-nav {
+		overflow: hidden;
+		li {
+			list-style: none;
+			float: left;
+			margin: 0 10px 10px 0;
+			a {
+				display: inline-block;
+				padding: 5px 10px;
+				text-decoration: none;
+			}
+			&.active {
+				a {
+					background: #000;
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	.tabs-body {
+		background: #00ff00;
+	}
+
+}
+
+//demo ?¨´??
+.demos {
+	padding: 20px;
+	.demo_box {
+		padding: 0 0 100px;
+	}
+}
+
+.demo-1 {
+	border-bottom: 1px solid #ccc;
+	padding: 20px 0;
+}
+
+
+

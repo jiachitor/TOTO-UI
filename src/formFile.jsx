@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 
 class FormFile extends React.Component{
     constructor(props) {

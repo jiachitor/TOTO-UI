@@ -1,8 +1,8 @@
 'use strict';
 
 import React from 'react';
-import OverlayMixin from './minxins/OverlayMixin';
-import DimmerMixin from './minxins/DimmerMixin';
+import OverlayMixin from './mixins/OverlayMixin';
+import DimmerMixin from './mixins/DimmerMixin';
 import createChainedFunction from './utils/createChainedFunction';
 
 let cloneElement = React.cloneElement;
@@ -37,7 +37,7 @@ class ModalTrigger extends React.Component{
         }, this.setModalStyle);
     }
 
-    close() {  console.log(1112222)
+    close() {
         this.setState({
             isModalActive: false,
         });

@@ -1,0 +1,150 @@
+/**
+  * list_news Theme: default
+  */
+
+.list-news-default {
+	$list-item-border-color: #dedede;
+	$list-date-color: $gray-light;
+	$list-text-color: lighten($gray, 12.5%);
+
+	margin: 10px;
+
+	@mixin line-clamp-height($line) {
+		-webkit-line-clamp: $line; /* number of lines to show */
+		max-height: 1.3em * $line;
+	}
+
+	.g {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.list-item-hd {
+		font-weight: normal;
+	}
+
+	// 日期样式
+	.list-date {
+		color: $list-date-color;
+	}
+
+	.list {
+
+		& > li {
+			border-color: $list-item-border-color;
+		}
+
+		.list-item-desced {
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+			> a {
+				padding: 0;
+			}
+
+			.list-item-text {
+				margin-top: 0.5rem;
+				color: $list-text-color;
+			}
+		}
+
+		// desc
+		.list-item-text {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			line-height: 1.3em;
+			@include line-clamp-height (2);
+		}
+
+		// 缩略图在上
+		.list-item-thumb-top {
+			.list-thumb {
+				padding: 0;
+				margin-bottom: 0.8rem;
+			}
+
+			.list-main {
+				padding: 0;
+			}
+		}
+
+		// 缩略图在左边
+		.list-item-thumb-left {
+			.list-thumb {
+				padding-left: 0;
+			}
+		}
+		.list-item-desced {
+			.list-main {
+				padding: 0;
+			}
+		}
+
+		// 缩略图在右边
+		.list-item-thumb-right {
+			.list-thumb {
+				padding-right: 0;
+			}
+		}
+
+		// 缩略图在左下
+		.list-item-thumb-bottom-left {
+			.list-item-hd {
+				clear: both;
+				padding-bottom: 0.5rem;
+			}
+			.list-thumb {
+				padding-left: 0;
+			}
+		}
+
+		// 缩略图在右下
+		.list-item-thumb-bottom-right {
+			.list-item-hd {
+				clear: both;
+				padding-bottom: 0.5rem;
+			}
+			.list-thumb {
+				padding-right: 0;
+			}
+		}
+
+		// 缩略图
+		.list-thumb {
+			img {
+				width: 100%;
+				display: block;
+			}
+
+		}
+	}
+
+	// 限定缩略图高度
+	@mixin max-thumb-height($height: 80px) {
+		max-height: $height;
+		overflow: hidden;
+	}
+	@media #{$small-only} {
+		& {
+			// 缩略图在左右时限定图片高度
+			.list-item-thumb-left, .list-item-thumb-right {
+				.list-thumb {
+					@include max-thumb-height();
+				}
+			}
+
+			// 缩略图在左右时限定图片高度
+			.list-item-thumb-bottom-left, .list-item-thumb-bottom-right {
+				.list-item-text {
+					@include line-clamp-height(3);
+				}
+				.list-thumb {
+					@include max-thumb-height(60px);
+				}
+			}
+		}
+	}
+
+}
+

@@ -13,6 +13,8 @@ function browserSyncTask(callback){
 function markup(callback){
     gulp.src(default_config.src + '/index.html')
         .pipe(gulp.dest(default_config.dest));
+    gulp.src(default_config.fonts + '/**')
+        .pipe(gulp.dest(default_config.dest + '/fonts'));
     for (var conf of markup_config) {
         gulp.src(conf.src)
             .pipe(gulp.dest(conf.dest));

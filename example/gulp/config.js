@@ -1,7 +1,8 @@
 var dest = './build',
     src = './src',
-    modulesList = ['article','avgGrid','badge','button','close','dateTimePicker','dropdown','demo','form','grid','goTop','header','icon','image','list','listNews','menu','modal','nav','navbar','table','tabs','tabsimple','pagination','panel','popover','scrollSpy','scrollSpyNav','selected','sticky','uiCheck'],
-    modulesNow = ['sticky'],
+    fonts = '../ui/fonts',
+    modulesList = ['accordion','article','avgGrid','badge','button','close','dateTimePicker','demo','dropdown','form','goTop','grid','header','icon','image','list','listNews','menu','modal','nav','navbar','pagination','panel','popover','progress','scrollSpy','scrollSpyNav','selected','slider','sticky','table','tabs','tabsimple','uiCheck'],
+    modulesNow = ['uiCheck'],
     mui = './node_modules/material-ui/src';
 
 //browserify
@@ -29,7 +30,8 @@ module.exports = {
     modules:modulesNow,
     default: {
         src: src ,
-        dest: dest
+        dest: dest,
+        fonts: fonts
     },
     sass: {
         src: src ,

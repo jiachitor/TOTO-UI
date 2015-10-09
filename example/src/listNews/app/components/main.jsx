@@ -302,12 +302,12 @@ class Main extends React.Component{
                     <pre>{codeView}</pre>
                 </div>
                 <div className="demos">
-                    <p>{listnewsInstance1}</p>
-                    <p>{listnewsInstance2}</p>
-                    <p>{listnewsInstance3}</p>
-                    <p>{listnewsInstance4}</p>
-                    <p>{listnewsInstance5}</p>
-                    <p>{listnewsInstance6}</p>
+                    <div className="demo_box">{listnewsInstance1}</div>
+                    <div className="demo_box">{listnewsInstance2}</div>
+                    <div className="demo_box">{listnewsInstance3}</div>
+                    <div className="demo_box">{listnewsInstance4}</div>
+                    <div className="demo_box">{listnewsInstance5}</div>
+                    <div className="demo_box">{listnewsInstance6}</div>
                 </div>
             </div>
         );

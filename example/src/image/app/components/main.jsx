@@ -75,9 +75,9 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{imageInstance1}</p>
-                    <p>{imageInstance2}</p>
-                    <p>{imageInstance3}</p>
+                    <div className="demo_box">{imageInstance1}</div>
+                    <div className="demo_box">{imageInstance2}</div>
+                    <div className="demo_box">{imageInstance3}</div>
                 </div>
             </div>
         );

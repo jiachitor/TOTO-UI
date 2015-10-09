@@ -2,7 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import Icon from './icon.jsx';
 import omit from 'object.omit';
 
@@ -77,7 +77,7 @@ class Header extends React.Component{
         return (
             <header
                 {...omit(this.props, ['data', 'title'])}
-                data-am-widget={this.props.classPrefix}
+                data-widget={this.props.classPrefix}
                 className={classNames(this.props.className, classSet)}>
                 {this.renderNav('left')}
                 {this.renderTitle()}

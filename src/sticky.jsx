@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import assign from 'object-assign';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import Events from './utils/Events';
 import debounce from './utils/debounce';
 import domUtils from './utils/domUtils';
@@ -18,7 +19,7 @@ class Sticky extends React.Component {
             sticked: false,
             holderStyle: null,
             initialized: false,
-            stickerStyle: null
+            stickerStyle: null,
         };
         this.componentDidMount = this.componentDidMount.bind(this);
         this.componentWillMount = this.componentWillMount.bind(this);
@@ -33,8 +34,7 @@ class Sticky extends React.Component {
         this.mounted = true;
         this._init();
         this.checkPosition();
-        let ownerWindow = domUtils.ownerWindow(React.
-            findDOMNode(this.refs.sticker));
+        let ownerWindow = domUtils.ownerWindow(ReactDOM.findDOMNode(this.refs.sticker));
 
         this._scrollListener = Events.on(ownerWindow, 'scroll',
             debounce(this.checkPosition, 10).bind(this));
@@ -53,22 +53,22 @@ class Sticky extends React.Component {
             return;
         }
 
-        let sticker = React.findDOMNode(this.refs.sticker);
+        let sticker = ReactDOM.findDOMNode(this.refs.sticker);
         let elStyle = getComputedStyle(sticker);
         let outerHeight = parseInt(elStyle.height, 10) +
             parseInt(elStyle.marginTop, 10) + parseInt(elStyle.marginBottom, 10);
         let style = {
             height: elStyle.position !== 'absolute' ? outerHeight : '',
             float: elStyle.float !== 'none' ? elStyle.float : '',
-            margin: elStyle.margin
+            margin: elStyle.margin ,
         };
 
         this.setState({
             initialized: true,
             holderStyle: style,
             stickerStyle: {
-                margin: 0
-            }
+                margin: 0,
+            },
         });
     }
 
@@ -77,7 +77,7 @@ class Sticky extends React.Component {
             let scrollTop = domUtils.scrollTop(window);
             let offsetTop = this.props.top;
             let offsetBottom = this.props.bottom;
-            let holder = React.findDOMNode(this);
+            let holder = ReactDOM.findDOMNode(this);
 
             if (typeof offsetBottom === 'function') {
                 offsetBottom = offsetBottom();
@@ -90,8 +90,8 @@ class Sticky extends React.Component {
                     stickerStyle: {
                         top: offsetTop,
                         left: domUtils.offset(holder).left,
-                        width: holder.offsetWidth
-                    }
+                        width: holder.offsetWidth,
+                    },
                 });
             }
 
@@ -100,7 +100,7 @@ class Sticky extends React.Component {
             }
 
             this.setState({
-                sticked: checkResult
+                sticked: checkResult,
             });
         }
     }
@@ -139,8 +139,8 @@ class Sticky extends React.Component {
                 top: '',
                 width: '',
                 left: '',
-                margin: 0
-            }
+                margin: 0,
+            },
         });
     }
 
@@ -153,7 +153,7 @@ class Sticky extends React.Component {
                 substr(1));
 
             targetNode && this.smoothScroll(window, {
-                position: domUtils.offset(targetNode).top - this.props.offsetTop || 0
+                position: domUtils.offset(targetNode).top - this.props.offsetTop || 0,
             });
         }
     }
@@ -175,7 +175,7 @@ class Sticky extends React.Component {
                     style: this.state.stickerStyle,
                     ref: 'sticker',
                     className: classNames(child.props.className,
-                        this.state.sticked ? stickyClass : null, animation)
+                        this.state.sticked ? stickyClass : null, animation),
                 }))}
             </div>
         );
@@ -188,14 +188,14 @@ Sticky.propTypes = {
     classPrefix: React.PropTypes.string,
     media: React.PropTypes.oneOfType([
         React.PropTypes.string,
-        React.PropTypes.number
+        React.PropTypes.number,
     ]),
     top: React.PropTypes.number,
     animation: React.PropTypes.string,
     bottom: React.PropTypes.oneOfType([
         React.PropTypes.number,
-        React.PropTypes.func
-    ])
+        React.PropTypes.func,
+    ]),
 };
 
 Sticky.defaultProps = {

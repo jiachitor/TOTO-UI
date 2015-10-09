@@ -14,7 +14,6 @@ class Main extends React.Component{
                 <DateTimeInput dateTime="2015-05-20 12:12" />
             </div>
         );
-        console.log(22222333)
 
         var DateTimeInputInstance2 = (
             <div>
@@ -192,18 +191,18 @@ class Main extends React.Component{
 
         return (
             <div className="demos">
-                <p>1.基本样式{DateTimeInputInstance1}</p>
-                <p>2.更改颜色{DateTimeInputInstance2}</p>
-                <p>3.日期格式{DateTimeInputInstance3}</p>
-                <p>4.视图模式{DateTimeInputInstance4}</p>
-                <p>5.限制视图{DateTimeInputInstance5}</p>
-                <p>6.禁用日期{DateTimeInputInstance6}</p>
-                <p>7.星期开始设置{DateTimeInputInstance7}</p>
-                <p>8.禁用日期{DateTimeInputInstance8}</p>
-                <p>9.语言设置{DateTimeInputInstance9}</p>
+                <div className="demo_box">1.基本样式{DateTimeInputInstance1}</div>
+                <div className="demo_box">2.更改颜色{DateTimeInputInstance2}</div>
+                <div className="demo_box">3.日期格式{DateTimeInputInstance3}</div>
+                <div className="demo_box">4.视图模式{DateTimeInputInstance4}</div>
+                <div className="demo_box">5.限制视图{DateTimeInputInstance5}</div>
+                <div className="demo_box">6.禁用日期{DateTimeInputInstance6}</div>
+                <div className="demo_box">7.星期开始设置{DateTimeInputInstance7}</div>
+                <div className="demo_box">8.禁用日期{DateTimeInputInstance8}</div>
+                <div className="demo_box">9.语言设置{DateTimeInputInstance9}</div>
 
-                <p>21.内联调用{DateTimePickerInstance1}</p>
-                <p>22.onClose{DateTimePickerInstance2}</p>
+                <div className="demo_box">21.内联调用{DateTimePickerInstance1}</div>
+                <div className="demo_box">22.onClose{DateTimePickerInstance2}</div>
             </div>
         );
     }

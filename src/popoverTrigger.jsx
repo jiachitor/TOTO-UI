@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import assign from 'object-assign';
-import ClassNameMixin from './minxins/ClassNameMixin';
-import OverlayMixin from './minxins/OverlayMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
+import OverlayMixin from './mixins/OverlayMixin.js';
 import dom from './utils/domUtils';
 import createChainedFunction from './utils/createChainedFunction';
 
@@ -21,6 +22,9 @@ class PopoverTrigger extends React.Component {
         super(props);
         for (let v in ClassNameMixin) {
             this[v] = ClassNameMixin[v].bind(this);
+        }
+        for (let x in OverlayMixin) {
+            this[x] = OverlayMixin[x].bind(this);
         }
         this.state = {
             isPopoverActive: this.props.defaultPopoverActive == null ?
@@ -54,7 +58,7 @@ class PopoverTrigger extends React.Component {
 
     open() {
         this.setState({
-            isPopoverActive: true
+            isPopoverActive: true,
         }, function () {
             this.updatePopoverPosition();
         });
@@ -62,7 +66,7 @@ class PopoverTrigger extends React.Component {
 
     close() {
         this.setState({
-            isPopoverActive: false
+            isPopoverActive: false,
         });
     }
 
@@ -121,7 +125,7 @@ class PopoverTrigger extends React.Component {
 
         this.setState({
             popoverLeft: position.left,
-            popoverTop: position.top
+            popoverTop: position.top,
         });
     }
 
@@ -136,22 +140,22 @@ class PopoverTrigger extends React.Component {
             case 'right':
                 return {
                     top: childOffset.top + childOffset.height / 2 - popoverHeight / 2,
-                    left: childOffset.left + childOffset.width + caretSize
+                    left: childOffset.left + childOffset.width + caretSize,
                 };
             case 'left':
                 return {
                     top: childOffset.top + childOffset.height / 2 - popoverHeight / 2,
-                    left: childOffset.left - popoverWidth - caretSize
+                    left: childOffset.left - popoverWidth - caretSize,
                 };
             case 'top':
                 return {
                     top: childOffset.top - popoverHeight - caretSize,
-                    left: childOffset.left + childOffset.width / 2 - popoverWidth / 2
+                    left: childOffset.left + childOffset.width / 2 - popoverWidth / 2 ,
                 };
             case 'bottom':
                 return {
                     top: childOffset.top + childOffset.height + caretSize,
-                    left: childOffset.left + childOffset.width / 2 - popoverWidth / 2
+                    left: childOffset.left + childOffset.width / 2 - popoverWidth / 2,
                 };
             default:
                 throw new Error('calcPopoverPosition(): No such placement of ['
@@ -160,7 +164,7 @@ class PopoverTrigger extends React.Component {
     }
 
     getPosition() {
-        let node = React.findDOMNode(this);
+        let node = ReactDOM.findDOMNode(this);
         let container = this.getContainerDOMNode();
 
         let offset = container.tagName === 'BODY' ?
@@ -168,7 +172,7 @@ class PopoverTrigger extends React.Component {
 
         return assign({}, offset, {
             height: node.offsetHeight,
-            width: node.offsetWidth
+            width: node.offsetWidth,
         });
     }
 
@@ -188,7 +192,7 @@ class PopoverTrigger extends React.Component {
                 positionLeft: this.state.popoverLeft,
                 positionTop: this.state.popoverTop,
                 amStyle: popover.props.amStyle || this.props.amStyle,
-                amSize: popover.props.amSize || this.props.amSize
+                amSize: popover.props.amSize || this.props.amSize,
             }
         );
     }
@@ -230,7 +234,7 @@ PopoverTrigger.propTypes = {
         React.PropTypes.oneOf(['click', 'hover', 'focus']),
         React.PropTypes.arrayOf(
             React.PropTypes.oneOf(['click', 'hover', 'focus'])
-        )
+        ),
     ]),
     placement: React.PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
     delay: React.PropTypes.number,

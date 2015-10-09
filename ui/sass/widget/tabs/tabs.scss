@@ -1,5 +1,50 @@
 // Tabs core
 
+.tabs {
+
+}
+
+.tabs-bd {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid #ddd;
+	border-top: none;
+	z-index: 100;
+	transition: height .3s;
+	
+	.tab-panel {
+		position: absolute;
+		top: 0;
+		z-index: 99;
+		float: left;
+		width: 100%;
+		padding: 10px 10px 15px;
+		visibility: hidden;
+		transition: transform 0.3s;
+		transform: translateX(-100%);
+
+		* {
+			-webkit-user-drag: none;
+		}
+		
+		&.active {
+			position: relative;
+			z-index: 100;
+			visibility: visible;
+			transform: translateX(0);
+			
+			& ~ .tab-panel {
+				transform: translateX(100%);
+			}
+		}
+	}
+	
+	// nested Tabs
+	.tabs-bd {
+		border: none;
+	}
+}
+
 // 和 Tabs 插件的样式区分开
 [data-widget='tabs'] {
 	margin: 10px;

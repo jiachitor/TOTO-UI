@@ -1,0 +1,88 @@
+/**
+  * Slider Theme: d3
+  */
+
+.slider-d3 {
+	$desc-color: #fff;
+	$desc-bg-color: rgba(0, 0, 0, 0.7);
+
+	margin-bottom: 10px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+
+	.viewport {
+		max-height: 2000px;
+		transition: all 1s ease;
+
+		.loading & {
+			max-height: 300px;
+		}
+	}
+
+	// desc
+	.slider-desc {
+		position: absolute;
+		bottom: 0;
+		color: $desc-color;
+		width: 100%;
+		background-color: $desc-bg-color;
+		padding: 8px 5px;
+
+		p {
+			margin: 0;
+			font-size: 1.3rem;
+			@include text-overflow(block);
+		}
+	}
+
+	.slider-title {
+		font-weight: normal;
+		margin-bottom: 5px;
+		@include text-overflow(block);
+	}
+
+	/* Control Nav */
+	.control-thumbs {
+		position: static;
+		overflow: hidden;
+		display: flex;
+
+		li {
+			flex: 1;
+			padding: 12px 4px 4px;
+			position: relative;
+		}
+
+		img {
+			width: 100%;
+			display: block;
+			opacity: .85;
+			cursor: pointer;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		.active {
+			opacity: 1;
+			cursor: default;
+
+			& + i {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				content: "";
+				@include caret-down (8px, $desc-bg-color);
+				margin-left: -4px;
+				transition: all 0.2s;
+			}
+		}
+	}
+
+	.direction-nav,
+	.pauseplay {
+		display: none;
+	}
+
+}
+

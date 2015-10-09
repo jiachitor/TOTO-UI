@@ -67,7 +67,7 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{uCheckExample}</p>
+                    <div className="demo_box">{uCheckExample}</div>
                 </div>
             </div>
         );

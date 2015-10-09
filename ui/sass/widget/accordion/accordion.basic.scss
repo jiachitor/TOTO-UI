@@ -1,0 +1,43 @@
+/**
+  * Accordion Theme: basic
+  * Author: Minwe (minwe$yunshipei.com)
+  */
+
+.accordion-basic {
+	$accordion-title-color: $gray-dark;
+	$accordion-title-active-color: $global-primary;
+	$accordion-content-color: #666;
+
+	margin: 1rem;
+
+	.accordion-title {
+		color: $accordion-title-color;
+		transition: background-color 0.2s ease-out;
+		padding: .8rem 0 0;
+
+		&:before {
+			@extend icon-font;
+			content: $fa-var-caret-right;
+			transition: transform .2s ease;
+			transform: rotate(0deg);
+			margin-right: .5rem;
+		}
+	}
+
+	.accordion-content {
+		color: $accordion-content-color;
+	}
+
+	// active
+	.active {
+		.accordion-title {
+			color: $accordion-title-active-color;
+
+			&:before {
+				transform: rotate(90deg);
+			}
+		}
+	}
+
+}
+

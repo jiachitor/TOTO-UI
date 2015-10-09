@@ -1,0 +1,85 @@
+// list_news header 基础样式
+
+.list-news-hd {
+	padding-top: 1.2rem;
+	padding-bottom: 0.8rem;
+
+	a {
+		display: block;
+	}
+
+	h2 {
+		font-size: 1.6rem;
+		float: left;
+		margin: 0;
+		height: 2rem;
+		line-height: 2rem;
+	}
+
+	h3 {
+		margin: 0;
+	}
+
+	.list-news-more {
+		font-size: 1.3rem;
+		height: 2rem;
+		line-height: 2rem;
+	}
+}
+
+// 带日期的
+.list {
+	.list-item-dated {
+		a {
+			padding-right: 80px;
+			@include text-overflow (block);
+			&::after {
+				display: none;
+			}
+		}
+	}
+
+	.list-item-desced,
+	.list-item-thumbed {
+		a {
+			padding-right: 0;
+		}
+	}
+}
+
+.list-news {
+	.list-item-hd {
+		margin: 0;
+	}
+}
+
+// 日期样式
+.list-date {
+	position: absolute;
+	right: 5px;
+	font-size: 1.3rem;
+	top: 1.3rem;
+}
+
+// 带描述的条目
+.list-item-desced {
+	padding-bottom: 1rem;
+	> a {
+		padding: 1rem 0;
+	}
+
+	// 带描述时日期定为更改
+	.list-date {
+		position: static;
+	}
+}
+
+// 带所缩略图的列表
+.list-item-thumbed {
+	padding-top: 1em;
+}
+
+// list_news footer 基础样式
+.list-news-ft {
+	text-align: center;
+}

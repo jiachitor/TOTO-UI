@@ -2,7 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import Icon from './icon.jsx';
 import AvgGrid from './avgGrid.jsx';
 import omit from 'object.omit';
@@ -89,7 +89,7 @@ class Menu extends React.Component{
         return (
             <a
                 href="#"
-                onTouchStart={this.handleToggle}
+                onTouchTap={this.handleToggle}
                 className={classNames(this.prefixClass('toggle'),
         this.state.expanded ? this.setClassNamespace('active') : null)}>
                 {title}
@@ -110,7 +110,7 @@ class Menu extends React.Component{
           _this.setClassNamespace('parent') : null,
           nav.subActive ? openClassName : null)}>
                     <a
-                        onTouchStart={_this.handleClick.bind(_this, nav, i, false)}
+                        onTouchTap={_this.handleClick.bind(_this, nav, i, false)}
                         href={nav.link}>
                         {nav.title}
                     </a>
@@ -124,7 +124,7 @@ class Menu extends React.Component{
                                 return (
                                     <li key={index}>
                                         <a
-                                            onTouchStart={_this.handleClick.bind(_this, subNav,
+                                            onTouchTap={_this.handleClick.bind(_this, subNav,
                       [i, index], false)}
                                             target={subNav.target}
                                             href={subNav.link}>
@@ -149,7 +149,7 @@ class Menu extends React.Component{
         return (
             <nav
                 {...props}
-                data-am-widget={this.props.classPrefix}
+                data-widget={this.props.classPrefix}
                 className={classNames(this.props.className, classSet)}>
                 {this.renderMenuToggle()}
                 <AvgGrid

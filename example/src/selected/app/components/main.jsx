@@ -186,11 +186,11 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>单选{selectedInstance1}</p>
-                    <p>表单提交测试{selectedInstance2}</p>
-                    <p>多选{selectedInstance3}</p>
-                    <p>选项分组{selectedInstance4}</p>
-                    <p>搜索过滤框{selectedInstance5}</p>
+                    <div className="demo_box">单选{selectedInstance1}</div>
+                    <div className="demo_box">表单提交测试{selectedInstance2}</div>
+                    <div className="demo_box">多选{selectedInstance3}</div>
+                    <div className="demo_box">选项分组{selectedInstance4}</div>
+                    <div className="demo_box">搜索过滤框{selectedInstance5}</div>
                 </div>
             </div>
         );

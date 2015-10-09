@@ -33,7 +33,10 @@
 @import "panel.scss";         //面板
 @import "progress.scss";      //进度条
 @import "thumbnail.scss";     //略缩图，暂时不用
+@import "uicheck.scss";       //radio/checkbox 美化
 @import "utility.scss";       //辅助类
 
 // JavaScript Plugins
 @import "ui.component.scss";
+@import "ui.flexslider.scss";
+@import "ui.offcanvas.scss";

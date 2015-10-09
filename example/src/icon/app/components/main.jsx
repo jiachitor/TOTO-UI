@@ -113,12 +113,12 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{iconInstance1}</p>
-                    <p>{iconInstance2}</p>
-                    <p>{iconInstance3}</p>
-                    <p>{iconInstance4}</p>
-                    <p>{iconInstance5}</p>
-                    <p>{iconInstance6}</p>
+                    <div className="demo_box">{iconInstance1}</div>
+                    <div className="demo_box">{iconInstance2}</div>
+                    <div className="demo_box">{iconInstance3}</div>
+                    <div className="demo_box">{iconInstance4}</div>
+                    <div className="demo_box">{iconInstance5}</div>
+                    <div className="demo_box">{iconInstance6}</div>
                 </div>
             </div>
         );

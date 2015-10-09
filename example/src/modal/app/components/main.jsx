@@ -190,13 +190,13 @@ class Main extends React.Component{
 
         return (
             <div className="demos">
-                <p>{modalInstance1}</p>
-                <p>{modalInstance2}</p>
-                <p>{modalInstance3}</p>
-                <p>{modalInstance4}</p>
-                <p>{modalInstance5}</p>
-                <p>{modalInstance6}</p>
-                <p>{modalInstance7}</p>
+                <div className="demo_box">{modalInstance1}</div>
+                <div className="demo_box">{modalInstance2}</div>
+                <div className="demo_box">{modalInstance3}</div>
+                <div className="demo_box">{modalInstance4}</div>
+                <div className="demo_box">{modalInstance5}</div>
+                <div className="demo_box">{modalInstance6}</div>
+                <div className="demo_box">{modalInstance7}</div>
             </div>
         );
     }

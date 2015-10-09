@@ -56,9 +56,9 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{closeInstance1}</p>
-                    <p>{closeInstance2}</p>
-                    <p>{closeInstance3}</p>
+                    <div className="demo_box">{closeInstance1}</div>
+                    <div className="demo_box">{closeInstance2}</div>
+                    <div className="demo_box">{closeInstance3}</div>
                 </div>
             </div>
         );

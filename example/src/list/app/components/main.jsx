@@ -186,12 +186,12 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{listInstance1}</p>
-                    <p>{listInstance2}</p>
-                    <p>{listInstance3}</p>
-                    <p>{listInstance4}</p>
-                    <p>{listInstance5}</p>
-                    <p>{listInstance6}</p>
+                    <div className="demo_box">{listInstance1}</div>
+                    <div className="demo_box">{listInstance2}</div>
+                    <div className="demo_box">{listInstance3}</div>
+                    <div className="demo_box">{listInstance4}</div>
+                    <div className="demo_box">{listInstance5}</div>
+                    <div className="demo_box">{listInstance6}</div>
                 </div>
             </div>
         );

@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     rename = require('gulp-rename'),
     watch = require('gulp-watch'),
+    replace = require('gulp-replace'),
     browserSync = require('browser-sync'),
     _ = require('underscore');
 

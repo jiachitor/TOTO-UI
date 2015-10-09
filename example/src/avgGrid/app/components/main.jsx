@@ -48,8 +48,8 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{avgGridInstance1}</p>
-                    <p>{avgGridInstance2}</p>
+                    <div className="demo_box">{avgGridInstance1}</div>
+                    <div className="demo_box">{avgGridInstance2}</div>
                 </div>
             </div>
         );

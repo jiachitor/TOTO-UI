@@ -1,0 +1,198 @@
+// Name:            uCheck
+//
+// Description:     Define style for uCheck Plugin
+//
+// Component:       `.ucheck`
+//
+// Sub-objects:     `.ucheck-icons`
+//                  `.ucheck-checkbox`
+//                  `.ucheck-radio`
+//
+// States:
+//
+// Used:            Icon
+//
+// Uses:
+//
+// =============================================================================
+
+/* ==========================================================================
+   Component: uCheck Plugin
+ ============================================================================ */
+
+$ucheck-disabled-color: mix($gray-light, white, 38%);
+
+.checkbox,
+.radio,
+.checkbox-inline,
+.radio-inline {
+	// margin-bottom: 12px;
+	padding-left: 22px;
+	position: relative;
+	transition: color .25s linear;
+	font-size: 14px;
+	line-height: 1.5; // 21px;
+}
+
+label {
+	&.checkbox,
+	&.radio {
+		font-weight: normal;
+	}
+}
+
+.ucheck-icons {
+	color: $gray-light;
+	display: block;
+	height: 20px;
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 20px;
+	text-align: center;
+	line-height: 21px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.checkbox,
+.radio,
+.checkbox-inline,
+.radio-inline {
+	.icon-checked,
+	.icon-unchecked {
+		position: absolute;
+		left: 0;
+		top: 0;
+		display: inline-table;
+		margin: 0;
+		background-color: transparent;
+		transition: color .25s linear;
+
+		&:before {
+			// speak: none;
+			@include icon-font();
+		}
+	}
+
+	.icon-checked {
+		opacity: 0;
+	}
+}
+
+.checkbox,
+.checkbox-inline {
+	.icon-checked:before {
+		content: $fa-var-check-square-o;
+	}
+
+	.icon-unchecked:before {
+		content: $fa-var-square-o;
+	}
+}
+
+.radio,
+.radio-inline {
+	.icon-checked:before {
+		content: $fa-var-dot-circle-o;
+	}
+	.icon-unchecked:before {
+		content: $fa-var-circle-o;
+	}
+}
+
+@mixin ucheck-state-variant($color) {
+	.ucheck-checkbox,
+	.ucheck-radio {
+		// hover
+		&:hover:not(.nohover):not(:disabled) + .ucheck-icons {
+			color: $color;
+		}
+
+		// checked
+		&:checked + .ucheck-icons {
+			color: $color;
+		}
+	}
+}
+
+.ucheck-checkbox,
+.ucheck-radio {
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	width: 20px;
+	height: 20px;
+	opacity: 0;
+	outline: none !important;
+
+	// hover state
+	&:hover:not(.nohover):not(:disabled) + .ucheck-icons {
+		color: $global-primary;
+	}
+
+	// checked
+	&:checked + .ucheck-icons {
+		color: $global-primary;
+
+		.icon-unchecked {
+			opacity: 0;
+		}
+
+		.icon-checked {
+			opacity: 1;
+		}
+	}
+
+	// disabled
+	&:disabled + .ucheck-icons {
+		cursor: default;
+		color: $ucheck-disabled-color;
+	}
+
+	&:disabled:checked + .ucheck-icons {
+		.icon-unchecked {
+			opacity: 0;
+		}
+
+		.icon-checked {
+			opacity: 1;
+			color: $ucheck-disabled-color;
+		}
+	}
+}
+
+// color modifiers
+.checkbox,
+.radio,
+.checkbox-inline,
+.radio-inline {
+	&.secondary {
+		@include ucheck-state-variant($global-secondary);
+	}
+
+	&.success {
+		@include ucheck-state-variant($global-success);
+	}
+
+	&.warning {
+		@include ucheck-state-variant($global-warning);
+	}
+
+	&.danger {
+		@include ucheck-state-variant($global-danger);
+	}
+}
+
+// form validate state
+.field-error + .ucheck-icons {
+	color: $global-danger;
+}
+
+.field-valid + .ucheck-icons {
+	color: $global-success;
+}
+
+

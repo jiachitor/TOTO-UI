@@ -112,10 +112,10 @@ class Main extends React.Component{
 
         return (
             <div className="demos">
-                <p>{popoverInstance1}</p>
-                <p>{popoverInstance2}</p>
-                <p>{popoverInstance3}</p>
-                <p>{popoverInstance4}</p>
+                <div className="demo_box">{popoverInstance1}</div>
+                <div className="demo_box">{popoverInstance2}</div>
+                <div className="demo_box">{popoverInstance3}</div>
+                <div className="demo_box">{popoverInstance4}</div>
             </div>
         );
     }

@@ -2,7 +2,7 @@
 
 import React from 'react';
 //import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import Button from './button.jsx';
 
 class LoadingButton extends React.Component {

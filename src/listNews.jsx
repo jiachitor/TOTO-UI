@@ -2,7 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import Button from './button.jsx';
 import Col from './col.jsx';
 
@@ -265,7 +265,7 @@ class ListNews extends React.Component {
         return (
             <div
                 {...this.props}
-                data-am-widget={this.props.classPrefix}
+                data-widget={this.props.classPrefix}
                 className={classNames(this.props.className, classSet)}>
                 {this.props.header || this.renderHeader()}
                 {this.renderBody(

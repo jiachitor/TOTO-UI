@@ -15,7 +15,7 @@ function getScrollbarWidth() {
   // Create the measurement node
   let measure = document.createElement('div');
 
-  measure.className = 'am-scrollbar-measure';
+  measure.className = 'scrollbar-measure';
   document.body.appendChild(measure);
 
   // Get the scrollbar width

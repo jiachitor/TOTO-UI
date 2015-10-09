@@ -2,7 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import omit from 'object.omit';
 
 class Titlebar extends React.Component{
@@ -19,7 +19,7 @@ class Titlebar extends React.Component{
         return (
             <div
                 {...props}
-                data-am-widget={this.props.classPrefix}
+                data-widget={this.props.classPrefix}
                 className={classNames(this.props.className, classSet)}>
                 <h2 className={this.prefixClass('title')}>
                     {this.props.href ? (

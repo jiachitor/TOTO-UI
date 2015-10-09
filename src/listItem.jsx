@@ -2,7 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 
 class ListItem extends React.Component{
     constructor(props) {
@@ -16,7 +16,7 @@ class ListItem extends React.Component{
     renderAnchor(classes) {
         let props = this.props;
         let Component = props.componentTag;
-        let truncate = props.truncate ? 'am-text-truncate' : '';
+        let truncate = props.truncate ? 'text-truncate' : '';
 
         return (
             <Component
@@ -38,7 +38,7 @@ class ListItem extends React.Component{
         let Component = this.props.componentTag;
 
         // set .am-text-truncate
-        classes['am-text-truncate'] = this.props.truncate;
+        classes['text-truncate'] = this.props.truncate;
 
         // render Anchor
         if (this.props.href) {

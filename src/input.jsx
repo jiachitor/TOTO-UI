@@ -6,9 +6,10 @@
  */
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
-import constants from './minxins/constants.js';
+import ClassNameMixin from './mixins/ClassNameMixin';
+import constants from './mixins/constants.js';
 import FormGroup from './formGroup.jsx';
 import Button from './button.jsx';
 import Icon from './icon.jsx';
@@ -37,7 +38,7 @@ class Input extends React.Component {
     }
 
     getFieldDOMNode() {
-        return React.findDOMNode(this.refs.field);
+        return ReactDOM.findDOMNode(this.refs.field);
     }
     /*.0.0.1.0.0.$field .0.0.1.0.0.$field*/
     getValue() {

@@ -186,12 +186,12 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{PaginationInstance1}</p>
-                    <p>{PaginationInstance2}</p>
-                    <p>{PaginationInstance3}</p>
-                    <p>{PaginationInstance4}</p>
-                    <p>{PaginationInstance5}</p>
-                    <p>{PaginationInstance6}</p>
+                    <div className="demo_box">{PaginationInstance1}</div>
+                    <div className="demo_box">{PaginationInstance2}</div>
+                    <div className="demo_box">{PaginationInstance3}</div>
+                    <div className="demo_box">{PaginationInstance4}</div>
+                    <div className="demo_box">{PaginationInstance5}</div>
+                    <div className="demo_box">{PaginationInstance6}</div>
                 </div>
             </div>
         );

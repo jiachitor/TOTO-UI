@@ -57,7 +57,7 @@ tbody.collapse.in {
 	transform-origin: 0 0; // Needed for scale animation
 }
 
-[data-am-sticky][class*="animation-"] {
+[data-sticky][class*="animation-"] {
 	animation-duration: .2s;
 }
 

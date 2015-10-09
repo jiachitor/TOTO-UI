@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
-import SmoothScrollMixin from './minxins/SmoothScrollMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
+import SmoothScrollMixin from './mixins/SmoothScrollMixin';
 import Events from './utils/Events';
 import debounce from './utils/debounce';
 import dom from './utils/domUtils';
@@ -19,6 +20,9 @@ class GoTop extends React.Component {
         for (let b in SmoothScrollMixin) {
             this[b] = SmoothScrollMixin[b].bind(this);
         }
+        this.componentDidMount = this.componentDidMount.bind(this);
+        this.componentWillUnmount = this.componentWillUnmount.bind(this);
+        this.checkPosition = this.checkPosition.bind(this);
         this.isAutoHide = this.isAutoHide.bind(this);
         this.renderIcon = this.renderIcon.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -41,7 +45,7 @@ class GoTop extends React.Component {
     checkPosition() {
         let action = (dom.scrollTop(window) > 50 ? 'add' : 'remove') + 'Class';
 
-        CSSCore[action](React.findDOMNode(this), this.setClassNamespace('active'));
+        CSSCore[action](ReactDOM.findDOMNode(this), this.setClassNamespace('active'));
     }
 
     isAutoHide() {
@@ -73,7 +77,7 @@ class GoTop extends React.Component {
         return (
             <div
                 {...this.props}
-                data-am-widget={this.props.classPrefix}
+                data-widget={this.props.classPrefix}
                 className={classNames(classSet, this.props.className)}>
                 <a
                     href="#top"

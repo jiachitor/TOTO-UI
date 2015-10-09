@@ -112,7 +112,9 @@ class Main extends React.Component{
         return (
             <div className="demos">
                 {articleInstance1}
-                <p>#############################################################################</p>
+                <div className="demo_box">
+                    #############################################################################
+                </div>
                 {articleInstance2}
             </div>
         );

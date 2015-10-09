@@ -2,7 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import ClassNameMixin from './minxins/ClassNameMixin';
+import ClassNameMixin from './mixins/ClassNameMixin';
 import omit from 'object.omit';
 import Nav from './nav.jsx';
 import NavItem from './navItem.jsx';

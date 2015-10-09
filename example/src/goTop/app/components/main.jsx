@@ -7,6 +7,23 @@ class Main extends React.Component{
         super(props);
     }
     render() {
+
+        /*
+        *
+        * GoTop 组件
+
+         <GoTop> 组件，显示一个链接，点击滚动到窗口顶部，原回到顶部 React 封装。
+
+         属性：
+
+         theme: string - 主题名称
+         title: string - 显示的文字
+         src: string - 自定图标的地址
+         icon: string - FontAwesome 图标名称，如果定义了 src，则优先使用 src，此属性将被忽略
+         autoHide: bool - 是否自动隐藏回到顶部图标，仅在 fixed 主题中有效
+        * */
+
+
         var divStyle = {marginTop:'800px'};
 
         var GoTop1 = (
@@ -38,9 +55,9 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos" style={divStyle}>
-                    <p>{GoTop1}</p>
-                    <p>{GoTop2}</p>
-                    <p>{scrollToInstance}</p>
+                    <div className="demo_box">{GoTop1}</div>
+                    <div className="demo_box">{GoTop2}</div>
+                    <div className="demo_box">{scrollToInstance}</div>
                 </div>
             </div>
         );

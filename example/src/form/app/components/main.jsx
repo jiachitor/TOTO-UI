@@ -323,20 +323,20 @@ class Main extends React.Component{
 
                 </div>
                 <div className="demos">
-                    <p>{formInstance1}</p>
-                    <p>{formInstance2}</p>
-                    <p>{formInstance3}</p>
-                    <p>{formInstance4}</p>
-                    <p>{formInstance5}</p>
-                    <p>{formInstance6}</p>
-                    <p>{formInstance7}</p>
-                    <p>{formInstance8}</p>
-                    <p>{formInstance9}</p>
-                    <p>{formInstance10}</p>
-                    <p>{formInstance11}</p>
-                    <p>{formInstance12}</p>
-                    <p>{formInstance13}</p>
-                    <p>{formInstance14}</p>
+                    <div className="demo_box">{formInstance1}</div>
+                    <div className="demo_box">{formInstance2}</div>
+                    <div className="demo_box">{formInstance3}</div>
+                    <div className="demo_box">{formInstance4}</div>
+                    <div className="demo_box">{formInstance5}</div>
+                    <div className="demo_box">{formInstance6}</div>
+                    <div className="demo_box">{formInstance7}</div>
+                    <div className="demo_box">{formInstance8}</div>
+                    <div className="demo_box">{formInstance9}</div>
+                    <div className="demo_box">{formInstance10}</div>
+                    <div className="demo_box">{formInstance11}</div>
+                    <div className="demo_box">{formInstance12}</div>
+                    <div className="demo_box">{formInstance13}</div>
+                    <div className="demo_box">{formInstance14}</div>
                 </div>
             </div>
         );

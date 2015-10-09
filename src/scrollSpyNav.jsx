@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import assign from 'object-assign';
 import classNames from 'classnames';
-import SmoothScrollMixin from './minxins/SmoothScrollMixin';
+import SmoothScrollMixin from './mixins/SmoothScrollMixin';
 import isInViewport from './utils/isInViewport';
 import Events from './utils/Events';
 import requestAnimationFrame from './utils/requestAnimationFrame';
@@ -54,7 +55,7 @@ class ScrollSpyNav extends React.Component {
     }
 
     _init() {
-        this._linkNodes = React.findDOMNode(this).querySelectorAll('a[href^="#"]');
+        this._linkNodes = ReactDOM.findDOMNode(this).querySelectorAll('a[href^="#"]');
         this._anchorNodes = [];
 
         Array.prototype.forEach.call(this._linkNodes, function (link) {
@@ -95,7 +96,7 @@ class ScrollSpyNav extends React.Component {
                     CSSCore.removeClass(link, this.props.activeClass);
                 }.bind(this));
 
-                let targetLink = React.findDOMNode(this).
+                let targetLink = ReactDOM.findDOMNode(this).
                     querySelector('a[href="#' + targetNode.id + '"]');
 
                 targetLink && CSSCore.addClass(targetLink, this.props.activeClass);

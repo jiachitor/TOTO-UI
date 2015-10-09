@@ -3,43 +3,40 @@
 *,
 *:before,
 *:after {
-   -moz-box-sizing: border-box;
-   -webkit-box-sizing: border-box;
-   box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
-
 
 /*html {
    font-size: 62.5%;
 }*/
 
 body {
-   margin: 0;
-   padding: 0;
-   //font-size: 1.6rem; /!* =16px *!/
+	margin: 0;
+	padding: 0;
+	//font-size: 1.6rem; /!* =16px *!/
 }
 
-ul{
-   margin: 0;
-   padding: 0;
+ul {
+	margin: 0;
+	padding: 0;
 }
-
-
 
 /*Webkit 反锯齿*/
 body {
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 /*=========================================demo css=======================================*/
 
-
-
-
 //demo 样式
-.demos{
-   padding: 20px;
+.demos {
+	padding: 20px;
+	.demo_box {
+		padding: 0 0 100px;
+	}
 }
 
 

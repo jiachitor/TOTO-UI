@@ -1,52 +1,52 @@
 {
-  "name": "totoui",
-  "author": "liujiachi",
-  "version": "0.4.0",
-  "description": "TOTO UI components built with React.js",
-  "main": "./lib",
-  "scripts": {
-    "test": "echo \"No test implemented\" && exit 0",
-    "prebuild": "rm -rf lib",
-    "eslint": "gulp eslint",
-    "replace": "gulp replace",
-    "build": "npm run eslint && babel --stage 1 ./src --out-dir ./lib && npm run replace",
-    "prepublish": "npm run build"
-  },
-  "keywords": [
-    "react",
-    "react-component",
-    "toto ui",
-    "es6"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jiachitor/TOTO-UI.git"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jiachitor/TOTO-UI/issues"
-  },
-  "homepage": "http://TOTO-UI.com/",
-  "dependencies": {
-    "classnames": "^2.1.3",
-    "fecha": "^0.2.1",
-    "object.omit": "^2.0.0",
-    "react-draggable2": "^0.5.1"
-  },
-  "peerDependencies": {
-    "react": "^0.13.3",
-    "react-tap-event-plugin": ">=0.1.3"
-  },
-  "devDependencies": {
-    "babel": "^5.4.3",
-    "babel-eslint": "^3.1.17",
-    "eslint": "^0.23.0",
-    "eslint-plugin-react": "^2.5.2",
-    "gulp": "gulpjs/gulp#4.0",
-    "gulp-eslint": "^0.15.0",
-    "gulp-just-replace": "^1.0.2",
-    "gulp-replace": "^0.5.4",
-    "react-router": "^0.13.3",
-    "react-tap-event-plugin": "^0.1.8"
-  }
+	"name": "totoui",
+	"author": "liujiachi",
+	"version": "0.4.0",
+	"description": "TOTO UI components built with React.js",
+	"main": "./lib",
+	"scripts": {
+		"test": "echo \"No test implemented\" && exit 0",
+		"prebuild": "rm -rf lib",
+		"eslint": "gulp eslint",
+		"replace": "gulp replace",
+		"build": "npm run eslint && babel --stage 1 ./src --out-dir ./lib && npm run replace",
+		"prepublish": "npm run build"
+	},
+	"keywords": [
+		"react",
+		"react-component",
+		"toto ui",
+		"es6"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jiachitor/TOTO-UI.git"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/jiachitor/TOTO-UI/issues"
+	},
+	"homepage": "http://TOTO-UI.com/",
+	"dependencies": {
+		"classnames": "^2.1.3",
+		"fecha": "^0.2.1",
+		"object.omit": "^2.0.0",
+		"react-draggable2": "^0.5.1"
+	},
+	"peerDependencies": {
+		"react": "^0.14.0",
+		"react-tap-event-plugin": ">=0.1.3"
+	},
+	"devDependencies": {
+		"babel": "^5.4.3",
+		"babel-eslint": "^3.1.17",
+		"eslint": "^0.23.0",
+		"eslint-plugin-react": "^2.5.2",
+		"gulp": "gulpjs/gulp#4.0",
+		"gulp-eslint": "^0.15.0",
+		"gulp-just-replace": "^1.0.2",
+		"gulp-replace": "^0.5.4",
+		"react-router": "^0.13.3",
+		"react-tap-event-plugin": "^0.1.8"
+	}
 }
