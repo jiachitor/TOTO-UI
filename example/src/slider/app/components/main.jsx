@@ -262,7 +262,6 @@ class Main extends React.Component{
             </Slider>);
 
 
-
         return (
             <div className="module">
                 <div className="introduce">

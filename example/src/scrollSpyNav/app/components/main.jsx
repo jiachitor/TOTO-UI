@@ -13,7 +13,7 @@ class Main extends React.Component{
         /*
         * 组件介绍
 
-         <ScrollSpyNav> 组件，链接对应锚点元素进入视口时，在该链接上添加 .am-active class 高亮链接。高亮链接样式根据需要自行定义。
+         <ScrollSpyNav> 组件，链接对应锚点元素进入视口时，在该链接上添加 .active class 高亮链接。高亮链接样式根据需要自行定义。
 
          属性说明：
 
@@ -26,8 +26,8 @@ class Main extends React.Component{
             <div>
                 <Sticky>
                     <ScrollSpyNav offsetTop={50}>
-                        <nav className="scrollspy-nav" data-am-scrollspy-nav="{offsetTop: 45}"
-                             data-am-sticky>
+                        <nav className="scrollspy-nav" data-scrollspy-nav="{offsetTop: 45}"
+                             data-sticky>
                             <ul>
                                 <li><a href="#about">关于棉花糖</a></li>
                                 <li><a href="#team">成员介绍</a></li>
@@ -39,7 +39,7 @@ class Main extends React.Component{
                     </ScrollSpyNav>
                 </Sticky>
 
-                <Panel id="about" className="am-margin-top" header="棉花糖[katncandix2]"><p>
+                <Panel id="about" className="margin-top" header="棉花糖[katncandix2]"><p>
                     棉花糖[katncandix2]，2007年5月30日街头出身，为两人团体，由团长沈圣哲(圣哲)以及主唱庄鹃瑛(小球)所组成。之所以是街头出身，始于一开始棉花糖[katncandix2]为台北市文化局核准街头艺人，从街头开始演出，往他们的音乐梦想勇敢飞行!!!。棉花糖藉由无数次的演出，一起在烈日下、狂风中、还有那没完没了的雨天里。和所有人一创造热血青春。棉花糖用年轻的眼睛看着现实世界，音乐充满温暖、力量和希望，他们用努力作为实现梦想的强心针，用音乐开创梦想的大世纪，这是属于棉花糖的记忆、一段记录
                     勇敢的故事。清新的城市民谣，软绵绵却有着温暖的力量，在喧嚣吵杂的城市里，还有一个温暖组合，直接将力量打在你的心脏!“棉花糖katncandix2”，街头艺人。在好天气或坏天气里快乐唱歌，在马路边、小公园或是热闹的柏油路面上，实践音乐的梦想.曾经在台湾,大陆进行数千次的街头演唱，感动了无数青年的心.触动了无数人内心的感伤和爱情观2008年1月11日，发行首张创作EP
                     2375。2009年5月1日发行首张创作专辑「小飞行」。 2010年5月14日发行第二张创作专辑「再见王子」。</p>

@@ -2,7 +2,7 @@ var dest = './build',
     src = './src',
     fonts = '../ui/fonts',
     modulesList = ['accordion','article','avgGrid','badge','button','close','dateTimePicker','demo','dropdown','form','goTop','grid','header','icon','image','list','listNews','menu','modal','nav','navbar','pagination','panel','popover','progress','scrollSpy','scrollSpyNav','selected','slider','sticky','table','tabs','tabsimple','uiCheck'],
-    modulesNow = ['uiCheck'],
+    modulesNow = ['slider'],
     mui = './node_modules/material-ui/src';
 
 //browserify

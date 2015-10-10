@@ -26,6 +26,7 @@ class ScrollSpyNav extends React.Component {
         this.componentDidMount = this.componentDidMount.bind(this);
         this.componentWillMount = this.componentWillMount.bind(this);
         this.componentWillUnmount = this.componentWillUnmount.bind(this);
+        this._init = this._init.bind(this);
         this.checkIsInView = this.checkIsInView.bind(this);
         this.checkRAF = this.checkRAF.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -33,18 +34,15 @@ class ScrollSpyNav extends React.Component {
 
     componentDidMount() {
         this.mounted = true;
+        this._init();
     }
 
     componentWillMount() {
-        this._init();
         this.checkRAF();
-
         let debounced = debounce(this.checkRAF, 100).bind(this);
-
         this._scrollListener = Events.on(window, 'scroll', this.checkRAF);
         this._resizeListener = Events.on(window, 'resize', debounced);
-        this._orientationListener = Events.on(window, 'orientationchange',
-            debounced);
+        this._orientationListener = Events.on(window, 'orientationchange', debounced);
     }
 
     componentWillUnmount() {
@@ -68,7 +66,7 @@ class ScrollSpyNav extends React.Component {
     }
 
     checkIsInView() {
-        if (this.isMounted) {
+        if (this.mounted) {
             let inViewsNodes = [];
 
             this._anchorNodes.forEach(function (anchor) {
@@ -96,8 +94,7 @@ class ScrollSpyNav extends React.Component {
                     CSSCore.removeClass(link, this.props.activeClass);
                 }.bind(this));
 
-                let targetLink = ReactDOM.findDOMNode(this).
-                    querySelector('a[href="#' + targetNode.id + '"]');
+                let targetLink = ReactDOM.findDOMNode(this).querySelector('a[href="#' + targetNode.id + '"]');
 
                 targetLink && CSSCore.addClass(targetLink, this.props.activeClass);
             }

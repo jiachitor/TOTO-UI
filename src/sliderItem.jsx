@@ -44,6 +44,7 @@ class SliderItem extends React.Component {
             TransitionEvents.on(ReactDOM.findDOMNode(this), this.handleAnimateOutEnd);
         }
 
+        //如果状态改变了，就执行动画
         if (this.props.active !== prevProps.active) {
             setTimeout(this.startAnimation, 20);
         }
@@ -76,8 +77,7 @@ class SliderItem extends React.Component {
             this.props.direction === 'prev',
         };
 
-        if (this.state.direction && (this.props.animateIn ||
-            this.props.animateOut)) {
+        if (this.state.direction && (this.props.animateIn || this.props.animateOut)) {
             classSet[this.state.direction] = true;
         }
 

@@ -236,18 +236,15 @@ class DatePicker extends React.Component{
                 style={this.state.displayed.days}
                 selectedDate={this.state.selectedDate}
                 viewDate={this.state.viewDate}
-
                 subtractMonth={this.subtractMonth}
                 addMonth={this.addMonth}
                 setSelectedDate={this.setSelectedDate}
                 showMonths={this.showMonths}
-
                 locale={this.state.locale}
                 weekStart={this.props.weekStart}
                 daysOfWeekDisabled={this.props.daysOfWeekDisabled}
                 minDate={this.props.minDate}
-                maxDate={this.props.maxDate}
-                />
+                maxDate={this.props.maxDate}/>
         );
     }
 
@@ -498,13 +495,10 @@ DaysPicker.displayName = "DaysPicker";
 DaysPicker.propTypes = {
     subtractMonth: React.PropTypes.func.isRequired,
     addMonth: React.PropTypes.func.isRequired,
-
     setSelectedDate: React.PropTypes.func.isRequired,
     selectedDate: React.PropTypes.object.isRequired,
-
     viewDate: React.PropTypes.object.isRequired,
     showMonths: React.PropTypes.func.isRequired,
-
     locale: React.PropTypes.object,
     weekStart: React.PropTypes.number,
     daysOfWeekDisabled: React.PropTypes.array,
@@ -589,18 +583,13 @@ class MonthsPicker extends React.Component{
 MonthsPicker.displayName = "MonthsPicker";
 
 MonthsPicker.propTypes = {
-    subtractMonth: React.PropTypes.func.isRequired,
-    addMonth: React.PropTypes.func.isRequired,
-
-    setSelectedDate: React.PropTypes.func.isRequired,
-    selectedDate: React.PropTypes.object.isRequired,
-
-    viewDate: React.PropTypes.object.isRequired,
-    showMonths: React.PropTypes.func.isRequired,
-
     locale: React.PropTypes.object,
-    weekStart: React.PropTypes.number,
-    daysOfWeekDisabled: React.PropTypes.array,
+    subtractYear: React.PropTypes.func.isRequired,
+    addYear: React.PropTypes.func.isRequired,
+    viewDate: React.PropTypes.object.isRequired,
+    selectedDate: React.PropTypes.object.isRequired,
+    showYears: React.PropTypes.func.isRequired,
+    setViewMonth: React.PropTypes.func.isRequired,
     minDate: React.PropTypes.string,
     maxDate: React.PropTypes.string,
 };

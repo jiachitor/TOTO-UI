@@ -1,5 +1,4 @@
 'use strict';
-import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import getScrollbarWidth from '../utils/getScrollbarWidth';

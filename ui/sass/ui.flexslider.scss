@@ -8,116 +8,121 @@
 //
 // =============================================================================
 
-
 /* ==========================================================================
    Component: Flex Slider Plugin
  ============================================================================ */
 
 // Browser Resets
 // =============================================================================
-.slider{
-  a:hover,
-  a:focus{
-    outline: none;
-  }
+.slider {
+	a:hover,
+	a:focus {
+		outline: none;
+	}
 }
 
 .slides,
 .control-nav,
 .direction-nav {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
-
 
 // FlexSlider Necessary Styles
 // =============================================================================
 .slider {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
 
-  .slides {
-  @include clearfix(); // Clearfix for the .slides element
+	.slides {
+		@include clearfix(); // Clearfix for the .slides element
 
-    & > li {
-      display: none;
-      -webkit-backface-visibility: hidden;
-      // Hide the slides before the JS is loaded. Avoids image jumping
-      position: relative;
+		& > li {
+			display: none;
+			-webkit-backface-visibility: hidden;
+			// Hide the slides before the JS is loaded. Avoids image jumping
+			position: relative;
 
-      // No JavaScript Fallback
-      .no-js & {
-        &:first-child {
-          display: block;
-        }
-      }
-    }
+			// No JavaScript Fallback
+			&.active{
+				display: block;
+			}
+		}
 
-    img {
-      width: 100%;
-      display: block;
-    }
-  }
+		&:before{
+			content: " ";
+			display: table
+		}
+
+		&:after  {
+			content: "\0020";
+			display: block;
+			clear: both;
+			visibility: hidden;
+			line-height: 0;
+			height: 0;
+		}
+
+		img {
+			width: 100%;
+			display: block;
+		}
+	}
 }
 
 .pauseplay span {
-  text-transform: capitalize;
+	text-transform: capitalize;
 }
-
 
 // =============================================================================
 // FlexSlider Theme Core
 // =============================================================================
 
-.slider {
-  position: relative;
-}
-
 .viewport {
-  transition: all 1s ease;
+	transition: all 1s ease;
 }
 
 .slider-carousel li {
-  margin-right: 5px;
+	margin-right: 5px;
 }
 
 /* Direction Nav */
 .direction-nav {
-  a {
-    &::before {
-    }
-    &.flex-next {
-      &::before {
-      }
-    }
-  }
+	a {
+		&::before {
+		}
+		&.flex-next {
+			&::before {
+			}
+		}
+	}
 
-  .prev {
-  }
+	.prev {
+	}
 
-  .next {
-  }
+	.next {
+	}
 
-  .disabled {
-  }
+	.disabled {
+	}
 }
-
 
 /* Pause/Play */
 .pauseplay {
-  a {
-    &::before {
-    }
+	a {
+		&::before {
+		}
 
-    &:hover {
-    }
+		&:hover {
+		}
 
-    &.play {
-      &::before {
-      }
-    }
-  }
+		&.play {
+			&::before {
+			}
+		}
+	}
 }
 
 // 描述信息
@@ -127,34 +132,108 @@
 
 // Control Nav
 .control-nav {
-  position: absolute;
-  li {
-    display: inline-block;
-    a {
-      &:hover {
-      }
+	position: absolute;
+	li {
+		display: inline-block;
+		a {
+			&:hover {
+			}
 
-      &.active {
-      }
-    }
-  }
+			&.active {
+			}
+		}
+	}
 }
 
 .control-thumbs {
-  position: static;
-  overflow: hidden;
+	position: static;
+	overflow: hidden;
 
-  li {
-  }
+	li {
+	}
 
-  img {
-    transition: opacity .1s;
+	img {
+		transition: opacity .1s ease;
 
-    &:hover {
-    }
-  }
-  .active {
-  }
+		&:hover {
+		}
+	}
+	.active {
+	}
+}
+
+
+//这部分涉及到了 动画效果
+@media all and ('transform-3d'),('-webkit-transform-3d') {
+	.slider-slide{
+		.slides{
+			& > li{
+				-webkit-transition: -webkit-transform .6s ease-in-out;
+				transition: transform .6s ease-in-out;
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+				-webkit-perspective: 1000px;
+				perspective: 1000px
+
+			}
+
+			& > li.active.right, & > li.next{
+				-webkit-transform: translate3d(100%,0,0);
+				transform: translate3d(100%,0,0);
+				left: 0
+			}
+
+			& > li.active.left, & > li.prev{
+				-webkit-transform: translate3d(-100%,0,0);
+				transform: translate3d(-100%,0,0);
+				left: 0
+			}
+
+			& > li.active, & > li.next.left, & > li.prev.right{
+				-webkit-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+				left: 0
+			}
+		}
+	}
+}
+
+.slider-slide{
+	.slides{
+		& > .active, & > .next, & > .prev{
+			display: block
+		}
+
+		& > .next, & > .prev{
+			position: absolute;
+			top: 0;
+			width: 100%
+		}
+
+		& > .active{
+			left: 0
+		}
+
+		& > .next{
+			left: 100%
+		}
+
+		& > .prev{
+			left: -100%
+		}
+
+		& > .next.left, & > .prev.right{
+			left: 0
+		}
+
+		& > .next.left{
+			left: -100%
+		}
+
+		& > .prev.right{
+			left: 100%
+		}
+	}
 }
 
 
@@ -163,192 +242,200 @@
   */
 
 .slider-default {
-  $direction-nav-color: $gray-dark;
-  $pauseplay-color: #000;
+	$direction-nav-color: $gray-dark;
+	$pauseplay-color: #000;
 
-  $desc-color: #fff;
-  $desc-bg-color: rgba(0,0,0,0.7);
+	$desc-color: #fff;
+	$desc-bg-color: rgba(0, 0, 0, 0.7);
 
-  $control-nav-bg-color: rgba(0,0,0,0.5);
-  $control-nav-hover-bg-color: rgba(0,0,0,0.7);
-  $control-nav-active-bg-color: $global-primary;
+	$control-nav-bg-color: rgba(0, 0, 0, 0.5);
+	$control-nav-hover-bg-color: rgba(0, 0, 0, 0.7);
+	$control-nav-active-bg-color: $global-primary;
 
-  margin: 0 0 20px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 0 2px rgba(0,0,0,.15);
+	margin: 0 0 20px;
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .15);
 
-  .viewport {
-    max-height: 2000px;
-    transition: all 1s ease;
-    .loading & {
-      max-height: 300px;
-    }
-  }
+	.viewport {
+		max-height: 2000px;
+		transition: all 1s ease;
+		.loading & {
+			max-height: 300px;
+		}
+	}
 
-  .carousel li {
-    margin-right: 5px;
-  }
+	.carousel li {
+		margin-right: 5px;
+	}
 
-  /* Direction Nav */
-  .direction-nav {
-    a {
-      position: absolute;
-      top: 50%;
-      z-index: 10;
-      display: block;
-      width: 36px;
-      height: 24px;
-      margin: -12px 0 0;
-      overflow: hidden;
-      opacity: 0.45;
-      cursor: pointer;
-      color: rgba(0, 0, 0, 0.65);
-      transition: all .3s ease;
+	/* Direction Nav */
+	.direction-nav {
+		a {
+			position: absolute;
+			top: 50%;
+			z-index: 10;
+			display: block;
+			width: 36px;
+			height: 24px;
+			margin: -12px 0 0;
+			overflow: hidden;
+			opacity: 0.45;
+			cursor: pointer;
+			color: rgba(0, 0, 0, 0.65);
+			transition: all .3s ease;
 
-      &:before {
-        color: $direction-nav-color;
-      @extend icon-font;
-        content: $fa-var-chevron-circle-left;
-        font-size: 24px;
-      }
-      &.next {
-        &:before {
-          content: $fa-var-chevron-circle-right;
-        }
-      }
-    }
+			&:before {
+				color: $direction-nav-color;
+				@extend icon-font;
+				content: $fa-var-chevron-circle-left;
+				font-size: 24px;
+			}
+			&.next {
+				&:before {
+					content: $fa-var-chevron-circle-right;
+				}
+			}
+		}
 
-    .prev {
-      left: 10px;
-    }
-    .next {
-      right: 10px;
-      text-align: right;
-    }
+		.prev {
+			left: 10px;
+		}
+		.next {
+			right: 10px;
+			text-align: right;
+		}
 
-    .disabled {
-      opacity: 0!important;
-      cursor: default;
-    }
-  }
+		.disabled {
+			opacity: 0 !important;
+			cursor: default;
+		}
+	}
 
-  &:hover {
-    .prev {
-      opacity: 0.7;
-      left: 10px;
-      &:hover {
-        opacity: 1;
-      }
-    }
-    .next {
-      opacity: 0.7;
-      right: 10px;
-      &:hover {
-        opacity: 1;
-      }
-    }
-  }
+	&:hover {
+		.prev {
+			opacity: 0.7;
+			left: 10px;
+			&:hover {
+				opacity: 1;
+			}
+		}
+		.next {
+			opacity: 0.7;
+			right: 10px;
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
 
-  /* Pause/Play */
-  .pauseplay {
-    a {
-      display: block;
-      width: 20px;
-      height: 20px;
-      position: absolute;
-      bottom: 5px;
-      left: 10px;
-      opacity: 0.8;
-      z-index: 10;
-      overflow: hidden;
-      cursor: pointer;
-      color: $pauseplay-color;
-      &::before {
-      @extend icon-font;
-        font-size: 20px;
-        display: inline-block;
-        content: $fa-var-pause;
-      }
-      &:hover {
-        opacity: 1;
-      }
-      &.play {
-        &::before {
-          content: $fa-var-play;
-        }
-      }
-    }
-  }
+	/* Pause/Play */
+	.pauseplay {
+		a {
+			display: block;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			bottom: 5px;
+			left: 10px;
+			opacity: 0.8;
+			z-index: 10;
+			overflow: hidden;
+			cursor: pointer;
+			color: $pauseplay-color;
+			&::before {
+				@extend icon-font;
+				font-size: 20px;
+				display: inline-block;
+				content: $fa-var-pause;
+			}
+			&:hover {
+				opacity: 1;
+			}
+			&.play {
+				&::before {
+					content: $fa-var-play;
+				}
+			}
+		}
+	}
 
-  // desc
-  .slider-desc {
-    background-color: $desc-bg-color;
-    position: absolute;
-    bottom: 0;
-    padding: 10px;
-    width: 100%;
-    color: $desc-color;
-  }
+	// desc
+	.slider-desc {
+		background-color: $desc-bg-color;
+		position: absolute;
+		bottom: 0;
+		padding: 10px;
+		width: 100%;
+		color: $desc-color;
+	}
 
-  /* Control Nav */
-  .control-nav {
-    width: 100%;
-    position: absolute;
-    bottom: -15px;
-    text-align: center;
-    li {
-      margin: 0 6px;
-      display: inline-block;
-      a {
-        width: 8px;
-        height: 8px;
-        display: block;
-        background-color: #666;
-        background-color: $control-nav-bg-color;
-        line-height: 0;
-        font-size: 0;
-        cursor: pointer;
-        text-indent: -9999px;
-        -webkit-border-radius: 20px;
-        border-radius: 20px;
-        box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+	/* Control Nav */
+	.control-nav {
+		width: 100%;
+		position: absolute;
+		bottom: -15px;
+		text-align: center;
+		li {
+			margin: 0 6px;
+			display: inline-block;
+			a {
+				width: 8px;
+				height: 8px;
+				display: block;
+				background-color: #666;
+				background-color: $control-nav-bg-color;
+				line-height: 0;
+				font-size: 0;
+				cursor: pointer;
+				text-indent: -9999px;
+				-webkit-border-radius: 20px;
+				border-radius: 20px;
+				box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
 
-        &:hover {
-          background-color: #333;
-          background-color: $control-nav-hover-bg-color;
-        }
-        &.active {
-          background-color: #000;
-          background-color: $control-nav-active-bg-color;
-          cursor: default; }
-      }
-    }
-  }
+				&:hover {
+					background-color: #333;
+					background-color: $control-nav-hover-bg-color;
+				}
+				&.active {
+					background-color: #000;
+					background-color: $control-nav-active-bg-color;
+					cursor: default;
+				}
+			}
+		}
+	}
 
-  .control-thumbs {
-    margin: 5px 0 0;
-    position: static;
-    overflow: hidden;
-    li {
-      width: 25%;
-      float: left;
-      margin: 0;
-    }
-    img {
-      width: 100%;
-      display: block;
-      opacity: .7;
-      cursor: pointer;
-      &:hover {
-        opacity: 1;
-      }
-    }
-    .active {
-      opacity: 1;
-      cursor: default;
-    }
-  }
+	.control-thumbs {
+		margin: 5px 0 0;
+		position: static;
+		overflow: hidden;
+		li {
+			width: 25%;
+			float: left;
+			margin: 0;
+		}
+		img {
+			width: 100%;
+			display: block;
+			opacity: .7;
+			cursor: pointer;
+			&:hover {
+				opacity: 1;
+			}
+		}
+		.active {
+			opacity: 1;
+			cursor: default;
+		}
+	}
 
 }
+
+.slider-slide .slides>li.active, .slider-slide .slides>li.next.left, .slider-slide .slides>li.prev.right {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	left: 0;
+}
+
 

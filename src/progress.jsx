@@ -16,7 +16,7 @@ class Progress extends React.Component {
 
     renderProgressBar() {
         let styleSheet = {
-            width: this.props.now + '%'
+            width: this.props.now + '%',
         };
         let classes = {};
         let prefix = this.prefixClass('bar');
@@ -42,7 +42,7 @@ class Progress extends React.Component {
     renderChildBar(child, index) {
         return React.cloneElement(child, {
             isChild: true,
-            key: child.key ? child.key : index
+            key: child.key ? child.key : index,
         });
     }
 

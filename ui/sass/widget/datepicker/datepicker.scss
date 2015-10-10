@@ -121,7 +121,7 @@ $datepicker-danger-color: $global-danger;
 	display: none;
 	
 	> div {
-		display: none;
+		display: block;
 	}
 	
 	table {
@@ -281,6 +281,46 @@ $datepicker-danger-color: $global-danger;
 	position: absolute;
 	z-index: $z-index-datepicker;
 }
+
+.datepicker-toggle {
+	text-align: center;
+	cursor: pointer;
+	padding: 10px 0;
+	&:hover{
+		background: #f0f0f0;
+	}
+}
+
+.datepicker-time-box {
+	padding: 30px 0;
+	em,strong{
+		display: inline-block;
+		height: 70px;
+		line-height: 70px;
+		font-size: 5.2rem;
+	}
+	strong {
+		width: 70px;
+		font-weight: 400;
+	}
+}
+
+.datepicker-select {
+	text-align: center;
+	transition: background-color 300ms ease-out;
+}
+
+.datepicker-next-icon, .datepicker-prev-icon, .datepicker-select {
+	height: 34px;
+	line-height: 34px;
+	-webkit-transition: background-color 300ms ease-out;
+}
+
+.datepicker-next-icon:hover, .datepicker-prev-icon:hover, .datepicker-select:hover {
+	color: #0c80ba;
+	background: rgba(154,217,248,.5);
+}
+
 
 @media #{$small-only}{
 	.datepicker {

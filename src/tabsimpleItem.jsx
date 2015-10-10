@@ -10,13 +10,12 @@ class Tab extends React.Component{
         this.triggered = false;
         //如果当前tab是默认激活的
         if(this.props.active){
-            console.log(1);
+            console.log("actice");
         }
     }
     componentWillReceiveProps(nextProps){
         if(nextProps.active && !this.triggered){
             console.log(nextProps);
-            //console.log(2);
         }
     }
     render(){

@@ -69,7 +69,6 @@ class Slider extends React.Component {
 
         let index = this.getActiveIndex() + 1;
         let count = React.Children.count(this.props.children);
-
         if (index > count - 1) {
             if (!this.props.loop) {
                 return;
@@ -147,7 +146,6 @@ class Slider extends React.Component {
         clearTimeout(this.timeout);
 
         let previousActiveIndex = this.getActiveIndex();
-
         direction = direction || this.getDirection(previousActiveIndex, index);
 
         if (this.props.onSelect) {
@@ -155,13 +153,13 @@ class Slider extends React.Component {
         }
 
         if (this.props.activeIndex == null && index !== previousActiveIndex) {
-            if (this.state.previousActiveIndex != null) {
+            //这里是我的修改，暂时看不出这里的功能需求
+            /*if (this.state.previousActiveIndex != null) {
                 // If currently animating don't activate the new index.
                 // TODO: look into queuing this canceled call and
                 // animating after the current animation has ended.
                 return;
-            }
-
+            }*/
             this.setState({
                 activeIndex: index,
                 previousActiveIndex: previousActiveIndex,
@@ -175,7 +173,7 @@ class Slider extends React.Component {
             <ul className={this.setClassNamespace('direction-nav')}>
                 <li>
                     <a
-                        onClick={this.prev}
+                        onTouchTap={this.prev}
                         className={this.setClassNamespace('prev')}
                         href="#prev">
                         Previous
@@ -183,7 +181,7 @@ class Slider extends React.Component {
                 </li>
                 <li>
                     <a
-                        onClick={this.next}
+                        onTouchTap={this.next}
                         className={this.setClassNamespace('next')}
                         href="#next">
                         Next
@@ -209,7 +207,7 @@ class Slider extends React.Component {
 
                     return (
                         <li
-                            onClick={this.handleSelect.bind(this, i, null)}
+                            onTouchTap={this.handleSelect.bind(this, i, null)}
                             key={i}>
                             {thumb ? (
                                 <img className={className} src={thumb}/>
@@ -224,8 +222,7 @@ class Slider extends React.Component {
 
             return (
                 <ol
-                    className={classNames(this.setClassNamespace('control-nav'),
-          controlClass)}>
+                    className={classNames(this.setClassNamespace('control-nav'), controlClass)}>
                     {children}
                 </ol>
             );

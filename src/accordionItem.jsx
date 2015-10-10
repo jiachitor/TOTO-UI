@@ -16,7 +16,7 @@ class AccordionItem extends React.Component {
             this[x] = CollapseMixin[x].bind(this);
         }
         this.state = {
-            collapsing:false
+            collapsing:false,
         };
         this.componentDidMount = this.componentDidMount.bind(this);
         this.componentWillUnmount = this.componentWillUnmount.bind(this);

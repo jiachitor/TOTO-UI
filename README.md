@@ -1,5 +1,6 @@
 
 # TOTO UI
+基于react 的 UI库。
 目前版本借鉴与 [Amaze UI React][amazeui-react]。
  
  **规范及工具**：
@@ -16,6 +17,7 @@
 ├── lib          # 构建目录
 ├── example          # 使用案例
 ├── src           # 组件源文件（JSX）
+├── ui           # 组件样式文件(SASS)
 ```
 
 ### 开发及文档
@@ -27,19 +29,24 @@ npm install
 ### 案例开发 ，进入 example 目录下
 
 ```
-gulp 
+gulp watch
 ```
  
-######说明
+# Dist / Build
+On production use files (JS and CSS) only from `lib/` folder, there will be the most stable versions, `src/` folder is only for development purpose
+
+### Build
+
+Swiper uses `gulp` to build a development (build) and dist versions.
+
+First you need to have `gulp-cli` which you should install globally.
+
+```
+$ npm install --save totoui
+```
+
+##### 其他说明
 1.关于 npm 的 scripts 方法：
     这个方法在 npm install 模块全部安装完毕之后执行，当然也可以同个 shell 命令独立执行。所以在项目源码并不存在lib 这个目录，lib 目录是用户安装这个项目模块的时候生成，用于保存 babel 编译完成之后的文件。
 2.关于 eslint： 
     eslint 用于检测代码规范，支持 jsx 语法（目前需要 eslint-plugin-react 插件支持）。使用 .eslintrc 文件进行检测规则配置。
-3.编译就是文件
-```sh
-npm install 
-```
-或者
- ```sh
- npm run prepublish
- ```    
