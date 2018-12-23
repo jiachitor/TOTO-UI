@@ -39,7 +39,7 @@ gulp.task('browserify', function (callback) {
                 .pipe(source(bundleConfig.outputName))
                 // Specify the output destination
                 .pipe(gulp.dest(bundleConfig.dest))
-                //×¢ÒâÕâÀïµÄ'finish'
+                //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'finish'
                 .on('finish', reportFinished);
         };
 

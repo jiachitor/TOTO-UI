@@ -23,4 +23,4 @@ function markup(callback){
 }
 
 gulp.task('browserSync', gulp.series('browserify', markup, browserSyncTask));
-
+// gulp.task('browserSync', gulp.series(markup, browserSyncTask));
