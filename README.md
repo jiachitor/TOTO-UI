@@ -1,7 +1,6 @@
 
 # TOTO UI
 基于react 的 UI库。
-目前版本借鉴与 [Amaze UI React][amazeui-react]。
  
  **规范及工具**：
  

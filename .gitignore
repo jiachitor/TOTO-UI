@@ -9,3 +9,4 @@ icon-builder/jsx
 
 # Exclude IDE project folders
 .idea
+.DS_Store
